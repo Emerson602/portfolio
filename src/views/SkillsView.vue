@@ -7,9 +7,9 @@
 
            <div class="skills-icons-1"> 
 
-            <img :src="html_src" :alt="html_alt" id="technology-1"> 
-            <img :src="javascript_src" :alt="javascript_alt" id="technology-2"> 
-            <img :src="css_src" :alt="css_alt" id="technology-3">                               
+            <img :src="html_src" :alt="html_alt" id="technology-1">              
+            <img :src="css_src" :alt="css_alt" id="technology-2">
+            <img :src="javascript_src" :alt="javascript_alt" id="technology-3">                             
            
            </div>  
 
@@ -17,17 +17,25 @@
 
             <img :src="vue_src" :alt="vue_alt" id="technology-4"> 
             <img :src="bootstrap_src" :alt="bootstrap_alt" id="technology-5">
-            <img :src="bootstrap_src" :alt="bootstrap_alt" id="technology-6">                    
+            <img :src="nuxt_src" :alt="nuxt_alt" id="technology-6">                                           
            
            </div>  
 
-          <div class="skills-icons-3"> 
+          <div class="skills-icons-3">
 
-            <img :src="vue_src" :alt="vue_alt" id="technology-4"> 
-            <img :src="bootstrap_src" :alt="bootstrap_alt" id="technology-5">
-            <img :src="bootstrap_src" :alt="bootstrap_alt" id="technology-6">                    
+            <img style="opacity: 0;" :src="node_src" :alt="node_alt" id="technology-8">
+            <img style="opacity: 0;" :src="express_src" :alt="express_alt" id="technology-9"> 
+            <img :src="typescript_src" :alt="typescript_alt" id="technology-7">                                      
            
-           </div>  
+          </div>  
+
+          <div class="skills-icons-4"> 
+
+            <img style="opacity: 0;" :src="sql_src" :alt="sql_alt" id="technology-10">              
+            <img style="opacity: 0;" :src="bootstrap_src" :alt="bootstrap_alt" id="technology-11">
+            <img style="opacity: 0;" :src="bootstrap_src" :alt="bootstrap_alt" id="technology-12">                    
+           
+           </div> 
 
       </div>      
   </div>
@@ -40,13 +48,23 @@ export default {
       html_src: "/img/html.webp",
       css_src: "/img/css.webp",
       javascript_src: "/img/javascript.webp",
-      bootstrap_src: "/img/bootstrap.webp",
       vue_src: "/img/vue.webp",
+      nuxt_src: "/img/nuxt.webp",
+      bootstrap_src: "/img/bootstrap.webp",   
+      typescript_src: "/img/typescript.webp",   
+      node_src: "/img/node.webp",
+      express_src: "/img/express.webp",
+      sql_src: "/img/sql.webp",
       html_alt: "HTML",
       css_alt: "CSS",
       javascript_alt: "JavaScript",
-      bootstrap_alt: "Bootstrap",
       vue_alt: "Vue.js",
+      nuxt_alt: "Nuxt",
+      bootstrap_alt: "Bootstrap",
+      typescript_alt: "TypeScript",
+      node_alt: "Node",
+      express_alt: "Express",
+      sql_alt: "SQL",      
     };
   },
 };
@@ -60,7 +78,7 @@ export default {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;    
-    padding: 200px 0 0 0;  
+    padding: 100px 0 0 0;  
     background-image: url('../../public/img/bg-desktop.webp');    
     background-size: cover;
     background-repeat: no-repeat;  
@@ -74,7 +92,7 @@ export default {
   }
 
   .skills {
-    color: #141414;  
+    color: #141414;   
   }
  
   h1 {
@@ -82,48 +100,68 @@ export default {
       color: #141414;     
   }
 
-  .skills-icons-1 {
-    display: flex;   
-    justify-content: center;
-    align-items: center;  
-    flex-direction: row;
-    margin: 50px 0 0 0;    
-    width: 100%;
-    height: auto;   
-  }
-
-  .skills-icons-2 {
+  .skills-icons-1, .skills-icons-2, .skills-icons-3, .skills-icons-4 {    
     display: flex;   
     justify-content: center;
     align-items: center;  
     flex-direction: row;       
     width: 100%;
-    height: auto;   
+    height: auto; 
+  }
+
+  .skills-icons-1 {    
+    margin: 50px 0 0 0;    
+    position: relative;
+    left: -75px; 
+  }
+
+  .skills-icons-2 {  
+    position: relative;
+    top: -43px; 
   }
 
  .skills-icons-3 {
-    display: flex;   
-    justify-content: center;
-    align-items: center;  
-    flex-direction: row;       
-    width: 100%;
-    height: auto;   
-  }
-  
-  #technology-1, #technology-2, #technology-3, #technology-4, #technology-5, #technology-6 {
-    width: 200px;
-    height: auto;          
+    position: relative;
+    left: 75px;
+    top: -85px; 
   }
 
+  .skills-icons-4 {  
+    position: relative;   
+    top: -128px; 
+  }
   
+  #technology-1, #technology-2, #technology-3, #technology-4, #technology-5, #technology-6, #technology-7, #technology-8, #technology-9, #technology-10, #technology-11, #technology-12 {
+    width: 150px;
+    height: auto;               
+  } 
+
   @media(max-width: 750px) {  
-    .skills-main-container {
-      height: 1000px;
-    }
+  .skills-main-container {
+    height: 1000px;
+  }
     
-    #technology {
-        width: 80px;      
-    }
+  #technology-1, #technology-2, #technology-3, #technology-4, #technology-5, #technology-6, #technology-7, #technology-8, #technology-9, #technology-10, #technology-11, #technology-12 {
+     width: 80px;      
+  }
+
+  .skills-icons-1 {    
+    left: -40px;
+  }
+
+  .skills-icons-2 {    
+    top: -22px;
+  }
+
+ .skills-icons-3 {
+    top: -44px;
+    left: 40px;
+  }
+
+.skills-icons-4 {
+    top: -66px;
+ }
+
   }
 
   @media(max-width: 450px) {
@@ -135,15 +173,107 @@ export default {
 
      h1 {
       font-size: 1.5rem;
-     } 
-     .skills-icons div {
-      margin: 10px;       
-     }
+     }  
 
-     #technology {
-        width: 70px; 
-        margin: 0 0 10px 0;     
+     #technology-1, #technology-2, #technology-3, #technology-4, #technology-5, #technology-6, #technology-7, #technology-8, #technology-9, #technology-10, #technology-11, #technology-12 {
+        width: 60px;              
     }
+
+  .skills-icons-1 {     
+      left: -40px;
+    }
+
+  .skills-icons-2 {
+      top: -16.5px;
+      left: -9.1px;      
+    }
+
+  .skills-icons-3 {
+      top: -33px;
+      left: 21.2px;
+    }
+
+  .skills-icons-4 {
+      top: -49.2px;
+      left: -9.5px;
+  }
+}
+
+  #technology-1 {
+    animation: hexagon 3s ease-out forwards;
+    animation-delay: 3s;
+    opacity: 0;
+    position: relative;
+    top: 100px;  
+    rotate: 360deg;  
+}
+
+  #technology-2 {
+  animation: hexagon 3s ease-out forwards;
+  animation-delay: 3s;
+  opacity: 0;
+  position: relative;
+  top: -100px;  
+  rotate: -360deg;  
+}
+
+  #technology-3 {
+    animation: hexagon 3s ease-out forwards;
+    animation-delay: 0s;
+    opacity: 0;
+    position: relative;
+    top: 100px;  
+    rotate: 360deg;  
+}
+
+  #technology-4 {
+  animation: hexagon 3s ease-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+  position: relative;
+  top: -100px;  
+  rotate: -360deg;  
+}
+
+  #technology-5 {
+    animation: hexagon 3s ease-out forwards;
+    animation-delay: 3s;
+    opacity: 0;
+    position: relative;
+    top: 100px;  
+    rotate: 360deg;  
+}
+
+  #technology-6 {
+  animation: hexagon 3s ease-out forwards;
+  animation-delay: 2s;
+  opacity: 0;
+  position: relative;
+  top: -100px;  
+  rotate: -360deg;  
+}
+
+  #technology-7 {
+    animation: hexagon 3s ease-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+    position: relative;
+    top: 100px;  
+    rotate: 360deg;  
+}
+
+  @keyframes hexagon {
+
+    0% {
+      opacity: 0;      
+    }
+    100% {
+      opacity: 1;
+      position: relative;
+      top: 0;  
+      rotate: 0deg;
+    }
+        
   }
 
 </style>
