@@ -1,7 +1,7 @@
 <template>
   <Preload :preload="preload_src" />
   <BeforeNavbar :github="github_src" :linkedin="linkedin_src" :english="english_src" :portoghese="portoghese_src" :italian="italian_src" />
-  <Navbar :logo="logo_src" :alt="app_name" />
+  <Navbar :logo="logo_src" :alt="app_name" /> 
   <router-view/>  
   <Footer/>
 </template>
@@ -17,7 +17,7 @@ export default {
     Preload,
     Navbar,
     BeforeNavbar,
-    Footer
+    Footer, 
    },
    data() {
     return {
@@ -28,7 +28,7 @@ export default {
       portoghese_src: "/img/brazil.webp",
       italian_src: "/img/italy.webp",   
       preload_src: "/img/preload.gif",  
-      app_name: "My portfolio",
+      app_name: "My portfolio",      
     }
    }
 }

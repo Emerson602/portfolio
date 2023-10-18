@@ -50,14 +50,11 @@ export default {
 
 <style scoped> 
  
-    #nav {
-      position: absolute;
-      top: 33px;
-      left: 0;
+    #nav {     
       width: 100%;
       backdrop-filter: blur(10px);
       box-shadow: 10px 0 15px rgb(0 0 0 / 60%);  
-      background-color: rgba(0, 0, 0, 0.5); 
+      background-color: #141414; 
     }
 
     #logo {

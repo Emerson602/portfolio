@@ -29,7 +29,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4cf7_gnRskFMwhIXsiYC5vG5OBNewCnKC-wYpPrsvxCVQJnI57qmhjMXspaE5dkho_zyfoFEu7gGxfV_hbobyTc37lWVDkwVVR7OEYLXgJjH4Mb7ZtR79umWHUXiJU_s8DARNIZ5kl-cHKkri3CF-WLL7kHyZoI3VICzbKctEvWAY9-MmUh-woqlfwuA/s1600/background-desktop.webp);
+  background-image: url(../../public/img/bg-home-desktop.webp);
   background-repeat: no-repeat;
   background-size: cover;  
   background-position: center;
@@ -37,7 +37,7 @@ export default {
 
 @media(max-width: 950px) {
   .main-container {
-     background-image: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrYTW02DDbcpgJ6IkACR5QaWXOLQ-_Cy8LANJgT5wQRJmXj053GKjPDZRjYP6cf1L-7YO0HHSPB2FHePAwDCIgo4GhBQqjZjiIRIE2r1cLY0efCwzGFWWD45i42_co6y9_V73UDpglC0DnPKYAIXhiFg74m4fHrtO2wVTXLwAOGMneg6v5vunJXzcBqes/s1600/background-mobile.webp);
+     background-image: url(../../public/img/bg-home-mobile.webp);
   }
 }
 
@@ -64,9 +64,10 @@ export default {
 }
 
 .contact-me-button {
-  background-color: #FF4500;
+  background-color: #F29F05;
   color: #fff;
   border-radius: 4px;
+  border: none;
   padding: 0;
   margin: 20px 0 0 0;
   font-size: 0;
@@ -76,6 +77,11 @@ export default {
   animation: animation-button 2.5s ease;
   animation-delay: 2.5s;
   animation-fill-mode: forwards;
+}
+
+.contact-me-button:hover {
+  background-color: #141414;
+  transition: 2s;
 }
 
 @keyframes animation-button {
