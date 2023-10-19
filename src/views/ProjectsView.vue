@@ -13,6 +13,7 @@
 <script>
 
 export default {
+    
   mounted() {
     const content = document.querySelector('#repository-table-body');
     const username = 'emerson602'; 
@@ -21,7 +22,7 @@ function renderRepositories(repositories) {
     content.innerHTML = '';
 
     repositories.forEach(({ name, description }, index) => {
-        if (![1, 3, 5].includes(index)) {
+        if (![1, 3, 6].includes(index)) {
             const row = document.createElement('tr');  
             const nameCell = document.createElement('td');            
             const nameProject = document.createElement('span');  
@@ -34,17 +35,16 @@ function renderRepositories(repositories) {
             projectLink.textContent = 'Preview in browser';
             projectLink.className = 'btn-project';                                  
             
-            const descriptionCell = document.createElement('td');
-            descriptionCell.textContent = 'Descrição: ' + (description || 'N/A');
+            const descriptionCell = document.createElement('td');            
+            descriptionCell.textContent = 'Description: ' + (description || 'N/A');
 
             [nameCell, descriptionCell, projectLink].forEach(cell => {
                 row.appendChild(cell);
-            });
-
+            });      
             content.appendChild(row);
         }
     });
-}
+} 
 
 
 function getRepository() {
@@ -113,17 +113,18 @@ getRepository()
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border-radius: 20px;
-        border: solid 1px rgba(255, 255, 255, 0.18);
+        border: solid 1px #F29F05;
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         margin: 20px 0;
         padding: 30px 60px;
         width: 650px;
         height: auto;
-        font-size: 1rem;        
+        font-size: 1rem;   
+        background-color: rgba(242, 219, 148, 0.5);     
     }
 
     .btn-project {
-        background-color: #F29F05;
+        background-color: #141414;
         color: #fff;
         border-radius: 4px;
         padding: 5px 0;
@@ -135,6 +136,11 @@ getRepository()
         transform: translate(-50%, -50%);     
         text-align: center; 
         font-size: 1rem;
+    }
+
+    .btn-project:hover {
+        background-color: #F29F05; 
+        transition: 2s;    
     }
 
     @media (max-width: 750px) {    

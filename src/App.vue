@@ -53,12 +53,12 @@ export default {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #00008B; 
+  background-color: #F2DB94; 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #0000FF; 
+  background-color: #F2B705; 
 }
 
   .main-container {

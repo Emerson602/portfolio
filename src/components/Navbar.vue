@@ -55,6 +55,8 @@ export default {
       backdrop-filter: blur(10px);
       box-shadow: 10px 0 15px rgb(0 0 0 / 60%);  
       background-color: #141414; 
+      position: absolute;
+      z-index: 2;
     }
 
     #logo {

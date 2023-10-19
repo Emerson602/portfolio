@@ -49,7 +49,7 @@ export default {
   color: #fff;
   animation: animation-presentation 2.5s ease;
   animation-delay: 0s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: forwards;  
 }
 
 @keyframes animation-presentation {
