@@ -82,17 +82,7 @@ getRepository()
         flex-direction: column;     
         margin: 0;
         padding: 200px 0 0 0;  
-        background-image: url('../../public/img/bg-desktop.webp');    
-        background-size: cover;
-        background-repeat: no-repeat;  
-        background-position: top;
     }
-
-    @media(max-width: 950px) {
-    .projects-container{
-      background-image: url('../../public/img/bg-mobile.webp');     
-    }
-  }
 
     .projects-container div {         
         margin: 0px 0 100px 0;
@@ -120,7 +110,11 @@ getRepository()
         width: 650px;
         height: auto;
         font-size: 1rem;   
-        background-color: rgba(242, 219, 148, 0.5);     
+        background-color: rgba(242, 219, 148, 0.5); 
+        background-image: url('../../public/img/bg-desktop.webp');    
+        background-size: cover;
+        background-repeat: no-repeat;  
+        background-position: top;    
     }
 
     .btn-project {

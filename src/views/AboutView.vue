@@ -54,7 +54,7 @@
     p {
         width: 90vw;
         text-indent: 2px;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
      }
   } 
 

@@ -1,6 +1,7 @@
 <template>
     <div id="preload-container">
-        <img :src="preload" id="preload">      
+        <img :src="preload" id="preload"> 
+        <p id="text-preload"></p>     
     </div>
 </template>
 
@@ -10,8 +11,10 @@ export default {
     props: {
     preload: String
   },
+
   mounted() { 
-    this.removePreload();
+    /*this.removePreload();*/
+    this.typing();
   },
   methods: {
     removePreload() {
@@ -20,6 +23,39 @@ export default {
 		    overlay.remove();
 		})
     },
+
+    typing() {
+            let letter = 0;
+            const text = 'Loading...';
+            const speed = 100;
+            const textLocation = document.querySelector('#text-preload');
+
+            function typeLetter() {
+                if (letter < text.length) {
+                    textLocation.innerHTML += text.charAt(letter);
+                    letter++;
+                    setTimeout(typeLetter, speed); 
+                }
+            }
+
+            function deleteLetter() {
+                if (letter >= 0) {
+                    textLocation.innerHTML = textLocation.innerHTML.slice(0, -1);
+                    letter--;
+                    if (letter >= 0) {
+                        setTimeout(deleteLetter, speed);
+                    } else {
+                        setTimeout(typeLetter, 2000);
+                    }
+                }
+            }
+            
+            typeLetter();
+
+            setInterval(() => {
+                deleteLetter(); 
+            }, 5000);
+        },
   },
 }
 </script>
@@ -48,7 +84,7 @@ export default {
       position: absolute;
       left: -5%;
       animation: bee 10s ease-in-out infinite;
-      animation-delay: 0s;
+      animation-delay: 0s;     
     }
 
     @keyframes bee {
@@ -94,5 +130,9 @@ export default {
         width: 60px;
       }
     } 
+
+    #text-preload {
+      font-size: 1.6rem;      
+    }
 
 </style>
