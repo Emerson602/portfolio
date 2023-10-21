@@ -13,7 +13,7 @@ export default {
   },
 
   mounted() { 
-    /*this.removePreload();*/
+    this.removePreload();
     this.typing();
   },
   methods: {
