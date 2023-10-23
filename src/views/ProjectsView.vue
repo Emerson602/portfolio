@@ -22,7 +22,7 @@ function renderRepositories(repositories) {
     content.innerHTML = '';
 
     repositories.forEach(({ name, description }, index) => {
-        if (![1, 3, 6].includes(index)) {
+        if (![1, 3, 7].includes(index)) {
             const row = document.createElement('tr');  
             const nameCell = document.createElement('td');            
             const nameProject = document.createElement('span');  
@@ -34,7 +34,7 @@ function renderRepositories(repositories) {
             projectLink.target = '_blank';
             projectLink.textContent = 'Preview in browser';
             projectLink.className = 'btn-project';                                  
-            
+            console.log(repositories)
             const descriptionCell = document.createElement('td');            
             descriptionCell.textContent = 'Description: ' + (description || 'N/A');
 
