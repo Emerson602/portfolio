@@ -22,13 +22,13 @@ function renderRepositories(repositories) {
     content.innerHTML = '';
 
     repositories.forEach(({ name, description }, index) => {
-        if (![1, 3, 7].includes(index)) {
+        if (![1, 4, 8].includes(index)) {
             const row = document.createElement('tr');  
             const nameCell = document.createElement('td');            
             const nameProject = document.createElement('span');  
             nameProject.textContent = name;            
             nameCell.appendChild(nameProject);    
-            
+            console.log(repositories)
             const projectLink = document.createElement('a');
             projectLink.href = `https://emerson602.github.io/${name}/index.html`;
             projectLink.target = '_blank';
