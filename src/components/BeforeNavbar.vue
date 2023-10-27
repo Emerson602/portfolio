@@ -1,10 +1,10 @@
 <template>
     <div id="before-nav-container">
         <div id="social-media">
-            <a :href="linkedin_href" target="_blank">
+            <a :href="github_href" target="_blank">
                 <img :src="github" id="github">
             </a>
-            <a :href="github_href" target="_blank">
+            <a :href="linkedin_href" target="_blank">
                 <img :src="linkedin" id="linkedin">
             </a>        
         </div>        
