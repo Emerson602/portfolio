@@ -11,62 +11,67 @@
 </template>
 
 <script>
-
 export default {
-    
-  mounted() {
-    const content = document.querySelector('#repository-table-body');
-    const username = 'emerson602'; 
+  data() {
+    return {
+      content: null, 
+      username: 'emerson602',   
+    };
+  },
+  methods: {
+    renderRepositories(repositories) {
+      if (this.content) {
+        this.content.innerHTML = '';
 
-function renderRepositories(repositories) {
-    content.innerHTML = '';
-
-    repositories.forEach(({ name, description }, index) => {
-        if (![1, 4, 8].includes(index)) {
-            const row = document.createElement('tr');  
-            const nameCell = document.createElement('td');            
-            const nameProject = document.createElement('span');  
-            nameProject.textContent = name;            
-            nameCell.appendChild(nameProject);    
-            console.log(repositories)
+        repositories.forEach(({ name, description }, index) => {
+          if (![1].includes(index)) {
+            const row = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            const nameProject = document.createElement('span');
+            nameProject.textContent = `Name: ${name}`;
+            nameCell.appendChild(nameProject);
             const projectLink = document.createElement('a');
             projectLink.href = `https://emerson602.github.io/${name}/index.html`;
             projectLink.target = '_blank';
             projectLink.textContent = 'Preview in browser';
-            projectLink.className = 'btn-project';                                  
-            console.log(repositories)
-            const descriptionCell = document.createElement('td');            
+            projectLink.className = 'btn-project';
+            const descriptionCell = document.createElement('td');
             descriptionCell.textContent = 'Description: ' + (description || 'N/A');
 
-            [nameCell, descriptionCell, projectLink].forEach(cell => {
-                row.appendChild(cell);
-            });      
-            content.appendChild(row);
-        }
-    });
-} 
+            [nameCell, descriptionCell, projectLink].forEach((cell) => {
+              row.appendChild(cell);
+            });
+            this.content.appendChild(row);
+          }
+        });
+      }
+    },
 
-
-function getRepository() {
-    axios
-        .get(`https://api.github.com/users/${username}/repos`)
+    getRepository() {
+      axios
+        .get(`https://api.github.com/users/${this.username}/repos`)
         .then((response) => {
-            const repositories = response.data;
-            renderRepositories(repositories);            
+          const repositories = response.data;          
+          this.renderRepositories(repositories);
         })
         .catch((error) => {
-            console.error(error);
-            content.innerHTML = '';
+          console.error(error);
+          if (this.content) {
+            this.content.innerHTML = '';
             const errorRow = document.createElement('tr');
             const errorCell = document.createElement('td');
             errorCell.setAttribute('colspan', '1');
             errorCell.textContent = 'Erro ao acessar a API do GitHub.';
             errorRow.appendChild(errorCell);
-            content.appendChild(errorRow);
+            this.content.appendChild(errorRow);
+          }
         });
-}
+    },
+  },
 
-getRepository()    
+  mounted() {
+    this.content = document.querySelector('#repository-table-body'); 
+    this.getRepository();
   },
 };
 </script>
@@ -74,7 +79,7 @@ getRepository()
 <style>
 
     .projects-container {        
-        height: auto;
+        min-height: 1000px;
         width: 100%;
         display: flex;
         justify-content: center;
