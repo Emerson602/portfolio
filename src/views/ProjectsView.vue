@@ -24,7 +24,7 @@ export default {
         this.content.innerHTML = '';
 
         repositories.forEach(({ name, description }, index) => {
-          if (![1].includes(index)) {
+          if (![1, 8].includes(index)) {
             const row = document.createElement('tr');
             const nameCell = document.createElement('td');
             const nameProject = document.createElement('span');
@@ -51,7 +51,8 @@ export default {
       axios
         .get(`https://api.github.com/users/${this.username}/repos`)
         .then((response) => {
-          const repositories = response.data;          
+          const repositories = response.data; 
+          console.log(repositories)         
           this.renderRepositories(repositories);
         })
         .catch((error) => {
