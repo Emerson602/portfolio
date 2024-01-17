@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       content: null, 
-      username: 'emerson602',   
+      username: 'emerson602',       
     };
   },
   methods: {
@@ -24,21 +24,38 @@ export default {
         this.content.innerHTML = '';
 
         repositories.forEach(({ name, description }, index) => {
-          if (![1, 8].includes(index)) {
+          if (![1].includes(index)) {
             const row = document.createElement('tr');
+
             const nameCell = document.createElement('td');
             const nameProject = document.createElement('span');
             nameProject.textContent = `Name: ${name}`;
             nameCell.appendChild(nameProject);
-            const projectLink = document.createElement('a');
-            projectLink.href = `https://emerson602.github.io/${name}/index.html`;
-            projectLink.target = '_blank';
-            projectLink.textContent = 'Preview in browser';
-            projectLink.className = 'btn-project';
+
             const descriptionCell = document.createElement('td');
             descriptionCell.textContent = 'Description: ' + (description || 'N/A');
 
-            [nameCell, descriptionCell, projectLink].forEach((cell) => {
+            const projectLink = document.createElement('a');
+
+            if (index === 8) {               
+              projectLink.href = 'https://wndev.vercel.app/';
+            } else if(index === 7) {
+              projectLink.href = 'https://pokemon-finder-git-main-emerson602s-projects.vercel.app/'
+            } else {
+              projectLink.href = `https://emerson602.github.io/${name}/index.html`;
+            } 
+
+            projectLink.target = '_blank';
+            projectLink.textContent = 'Preview in browser';
+            projectLink.className = 'btn-project';       
+
+            const projectRepository = document.createElement('a');            
+            projectRepository.href = `https://github.com/Emerson602/${name}`
+            projectRepository.target = '_blank';
+            projectRepository.textContent = 'Project Repository';
+            projectRepository.className = 'btn-project-repository';            
+
+            [nameCell, descriptionCell, projectLink, projectRepository].forEach((cell) => {
               row.appendChild(cell);
             });
             this.content.appendChild(row);
@@ -123,11 +140,11 @@ export default {
         background-position: top;    
     }
 
-    .btn-project {
+    .btn-project, .btn-project-repository {
         background-color: #141414;
         color: #fff;
         border-radius: 4px;
-        padding: 5px 0;
+        padding: 3px 0;
         margin: 30px 0 10px 0; 
         width: 220px; 
         position: relative;
@@ -138,7 +155,11 @@ export default {
         font-size: 1rem;
     }
 
-    .btn-project:hover {
+    .btn-project-repository {
+      margin-top: 0;
+    }
+
+    .btn-project:hover, .btn-project-repository:hover {
         background-color: #F29F05; 
         transition: 2s;    
     }
@@ -154,7 +175,7 @@ export default {
         font-size: 1.5rem;
         }
 
-        .btn-project {
+        .btn-project, .btn-project-repository {
 
             font-size: 0.8rem;
             width: 200px;
