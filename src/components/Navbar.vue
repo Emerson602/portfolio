@@ -1,50 +1,72 @@
 <template>
-<nav class="navbar navbar-expand-sm navbar-dark" id="nav">
-  <div class="container-fluid">
-    
-    <router-link to="/">
-        <img class="navbar-brand" :src="logo" :alt="alt" id="logo">
-    </router-link>     
+  <nav class="navbar navbar-expand-sm navbar-dark" id="nav">
+    <div class="container-fluid">
+      
+      <div>
+          <img class="navbar-brand" :src="logo" :alt="alt" id="logo">
+      </div>     
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
-        <li class="nav-item">          
-          <router-link to="/" class="nav-link">{{ $t('nav.home') }}</router-link>
-        </li>
+        <ul class="navbar-nav">     
 
-        <li class="nav-item">          
-          <router-link to="/Projects" class="nav-link">{{ $t('nav.projects') }}</router-link>
-        </li>
+          <li class="nav-item">         
+            <a class="nav-link" @click="scrollToAboutMe">{{ $t('nav.aboutMe') }}</a>
+          </li>   
 
-        <li class="nav-item">         
-          <router-link to="/About" class="nav-link">{{ $t('nav.aboutMe') }}</router-link>
-        </li>  
-        
-        <li class="nav-item">          
-          <router-link to="/Skills" class="nav-link">{{ $t('nav.skills') }}</router-link>
-        </li> 
+          <li class="nav-item">         
+            <a class="nav-link" @click="scrollSkills">{{ $t('nav.skills') }}</a>
+          </li> 
 
-        <li class="nav-item">          
-          <a href="https://api.whatsapp.com/send?phone=5582993975054" target="_blank" class="nav-link">{{ $t('nav.contact') }}</a>
-        </li> 
-        
-      </ul>
+          <li class="nav-item">          
+            <a class="nav-link" @click="scrollToProjects">{{ $t('nav.projects') }}</a>
+          </li> 
+
+          <li class="nav-item">          
+            <a href="https://api.whatsapp.com/send?phone=5582993975054" target="_blank" class="nav-link">{{ $t('nav.contact') }}</a>
+          </li> 
+          
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+
 </template>
 
 
 <script>
-export default {
+
+  export default {
     name: "Navbar",
-    props: ["logo", "alt"]
-}
+    props: {
+      logo: String,
+    },  
+    data() {
+      return {      
+        
+      }
+    },   
+    methods: {
+      scrollToProjects() {
+            const projectsContainer = document.querySelector('#projects-container')
+            projectsContainer.scrollIntoView({ behavior: 'smooth' });   
+        },
+        
+      scrollToAboutMe() {
+            const aboutMeContainer = document.querySelector('#about-me-container')
+            aboutMeContainer.scrollIntoView({ behavior: 'smooth' });   
+        },
+      scrollSkills() {
+            const skillsContainer = document.querySelector('#skills-main-container')
+            skillsContainer.scrollIntoView({ behavior: 'smooth' });   
+        },
+    },   
+
+  }
 
 </script>
 
@@ -54,7 +76,7 @@ export default {
       width: 100%;
       backdrop-filter: blur(10px);
       box-shadow: 10px 0 15px rgb(0 0 0 / 60%);  
-      background-color: #141414; 
+      background-color: #1b1b1f; 
       position: absolute;
       z-index: 2;
     }
@@ -89,6 +111,12 @@ export default {
         font-size: 0.9rem;
       }
       
+    }
+
+    a:hover {
+      cursor: pointer;
+      transition: 2s;
+      color: #F29F05;
     }
   
 </style>

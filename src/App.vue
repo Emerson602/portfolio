@@ -2,21 +2,35 @@
   <Preload :preload="preload_src" />
   <BeforeNavbar :github="github_src" :linkedin="linkedin_src" :english="english_src" :portoghese="portoghese_src" :italian="italian_src" />
   <Navbar :logo="logo_src" :alt="app_name" /> 
-  <router-view/>  
+  <topButton/>  
+  <Home/>  
+  <About/>
+  <Skills/>  
+  <Projects/>    
   <Footer/>
 </template>
 
 <script>
 import Preload from "./components/Preload.vue";
+import topButton from "./components/topButton.vue";
 import Navbar from "./components/Navbar.vue";
 import BeforeNavbar from "./components/BeforeNavbar.vue";
+import Home from "./components/Home.vue";
+import Projects from "./components/Projects.vue";
+import About from "./components/About.vue";
+import Skills from "./components/Skills.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
    components: {
     Preload,
+    topButton,
     Navbar,
     BeforeNavbar,
+    Home,
+    Projects,
+    About,
+    Skills,
     Footer, 
    },
    data() {
@@ -40,7 +54,7 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Share Tech Mono', sans-serif;               
+    font-family: 'Share Tech Mono', sans-serif;     
 }
 
 ::-webkit-scrollbar {

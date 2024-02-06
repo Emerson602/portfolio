@@ -50,9 +50,9 @@ export default {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    background-color: #141414;  
+    background-color: #1b1b1f;  
     border-bottom: solid 1px #fff; 
-    height: 32px;
+    height: 32px;    
 }
 
 #social-media, #langs {

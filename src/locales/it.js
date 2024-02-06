@@ -1,6 +1,5 @@
 export const it = {
-   nav: {
-     home: 'Inizio',
+   nav: {    
      projects: 'Progetti',
      aboutMe: 'Chi sono',
      skills: 'Competenze',

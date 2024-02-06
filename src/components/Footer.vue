@@ -1,12 +1,26 @@
 <template>
     <footer id="footer">
-        <span>W.N &copy; 2023</span>
+        
     </footer>
 </template>
 
 <script>
 export default{
-  name: "Footer"
+  data() {
+    return {
+        name: "Footer"
+    }
+  },
+  methods: {
+    showCurrentYear() {
+      const footer = document.querySelector('#footer')      
+      const currentYear = new Date().getFullYear();
+      footer.innerHTML = `<span> W.N &copy; ${currentYear} </span>`       
+    },
+  },
+    mounted() {
+    this.showCurrentYear();
+  },  
 }
 </script>
 

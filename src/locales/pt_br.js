@@ -1,6 +1,5 @@
 export const pt_br = {
-  nav: {
-    home: 'Inicio',
+  nav: {    
     projects: 'Projetos',
     aboutMe: 'Sobre',
     skills: 'Habilidades',
