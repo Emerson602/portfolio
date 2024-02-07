@@ -3,7 +3,7 @@ export const en = {
      projects: 'Projects',
      aboutMe: 'About me',
      skills: 'Skills',
-     contact: 'Contact',
+     contact: 'Contacts',
    },
    homePhrase: {
      phrase: 'Turning pixels into experience.',

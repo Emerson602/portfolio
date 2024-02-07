@@ -26,7 +26,7 @@ export default{
 
 <style scoped>
     #footer {
-        background-color: #141414;
+        background-color: #1b1b1f;
         color: #fff;
         text-align: center; 
         font-size: 0.9rem;   

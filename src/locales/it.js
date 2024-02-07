@@ -3,7 +3,7 @@ export const it = {
      projects: 'Progetti',
      aboutMe: 'Chi sono',
      skills: 'Competenze',
-     contact: 'Contatto',
+     contact: 'Contatti',
    },
    homePhrase: {
      phrase: 'Trasformando pixel in esperienza',

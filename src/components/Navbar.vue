@@ -27,7 +27,7 @@
           </li> 
 
           <li class="nav-item">          
-            <a href="https://api.whatsapp.com/send?phone=5582993975054" target="_blank" class="nav-link">{{ $t('nav.contact') }}</a>
+            <a class="nav-link" @click="scrollContacts">{{ $t('nav.contact') }}</a>
           </li> 
           
         </ul>
@@ -64,6 +64,12 @@
             const skillsContainer = document.querySelector('#skills-main-container')
             skillsContainer.scrollIntoView({ behavior: 'smooth' });   
         },
+      scrollContacts() {
+            const footerContainer = document.querySelector('#footer')
+            footerContainer.scrollIntoView({ behavior: 'smooth' });   
+        },
+
+        
     },   
 
   }

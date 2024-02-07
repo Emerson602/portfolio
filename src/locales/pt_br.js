@@ -3,7 +3,7 @@ export const pt_br = {
     projects: 'Projetos',
     aboutMe: 'Sobre',
     skills: 'Habilidades',
-    contact: 'Contato',
+    contact: 'Contatos',
   },
   homePhrase: {
     phrase: 'Transformando pixels em experiência.',

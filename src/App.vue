@@ -6,7 +6,8 @@
   <Home/>  
   <About/>
   <Skills/>  
-  <Projects/>    
+  <Projects/>   
+  <Contacts :github="github_src" :linkedin="linkedin_src"/> 
   <Footer/>
 </template>
 
@@ -19,6 +20,7 @@ import Home from "./components/Home.vue";
 import Projects from "./components/Projects.vue";
 import About from "./components/About.vue";
 import Skills from "./components/Skills.vue";
+import Contacts from "./components/Contacs.vue"
 import Footer from "./components/Footer.vue";
 
 export default {
@@ -31,6 +33,7 @@ export default {
     Projects,
     About,
     Skills,
+    Contacts,
     Footer, 
    },
    data() {
@@ -42,7 +45,7 @@ export default {
       portoghese_src: "/img/brazil.webp",
       italian_src: "/img/italy.webp",   
       preload_src: "/img/preload.gif",  
-      app_name: "My portfolio",      
+      app_name: "My portfolio",  
     }
    }
 }
