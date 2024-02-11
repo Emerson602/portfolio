@@ -63,7 +63,7 @@
     p {
         width: 90vw;
         text-indent: 2px;
-        font-size: 0.9rem;
+        font-size: 1rem;
      }
   } 
 </style>

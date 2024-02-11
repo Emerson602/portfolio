@@ -21,5 +21,13 @@ export const it = {
    skills: {
      title: 'Le mie abilità',
    },
+   form: {
+    name: 'Il tuo nome',
+    subject: 'Oggetto',
+    yourEmail: 'La tua e-mail',
+    message: 'Messaggio',
+    send: 'Invia'
+  },
+
  };
  

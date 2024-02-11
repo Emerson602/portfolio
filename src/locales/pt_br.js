@@ -21,4 +21,12 @@ export const pt_br = {
   skills: {
     title: 'Minhas habilidades',
   },
+  form: {
+    name: 'Seu nome',
+    subject: 'Assunto',
+    yourEmail: 'Seu e-mail',
+    message: 'Mensagem',
+    send: 'Enviar'
+  },
+
 };

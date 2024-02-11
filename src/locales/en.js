@@ -21,5 +21,12 @@ export const en = {
    skills: {
      title: 'My skills',
    },
+   form: {
+    name: 'Your name',
+    subject: 'Subject',
+    yourEmail: 'Your e-mail',
+    message: 'Message',
+    send: 'Send'
+  },
  };
  
