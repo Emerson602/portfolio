@@ -1,8 +1,9 @@
 <template>
   <Preload :preload="preload_src" />
   <BeforeNavbar :github="github_src" :linkedin="linkedin_src" :english="english_src" :portoghese="portoghese_src" :italian="italian_src" />
-  <Navbar :logo="logo_src" :alt="app_name" /> 
+  <Navbar :logo="logo_src" :alt="app_name" />   
   <topButton/>  
+  <router-view/>
   <Home/>  
   <About/>
   <Skills/>  

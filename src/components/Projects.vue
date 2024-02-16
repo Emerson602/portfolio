@@ -184,7 +184,7 @@ export default {
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.8rem !important;
         color: #141414;   
         position: relative;
         top: -30px;       
@@ -258,6 +258,14 @@ export default {
         margin: 0  0 4px 0;  
         color: #141414;         
     }
+
+
+
+    @media(max-width: 480px) {
+      h1 {
+          font-size: 1.2rem;
+      }
+    } 
 
 
 </style>

@@ -326,6 +326,10 @@ export default {
 
   @media(max-width: 750px) {     
   
+  h1 {
+    font-size: 1.5rem;
+  }
+  
   .skills {
     padding: 200px 0 0 0;
     height: 300px; 
@@ -353,9 +357,11 @@ export default {
      top: -66px;
  }
 
-  }
+}
 
-  @media(max-width: 450px) {
+
+
+  @media(max-width: 480px) {
 
     .skills {
       padding: 350px 0 50px 0;
@@ -369,7 +375,7 @@ export default {
      }
 
      h1 {
-      font-size: 1.5rem; 
+      font-size: 1.2rem; 
       z-index: 99;
       position: relative;
       top: -450px;          
