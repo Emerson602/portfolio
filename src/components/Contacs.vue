@@ -44,18 +44,18 @@
       <input type="hidden" name="_cc" value="emerson.nic@hotmail.com" />
 
       <label for="name" class="mt-5">{{  $t('form.name') }}</label>
-      <input type="text" id="nameForm" name="name" class="text-center mt-1 col-10 col-sm-8" required />
+      <input type="text" id="nameForm" name="name" class="text-center mt-1 p-1 col-10 col-sm-8" required />
 
       <label for="subject" class="mt-2">{{  $t('form.subject') }}</label>
-      <input type="text" name="subject" class="text-center mt-1 col-10 col-sm-8" required />
+      <input type="text" name="subject" class="text-center mt-1 p-1 col-10 col-sm-8" required />
 
       <label for="email" class="mt-2">{{  $t('form.yourEmail') }}</label>
-      <input type="email" name="email" class="text-center mt-1 col-10 col-sm-8" required />
+      <input type="email" name="email" class="text-center mt-1 p-1 col-10 col-sm-8" required />
 
       <label for="message" class="mt-2">{{  $t('form.message') }}</label>
-      <textarea type="text" name="message" class="text-center mt-1 col-10 col-sm-8" required></textarea>
+      <textarea type="text" name="message" class="text-center mt-1 p-1 col-10 col-sm-8" required></textarea>
 
-      <button type="submit" class="btn btn-warning mt-5 col-10 col-sm-8">{{  $t('form.send') }}</button>
+      <button type="submit" class="btn btn-warning mt-5 pt-2 pb-2 col-10 col-sm-8">{{  $t('form.send') }}</button>
 
     </form>      
   
@@ -105,6 +105,11 @@ export default {
 
         font-size: 0.9rem;
     }     
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;  
 }
 
 #form input, textarea {
