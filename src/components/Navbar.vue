@@ -12,12 +12,8 @@
       
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
-        <ul class="navbar-nav">     
-          
-          <li class="nav-item">          
-            <router-link to="/SendSuccessfullyView" class="nav-link">teste</router-link>
-          </li>
-
+        <ul class="navbar-nav">        
+   
           <li class="nav-item">         
             <a class="nav-link" @click="scrollToAboutMe">{{ $t('nav.aboutMe') }}</a>
           </li>   
