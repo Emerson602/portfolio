@@ -17,7 +17,7 @@ export const it = {
    aboutMe: {
      title: 'Chi sono',
      text1: `Ciao, sono Wemerson Nicacio, uno sviluppatore web front-end entusiasta.
-     La mia dedizione alla creazione di interfacce funzionali è ciò che mi motiva ogni giorno.`,
+     La mia dedicazione alla creazione di interfacce funzionali è ciò che mi motiva ogni giorno.`,
 
      text2: `Trasformando idee in applicazioni, il mio approccio si basa sull'attenzione ai dettagli e
       sulla costante ricerca dell'eccellenza, non solo dal punto di vista visivo, ma anche in termini di funzionalità e prestazioni.
