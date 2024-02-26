@@ -16,7 +16,15 @@ export const pt_br = {
   },
   aboutMe: {
     title: 'Sobre mim',
-    text: 'Olá, me chamo Wemerson Nicacio, sou um entusiasmado desenvolvedor web front-end. Minha dedicação à criação de interfaces funcionais é o que me impulsiona diariamente. Transformando ideias em aplicações, minha abordagem se baseia na atenção aos detalhes e na busca constante pela excelência, não apenas visualmente, mas também funcionalidades e desempenho, acredito que a primeira impressão de um site é crucial! A tecnologia está em constante evolução, por esse motivo busco sempre me atualizar e aperfeiçoar para sempre ter o melhor resultado.',
+    text1: `Olá, me chamo Wemerson Nicacio, sou um entusiasmado desenvolvedor web front-end.
+    Minha dedicação à criação de interfaces funcionais é o que me impulsiona diariamente.`,
+
+    text2: `Transformando ideias em aplicações, minha abordagem se baseia na atenção aos detalhes e
+     na busca constante pela excelência, não apenas visualmente, mas também funcionalidades e desempenho.
+     Acredito que a primeira impressão de um site é crucial!`,
+
+    text3: `A tecnologia está em constante evolução,
+     por esse motivo busco sempre me atualizar e aperfeiçoar para sempre ter o melhor resultado.`,
   },
   skills: {
     title: 'Minhas habilidades',
