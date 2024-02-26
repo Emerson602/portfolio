@@ -1,7 +1,7 @@
 export const pt_br = {
   nav: {    
     projects: 'Projetos',
-    aboutMe: 'Sobre',
+    aboutMe: 'Sobre mim',
     skills: 'Habilidades',
     contact: 'Contatos',
   },

@@ -65,7 +65,7 @@
             skillsContainer.scrollIntoView({ behavior: 'smooth' });   
         },
       scrollContacts() {
-            const footerContainer = document.querySelector('#footer')
+            const footerContainer = document.querySelector('#contacts')
             footerContainer.scrollIntoView({ behavior: 'smooth' });   
         },
 
