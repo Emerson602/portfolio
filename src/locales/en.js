@@ -13,18 +13,47 @@ export const en = {
    },
    projects: {
      title: 'My Projects',
+     previewInBrowser: 'Preview in browser',  
+     projectRepository: 'Project repository', 
+
+     almeidaTransportesDescription: `simple institutional website, developed for a transport company, it presents the services provided by the company,
+     option for tracking, as well as contact information, opening hours and company location.`,
+
+     financialControlDescription: `This project aims to assist in daily financial control. In this first version, the user can record expenses and income,
+      consult their history, see the total expenses, income and current balance.`,
+
+     gasConsumptionCalculatorDescription: `Based on the gas consumption of the stove and the time of use, it calculates the expense in reais (R$),
+      this tool can help people who cook for sale, helping them to price their products.
+       (Only for cylinders with a capacity of 13kg or 45 kg Brazilian standard).`,
+
+     minhaBrisaDescription: `Website developed for a commercial representative, to sell internet plans,
+      contains information about plans, prices and contact form.`,
+
+     portfolioDescription: 'This portfolio. Consuming a github API to get data from repositories.',
+
+     quadraticEquationDescription: 'Calculates quadratic equations.',
+
+     quickChatLinkDescription: 'Start a conversation on WhatsApp, just enter the desired contact and start the conversation, without having to save the contact.',
+     
+     searchRepositoriesDescription: `Search repositories on github by username. Consuming a github API to get data from repositories.`,
+
+     textReaderDescription: `Text reader with voice. Consuming the Web Speech API.`,
+
+     todoListDescription: `Task list, create and delete tasks.`,
+
+     virtualCatDescription: `Tamagotchi Demo. Create and take care of a virtual kitten.`,
    },
    aboutMe: {
      title: 'About me',
 
-     text1: `Hello, I'm Wemerson Nicacio, an enthusiastic front-end web developer.
+     firstParagraph: `Hello, I'm Wemerson Nicacio, an enthusiastic front-end web developer.
      My dedication to creating functional interfaces is what drives me every day.`,
 
-     text2: `Transforming ideas into applications, my approach is based on attention to detail and 
+     secondParagraph: `Transforming ideas into applications, my approach is based on attention to detail and 
       a constant pursuit of excellence, not only visually but also in terms of functionality and performance.
       I believe the first impression of a website is crucial!`,
 
-     text3: `Technology is constantly evolving,
+      thirdParagraph: `Technology is constantly evolving,
       which is why I always seek to update and improve myself to consistently achieve the best results.`,
    },
    skills: {

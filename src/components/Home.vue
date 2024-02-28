@@ -51,7 +51,8 @@ export default {
   animation: animation-presentation 2.5s ease;
   animation-delay: 0s;
   animation-fill-mode: forwards; 
-  -webkit-text-stroke: 1px #000 
+  -webkit-text-stroke: 1px #000; 
+  
 }
 
 @keyframes animation-presentation {
@@ -71,7 +72,7 @@ export default {
   border-radius: 4px;
   border: none;
   padding: 0;
-  margin: 20px 0 0 0;
+  margin: 50px 0 0 0;
   font-size: 0;
   position: relative;
   top: -50px;
@@ -96,15 +97,34 @@ export default {
   100% {
     opacity: 1;    
     top: 0;
-    font-size: 1.2rem; 
+    font-size: 1rem; 
     padding: 8px 16px;   
   }
 }
 
 @media(max-width: 700px) {
   #presentation-text {
-    font-size: 1.2rem;
+    font-size: 1rem;  
+    margin: 0;
+    padding: 0;   
   }
 }
 
+@media(max-width: 480px) {
+  #presentation-text {
+    width: 90%;    
+  }
+
+  @keyframes animation-presentation {
+    0% {
+      font-size: 0;
+      opacity: 0;
+    }
+    100% {
+      font-size: 1.7rem;
+      opacity: 1; 
+    }
+}
+
+}
 </style>

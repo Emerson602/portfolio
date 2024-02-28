@@ -1,5 +1,5 @@
 <template>
-  <div class="projects-container mb-5" id="projects-container">
+  <div class="projects-container" id="projects-container">
     <div class="d-flex flex-column align-items-center">
         <h1>{{ $t('projects.title') }}</h1> 
         <table>         
@@ -36,7 +36,13 @@ export default {
       totalProjects: undefined, 
       newRepositories: [], 
       visibilityShowMoreBtn: true,
-      visibilityHideBtn: false,     
+      visibilityHideBtn: false, 
+      indexProject: '', 
+      projectLink: '',
+      projectName: '',
+      projectDescription: '',
+      projectStacks: ''
+      
     };
   },
   methods: {
@@ -47,39 +53,75 @@ export default {
      if (this.content) {
         this.content.innerHTML = '';
         
-        this.newRepositories.forEach(({ name, description }, index) => {
+        this.newRepositories.forEach(({ name }, index) => {
           if (![1, 4, 6, 7].includes(index)) {
             const row = document.createElement('tr');
-
+            
             const nameCell = document.createElement('td');
             const nameProject = document.createElement('span');
-            nameProject.textContent = `Name: ${name}`;
-            nameCell.appendChild(nameProject);
+
+            function formatRepositoryName() {
+
+              const nameArray = name.split("-");
+              let numberOfWords = nameArray.length;
+              let formattedName = "";
+
+              for (let wordIndex = 0; wordIndex < numberOfWords; wordIndex++) {
+                formattedName += nameArray[wordIndex];
+                if (wordIndex !== numberOfWords - 1) {
+                  formattedName += " ";
+                }
+              }
+
+              return formattedName;
+            }
+
+            function capitalizeFirstLetter(string) {
+              return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+
+            let repositoryName = formatRepositoryName()   
+            repositoryName = capitalizeFirstLetter(repositoryName)            
+
+            nameProject.textContent = `${repositoryName}`;
+            nameCell.appendChild(nameProject);             
+           
+            const projectLink = document.createElement('a');          
+
+            this.indexProject = index
+            this.projectName = name
+            
+
+            this.setLinksProject() 
+            this.setprojectDescriptions()
+
+            let description = this.projectDescription 
+            description = capitalizeFirstLetter(description)                     
+            projectLink.href = this.projectLink         
 
             const descriptionCell = document.createElement('td');
-            descriptionCell.textContent = 'Description: ' + (description || 'N/A');
+            descriptionCell.textContent = description;  
+            
+            const stacks = document.createElement('td');
+            const stackName = document.createElement('span');
+            stacks.appendChild(stackName)  
+            stackName.textContent = this.projectStacks;
 
-            const projectLink = document.createElement('a');
-
-            if (index === 8) {               
-              projectLink.href = 'https://wndev.vercel.app/';
-            } else if(index === 7) {
-              projectLink.href = 'https://pokemon-finder-git-main-emerson602s-projects.vercel.app/'
-            } else {
-              projectLink.href = `https://emerson602.github.io/${name}/index.html`;
-            } 
+            const btnTextPrevieInBrowser = this.$t('projects.previewInBrowser');
+            const btnTextProjectRepository = this.$t('projects.projectRepository');
 
             projectLink.target = '_blank';
-            projectLink.textContent = 'Preview in browser';
+            projectLink.textContent = btnTextPrevieInBrowser
             projectLink.className = 'btn-project';       
 
             const projectRepository = document.createElement('a');            
             projectRepository.href = `https://github.com/Emerson602/${name}`
             projectRepository.target = '_blank';
-            projectRepository.textContent = 'Project Repository';
+
+            projectRepository.textContent = btnTextProjectRepository
             projectRepository.className = 'btn-project-repository';            
 
-            [nameCell, descriptionCell, projectLink, projectRepository].forEach((cell) => {
+            [nameCell, descriptionCell, stacks, projectLink, projectRepository].forEach((cell) => {
               row.appendChild(cell);
             });                    
             this.content.appendChild(row);
@@ -90,6 +132,71 @@ export default {
       
     },
 
+    setLinksProject() {
+       
+        if (this.indexProject === 8) {               
+          this.projectLink = 'https://wndev.vercel.app/';
+        } else if(this.indexProject === 7) {
+          this.projectLink = 'https://pokemon-finder-git-main-emerson602s-projects.vercel.app/'
+        } else {
+          this.projectLink = `https://emerson602.github.io/${this.projectName}/index.html`;
+        } 
+    },
+
+    setprojectDescriptions() {  
+        
+       let keyName = '' 
+       
+       if(this.projectName === 'almeida-transportes') {
+
+            keyName = 'almeidaTransportesDescription';
+
+       } else if(this.projectName === 'financial-control') {
+
+            keyName = 'financialControlDescription';
+
+       } else if(this.projectName === 'gas-consumption-calculator') {
+
+            keyName = 'gasConsumptionCalculatorDescription';
+
+       } else if(this.projectName === 'minha-brisa') {
+
+            keyName = 'minhaBrisaDescription';
+
+       } else if(this.projectName === 'portfolio') {
+
+            keyName = 'portfolioDescription';
+
+       } else if(this.projectName === 'quadratic-equation') {
+
+            keyName = 'quadraticEquationDescription';
+
+       } else if(this.projectName === 'quick-chat-link') {
+
+            keyName = 'quickChatLinkDescription';
+
+       } else if(this.projectName === 'search-repositories') {
+
+            keyName = 'searchRepositoriesDescription';
+
+       } else if(this.projectName === 'text-reader') {
+
+            keyName = 'textReaderDescription';
+
+       } else if(this.projectName === 'todo-list') {
+        
+            keyName = 'todoListDescription';
+
+       } else if(this.projectName === 'virtual-cat') {
+
+            keyName = 'virtualCatDescription';
+
+       }
+       
+       this.projectDescription = this.$t(`projects.${keyName}`);    
+     
+    },
+    
     getRepository() {
       axios
         .get(`https://api.github.com/users/${this.username}/repos`)
@@ -159,13 +266,28 @@ export default {
       const projectsContainer = document.querySelector('#projects-container')
       projectsContainer.scrollIntoView({ behavior: 'smooth' });   
     },
+
+    handleProjectsContainerObserver() {
+      const projectsObserver = new IntersectionObserver(elements => {
+        if (elements[0].isIntersecting) {         
+          this.getRepository();           
+          return;
+        }          
+
+      }, {});
+
+      const projectsContainer = document.querySelector('#projects-container');
+      projectsObserver.observe(projectsContainer);
+    },     
+
   },
 
   mounted() {
     this.content = document.querySelector('#repository-table-body'); 
-    this.getRepository();     
-   },
+    this.getRepository();  
+    this.handleProjectsContainerObserver();
 
+   },
   
 };
 </script>
@@ -180,14 +302,20 @@ export default {
         align-items: center;
         flex-direction: column;     
         margin: 0;
-        padding: 200px 0 0 0;  
+        padding: 180px 0 100px 0;          
+    }
+
+    #repository-table-body span {
+      font-weight: bolder;
+      font-size: 1.1rem;          
     }
 
     h1 {
         font-size: 1.8rem !important;
         color: #141414;   
         position: relative;
-        top: -30px;       
+        top: -50px;    
+        line-height: 45px;   
     }
 
     a{
@@ -201,8 +329,8 @@ export default {
         border: solid 1px #F29F05;
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         margin: 20px 0;
-        padding: 30px 60px;
-        width: 650px;
+        padding: 30px 60px 30px 60px;
+        width: 70vw;
         height: auto;
         font-size: 1rem;   
         background-color: rgba(242, 219, 148, 0.5); 
@@ -216,9 +344,9 @@ export default {
         background-color: #1b1b1f;
         color: #fff;
         border-radius: 4px;
-        padding: 3px 0;
+        padding: 6px 0;
         margin: 30px 0 10px 0; 
-        width: 220px; 
+        width: 300px; 
         position: relative;
         top: 25px;
         left: 50%;
@@ -239,7 +367,7 @@ export default {
     @media (max-width: 750px) {    
         tr {
             width: 95vw;
-            padding: 30px 30px;
+            padding: 30px 60px 60px 60px;
             font-size: 1rem;
         }
 
@@ -250,12 +378,13 @@ export default {
         .btn-project, .btn-project-repository {
 
             font-size: 0.8rem;
-            width: 200px;
+            width: 220px;
+            padding: 6px 0;
         }
     }
 
     td { 
-        margin: 0  0 4px 0;  
+        margin: 0 0 10px 0;  
         color: #141414;         
     }
 
@@ -263,7 +392,17 @@ export default {
 
     @media(max-width: 480px) {
       h1 {
-          font-size: 1.2rem;
+          font-size: 0.8rem;
+          width: 90%;
+      }     
+     
+
+      tr td:nth-child(1) {
+        text-align: center;     
+      }
+
+      td {
+        width: 100%;        
       }
     } 
 

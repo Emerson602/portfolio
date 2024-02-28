@@ -256,7 +256,7 @@ export default {
     justify-content: center;
     align-items: center;
     flex-direction: column;    
-    padding: 100px 0 100px 0;      
+    padding: 150px 0 100px 0;      
     background-color: #1b1b1f;      
   }
 
@@ -264,13 +264,15 @@ export default {
     height: 500px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;    
-    padding: 300px 0 0 0;
+    padding: 300px 0 0 0; 
   }
  
   h1 {
       font-size: 1.8rem; 
-      color: #fff;       
+      color: #fff;     
+      line-height: 45px;  
   }
 
   .skills-icons-mobile {
@@ -375,9 +377,10 @@ export default {
      }
 
      h1 {
-      font-size: 1.2rem; 
+      font-size: 0.8rem; 
       z-index: 99;
       position: relative;
+      width: 70%;
       top: -450px;          
       }  
 

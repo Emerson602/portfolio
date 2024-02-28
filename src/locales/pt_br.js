@@ -1,3 +1,5 @@
+let real = 'R$'
+
 export const pt_br = {
   nav: {    
     projects: 'Projetos',
@@ -13,17 +15,47 @@ export const pt_br = {
   },
   projects: {
     title: 'Meus projetos',
+    previewInBrowser: 'Visualizar no navegador',  
+    projectRepository: 'Repositório do projeto',
+
+    almeidaTransportesDescription: `site institucional simples, desenvolvido para uma transportadora, nele são apresentados os serviços fornecidos pela empresa, 
+    opção para rastreamento, além de informações para contato, horário de funcionamento e localização da empresa.`,
+
+    financialControlDescription: `Esse projeto tem como finalidade auxiliar no controle financeiro diario, nessa primeira versão o usuário pode registrar
+     despesas e receitas, consultar o seu histórico, ver o total de despesas, receitas e saldo atual.`,
+
+    gasConsumptionCalculatorDescription: `Com base no consumo de gás do fogão e o tempo de utilização,  calcula o gasto em real (R$),  
+    essa ferramenta pode auxiliar pessoas que cozinham para comercialização, ajudando a precificar os seus produtos.
+     (Apenas para botijões com capacidade de 13kg ou 45 kg padrão brasileiro). `,
+
+    minhaBrisaDescription: `Site desenvolvido para um representante comercial, para venda de planos de internet,
+     contem as informações sobres os planos, preços e formulario para contato. 
+    `,
+    portfolioDescription: 'Esse portfolio. Consumindo a api do github para obter dados dos repositórios.',
+
+    quadraticEquationDescription: 'Calcula equações do segundo grau.',
+
+    quickChatLinkDescription: 'Inicia uma conversa no whatsapp, basta digitar o contato desejado e iniciar a conversa, sem precisar salvar o contato.',
+
+    searchRepositoriesDescription: `Busca repositórios do github pelo nome de usuario. Consumindo a api do github para obter dados dos repositórios.`,
+
+    textReaderDescription: `Leitor de textos com voz. Consumindo a Web Speech API.`,
+
+    todoListDescription: `Lista de tarefas, crie a apague tarefas. `,
+
+    virtualCatDescription: `Demo Tamagotchi. Crie e cuide de um gatinho virtual.`,
+
   },
   aboutMe: {
     title: 'Sobre mim',
-    text1: `Olá, me chamo Wemerson Nicacio, sou um entusiasmado desenvolvedor web front-end.
+    firstParagraph: `Olá, me chamo Wemerson Nicacio, sou um entusiasmado desenvolvedor web front-end.
     Minha dedicação à criação de interfaces funcionais é o que me impulsiona diariamente.`,
-
-    text2: `Transformando ideias em aplicações, minha abordagem se baseia na atenção aos detalhes e
+    
+    secondParagraph: `Transformando ideias em aplicações, minha abordagem se baseia na atenção aos detalhes e
      na busca constante pela excelência, não apenas visualmente, mas também funcionalidades e desempenho.
      Acredito que a primeira impressão de um site é crucial!`,
 
-    text3: `A tecnologia está em constante evolução,
+     thirdParagraph: `A tecnologia está em constante evolução,
      por esse motivo busco sempre me atualizar e aperfeiçoar para sempre ter o melhor resultado.`,
   },
   skills: {
@@ -38,3 +70,5 @@ export const pt_br = {
   },
 
 };
+
+console.log(name)

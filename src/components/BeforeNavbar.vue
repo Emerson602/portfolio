@@ -17,6 +17,7 @@
 </template>
 
 <script>
+
 export default {
   name: "BeforeNavbar",
   props: {
@@ -33,12 +34,12 @@ export default {
     }
   },   
   methods: {
-    setLocale(locale) {
-      this.$i18n.locale = locale
+    setLocale(locale) {   
+      this.$i18n.locale = locale     
     },
     callToType() {
       this.toType();
-    }
+    },     
   }
 }
 </script>
