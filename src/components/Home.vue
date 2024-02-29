@@ -1,6 +1,6 @@
 <template>
   <div class="main-container" id="main-container">     
-    <p id="presentation-text">{{ $t('homePhrase.phrase') }}</p>            
+    <p id="presentation-text">{{ homePhrase }}</p>            
     <a href="https://api.whatsapp.com/send?phone=5582993975054" target="_blank">
       <button @click="contactButtonClick" :class="buttonClass">{{  $t('homeBtn.contact') }}</button>
     </a>
@@ -12,11 +12,41 @@
 export default {
   data() {
     return {
-      buttonClass: 'contact-me-button',    
+      buttonClass: 'contact-me-button',
+      letterHomePhrase: 0, 
+      homePhrase: '',
+      textHomePhrase: '', 
+      speed: 50,        
     };
   },  
 
+  methods: {
+
+      typeHomePhrase() {
+        let homePhrase = this.$t(`homePhrase.phrase`);
+        this.textHomePhrase = homePhrase;
+
+        if (this.letterHomePhrase < this.textHomePhrase.length) {
+          this.homePhrase += this.textHomePhrase.charAt(this.letterHomePhrase);
+          this.letterHomePhrase++;
+          setTimeout(() => {
+            this.typeHomePhrase();
+          }, this.speed);
+        }
+      },
+    },
+
+  mounted() { 
+        
+  setTimeout(() => {
+      this.typeHomePhrase();
+    }, 1000)
+  },
+
 };
+
+
+
 </script>
 
 <style scoped>
@@ -43,27 +73,12 @@ export default {
 }
 
 #presentation-text {
-  font-size: 0; 
+  font-size: 2.5rem; 
   width: auto;
   text-align: center;  
   padding: 0 15px;  
   color: #fff;
-  animation: animation-presentation 2.5s ease;
-  animation-delay: 0s;
-  animation-fill-mode: forwards; 
-  -webkit-text-stroke: 1px #000; 
-  
-}
-
-@keyframes animation-presentation {
-    0% {
-      font-size: 0;
-      opacity: 0;
-    }
-    100% {
-      font-size: 2.5rem;
-      opacity: 1; 
-    }
+  -webkit-text-stroke: 1px #000;   
 }
 
 .contact-me-button {
@@ -78,7 +93,7 @@ export default {
   top: -50px;
   opacity: 0;  
   animation: animation-button 2.5s ease;
-  animation-delay: 2.5s;
+  animation-delay: 3s;
   animation-fill-mode: forwards;
 }
 
@@ -111,20 +126,11 @@ export default {
 }
 
 @media(max-width: 480px) {
+  
   #presentation-text {
-    width: 90%;    
-  }
-
-  @keyframes animation-presentation {
-    0% {
-      font-size: 0;
-      opacity: 0;
-    }
-    100% {
-      font-size: 1.7rem;
-      opacity: 1; 
-    }
-}
+    width: 90%; 
+    font-size: 1.7rem;   
+  }  
 
 }
 </style>
