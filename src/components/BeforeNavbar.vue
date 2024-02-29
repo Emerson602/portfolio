@@ -9,9 +9,9 @@
             </a>        
         </div>        
         <div id="langs">
-            <img @click="setLocale('en');" :src="english" id="english">
-            <img @click="setLocale('pt_br');" :src="portoghese" id="portoghese">
-            <img @click="setLocale('it');" :src="italian" id="italian">               
+            <img @click="setLanguageEnglish();" :src="english" id="english">
+            <img @click="setLanguagePortoghese();" :src="portoghese" id="portoghese">
+            <img @click="setLanguageItalian();" :src="italian" id="italian">               
        </div>
     </div>       
 </template>
@@ -30,17 +30,61 @@ export default {
   data() {
     return {      
       linkedin_href: "https://www.linkedin.com/in/wemerson-nicacio-0633b623b/",
-      github_href: "https://github.com/Emerson602",       
+      github_href: "https://github.com/Emerson602",  
+      language: '',     
     }
   },   
   methods: {
+
     setLocale(locale) {   
       this.$i18n.locale = locale     
     },
+
     callToType() {
       this.toType();
-    },     
-  }
+    }, 
+    
+    setLanguageEnglish() {
+      const englishLanguage = 'english';
+      localStorage.setItem("lang", englishLanguage);
+      location.reload();
+    },
+
+    setLanguageItalian() {
+      const italianLanguage = 'italian';
+      localStorage.setItem("lang", italianLanguage);
+      location.reload();
+    },
+
+    setLanguagePortoghese() {
+      const portogheseLanguage = 'portoghese';   
+      localStorage.setItem("lang", portogheseLanguage);
+      location.reload();
+    },
+
+    getLanguage() {
+      this.language = localStorage.getItem("lang") || '';
+
+      if(this.language === 'english') {
+        this.setLocale('en');
+      }
+
+      if(this.language === 'italian') {
+        this.setLocale('it');
+      }
+
+      if(this.language === 'portoghese' || this.language === '') {
+        this.setLocale('pt_br');
+      }      
+
+    },
+
+  },
+
+  mounted() {
+     this.getLanguage();
+   },
+
 }
 </script>
 

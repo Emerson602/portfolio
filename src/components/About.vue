@@ -86,21 +86,12 @@ export default {
            
     },
 
-    deleteTexts() {
-
-      this.firstParagraph = '';
-      this.secondParagraph = '';
-      this.thirdParagraph=  '';
-    },
-
     handleAboutMeContainerObserver() {
     const aboutMeObserver = new IntersectionObserver(elements => {
       if (elements[0].isIntersecting) {         
         this.startTyping();           
         return;
-      } 
-      
-       // this.deleteTexts()
+      }  
         
     }, {});
 

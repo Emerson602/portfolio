@@ -67,9 +67,8 @@
       scrollContacts() {
             const footerContainer = document.querySelector('#contacts')
             footerContainer.scrollIntoView({ behavior: 'smooth' });   
-        },
+        },    
 
-        
     },   
 
   }
