@@ -63,7 +63,7 @@ export default {
   background-image: url(../../public/img/bg-home-desktop.webp);
   background-repeat: no-repeat;
   background-size: cover;  
-  background-position: center;
+  background-position: center;  
 }
 
 @media(max-width: 950px) {
@@ -78,7 +78,7 @@ export default {
   text-align: center;  
   padding: 0 15px;  
   color: #fff;
-  -webkit-text-stroke: 1px #000;   
+  -webkit-text-stroke: 1px #000;    
 }
 
 .contact-me-button {

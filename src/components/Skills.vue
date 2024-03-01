@@ -1,7 +1,7 @@
 <template>
   <div class="skills-main-container" id="skills-main-container">
 
-        <div class="skills">
+        <div class="skills" id="skills">
 
           <h1>{{ $t('skills.title') }}</h1>
 
@@ -217,7 +217,7 @@ export default {
 
       handleSkillsObserver() {
 
-        const skillsContainer = document.querySelector('#skills-main-container');
+        const skillsContainer = document.querySelector('#skills');
 
         const skillsObserver = new IntersectionObserver((elements) => {
           if (!elements[0].isIntersecting) {             

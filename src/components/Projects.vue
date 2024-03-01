@@ -2,10 +2,10 @@
   <div class="projects-container" id="projects-container">
     <div class="d-flex flex-column align-items-center">
         <h1>{{ $t('projects.title') }}</h1> 
-        <table>         
-            <tbody id="repository-table-body">
-            </tbody>
-        </table> 
+
+        <section id="projects-section">
+
+        </section>       
         
         <button v-if="visibilityShowMoreBtn" class="btn-show-more col-8 col-sm-6 col-md-4 mt-5 m-5 rounded p-2 text-light bg-dark" @click="showMore">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
@@ -41,12 +41,12 @@ export default {
       projectLink: '',
       projectName: '',
       projectDescription: '',
-      projectStacks: ''
+      projectStacks: ''     
       
     };
   },
   methods: {
-    renderRepositories(repositories) {
+    renderRepositories(repositories) {  
 
      this.paginationRepositories(repositories)         
      
@@ -55,8 +55,10 @@ export default {
         
         this.newRepositories.forEach(({ name }, index) => {
           if (![1, 4, 6, 7].includes(index)) {
-            const row = document.createElement('tr');
-            
+
+            const project = document.createElement('div');
+            project.setAttribute('id', 'project');
+
             const nameCell = document.createElement('td');
             const nameProject = document.createElement('span');
 
@@ -103,8 +105,12 @@ export default {
             descriptionCell.textContent = description;  
             
             const stacks = document.createElement('td');
+            const stackDiv = document.createElement('div')
+            const stackImg = document.createElement('img');
             const stackName = document.createElement('span');
-            stacks.appendChild(stackName)  
+            stackDiv.appendChild(stackImg)
+            stackDiv.appendChild(stackName)
+            stacks.appendChild(stackDiv)  
             stackName.textContent = this.projectStacks;
 
             const btnTextPrevieInBrowser = this.$t('projects.previewInBrowser');
@@ -122,9 +128,9 @@ export default {
             projectRepository.className = 'btn-project-repository';            
 
             [nameCell, descriptionCell, stacks, projectLink, projectRepository].forEach((cell) => {
-              row.appendChild(cell);
+              project.appendChild(cell);
             });                    
-            this.content.appendChild(row);
+            this.content.appendChild(project);
           }          
         });
           
@@ -283,7 +289,7 @@ export default {
   },
 
   mounted() {
-    this.content = document.querySelector('#repository-table-body'); 
+    this.content = document.querySelector('#projects-section'); 
     this.getRepository();  
     this.handleProjectsContainerObserver();
 
@@ -305,7 +311,7 @@ export default {
         padding: 180px 0 100px 0;          
     }
 
-    #repository-table-body span {
+    #projects-section span {
       font-weight: bolder;
       font-size: 1.1rem;          
     }
@@ -322,7 +328,7 @@ export default {
         text-decoration: none;                    
     }
 
-    tr {
+    #project {
         display: flex;
         flex-direction: column; 
         border-radius: 20px;
@@ -365,7 +371,7 @@ export default {
     }
 
     @media (max-width: 750px) {    
-        tr {
+        #project {
             width: 95vw;
             padding: 30px 60px 60px 60px;
             font-size: 1rem;
@@ -397,7 +403,7 @@ export default {
       }     
      
 
-      tr td:nth-child(1) {
+      #project td:nth-child(1) {
         text-align: center;     
       }
 
