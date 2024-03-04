@@ -119,7 +119,8 @@ export default {
 
 @media(max-width: 700px) {
   #presentation-text {
-    font-size: 1rem;  
+    font-size: 1.7rem;  
+    width: 90%; 
     margin: 0;
     padding: 0;   
   }

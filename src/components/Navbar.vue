@@ -6,7 +6,7 @@
           <img class="navbar-brand" :src="logo" :alt="alt" id="logo">
       </div>     
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <button class="navbar-toggler" id="btn-nav" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       
@@ -14,19 +14,19 @@
 
         <ul class="navbar-nav">        
    
-          <li class="nav-item">         
+          <li class="nav-item text-center">         
             <a class="nav-link" @click="scrollToAboutMe">{{ $t('nav.aboutMe') }}</a>
           </li>   
 
-          <li class="nav-item">         
+          <li class="nav-item text-center">         
             <a class="nav-link" @click="scrollSkills">{{ $t('nav.skills') }}</a>
           </li> 
 
-          <li class="nav-item">          
+          <li class="nav-item text-center">          
             <a class="nav-link" @click="scrollToProjects">{{ $t('nav.projects') }}</a>
           </li> 
 
-          <li class="nav-item">          
+          <li class="nav-item text-center">          
             <a class="nav-link" @click="scrollContacts">{{ $t('nav.contact') }}</a>
           </li> 
           
@@ -51,14 +51,15 @@
       }
     },   
     methods: {
+
       scrollToProjects() {
             const projectsContainer = document.querySelector('#projects-container')
-            projectsContainer.scrollIntoView({ behavior: 'smooth' });   
+            projectsContainer.scrollIntoView({ behavior: 'smooth' });  
         },
         
       scrollToAboutMe() {
             const aboutMeContainer = document.querySelector('#about-me-container')
-            aboutMeContainer.scrollIntoView({ behavior: 'smooth' });   
+            aboutMeContainer.scrollIntoView({ behavior: 'smooth' });  
         },
       scrollSkills() {
             const skillsContainer = document.querySelector('#skills-main-container')
@@ -66,7 +67,7 @@
         },
       scrollContacts() {
             const footerContainer = document.querySelector('#contacts')
-            footerContainer.scrollIntoView({ behavior: 'smooth' });   
+            footerContainer.scrollIntoView({ behavior: 'smooth' });          
         },    
 
     },   
@@ -109,9 +110,9 @@
         outline: none;
       }
       .navbar-nav {        
-        padding: 0 10px 0 30px;
+        padding: 0;
       }
-      
+
       #collapsibleNavbar {
         font-size: 0.9rem;
       }
