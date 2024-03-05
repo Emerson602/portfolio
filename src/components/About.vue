@@ -121,7 +121,8 @@ export default {
       background-image: url('../../public/img/bg-desktop.webp');    
       background-size: cover;
       background-repeat: no-repeat;  
-      background-position: center;          
+      background-position: center;   
+      border-bottom: solid 10px rgba(242, 219, 148, 1);       
   }
  
     @media(max-width: 950px) {

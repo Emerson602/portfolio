@@ -12,15 +12,15 @@
       
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
-        <ul class="navbar-nav">        
+        <ul class="navbar-nav">     
    
-          <li class="nav-item text-center">         
-            <a class="nav-link" @click="scrollToAboutMe">{{ $t('nav.aboutMe') }}</a>
-          </li>   
-
           <li class="nav-item text-center">         
             <a class="nav-link" @click="scrollSkills">{{ $t('nav.skills') }}</a>
           </li> 
+
+          <li class="nav-item text-center">         
+            <a class="nav-link" @click="scrollToAboutMe">{{ $t('nav.aboutMe') }}</a>
+          </li>   
 
           <li class="nav-item text-center">          
             <a class="nav-link" @click="scrollToProjects">{{ $t('nav.projects') }}</a>
@@ -122,7 +122,7 @@
     a:hover {
       cursor: pointer;
       transition: 2s;
-      color: #F29F05;
+      color: #F29F05;    
     }
   
 </style>

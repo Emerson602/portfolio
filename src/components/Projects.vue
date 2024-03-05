@@ -41,7 +41,7 @@ export default {
       projectLink: '',
       projectName: '',
       projectDescription: '',
-      projectStacks: ''     
+      projecttechnologiess: ''     
       
     };
   },
@@ -57,10 +57,17 @@ export default {
           if (![1, 4, 6, 7].includes(index)) {
 
             const project = document.createElement('div');
-            project.setAttribute('id', 'project');
+            const nameProject = document.createElement('h2');
+            const projectDescription = document.createElement('p');
+            const technologiesDiv = document.createElement('div')
+            const technologiesImg = document.createElement('img');
+            const technologiesName = document.createElement('span');
+            const projectLink = document.createElement('a'); 
+            const projectRepository = document.createElement('a');            
 
-            const nameCell = document.createElement('td');
-            const nameProject = document.createElement('span');
+            project.setAttribute('id', 'project');  
+            nameProject.setAttribute('id', 'name-project');
+            projectDescription.setAttribute('id', 'project-description');
 
             function formatRepositoryName() {
 
@@ -85,50 +92,41 @@ export default {
             let repositoryName = formatRepositoryName()   
             repositoryName = capitalizeFirstLetter(repositoryName)            
 
-            nameProject.textContent = `${repositoryName}`;
-            nameCell.appendChild(nameProject);             
-           
-            const projectLink = document.createElement('a');          
-
+            nameProject.textContent = `${repositoryName}`;          
+          
             this.indexProject = index
-            this.projectName = name
-            
+            this.projectName = name            
 
             this.setLinksProject() 
             this.setprojectDescriptions()
+            this.setimagesTechnologies()
 
             let description = this.projectDescription 
             description = capitalizeFirstLetter(description)                     
-            projectLink.href = this.projectLink         
+            projectLink.href = this.projectLink;  
 
-            const descriptionCell = document.createElement('td');
-            descriptionCell.textContent = description;  
-            
-            const stacks = document.createElement('td');
-            const stackDiv = document.createElement('div')
-            const stackImg = document.createElement('img');
-            const stackName = document.createElement('span');
-            stackDiv.appendChild(stackImg)
-            stackDiv.appendChild(stackName)
-            stacks.appendChild(stackDiv)  
-            stackName.textContent = this.projectStacks;
+            projectDescription.textContent = description;           
+
+            technologiesDiv.appendChild(technologiesImg)
+            technologiesDiv.appendChild(technologiesName)
+        
+            technologiesName.textContent = this.projecttechnologiess;
 
             const btnTextPrevieInBrowser = this.$t('projects.previewInBrowser');
             const btnTextProjectRepository = this.$t('projects.projectRepository');
 
             projectLink.target = '_blank';
             projectLink.textContent = btnTextPrevieInBrowser
-            projectLink.className = 'btn-project';       
-
-            const projectRepository = document.createElement('a');            
+            projectLink.className = 'btn-project';     
+         
             projectRepository.href = `https://github.com/Emerson602/${name}`
             projectRepository.target = '_blank';
 
             projectRepository.textContent = btnTextProjectRepository
             projectRepository.className = 'btn-project-repository';            
 
-            [nameCell, descriptionCell, stacks, projectLink, projectRepository].forEach((cell) => {
-              project.appendChild(cell);
+            [nameProject, projectDescription, technologiesDiv, projectLink, projectRepository].forEach((data) => {
+              project.appendChild(data);
             });                    
             this.content.appendChild(project);
           }          
@@ -136,6 +134,10 @@ export default {
           
       }   
       
+    },
+
+    setimagesTechnologies() {
+
     },
 
     setLinksProject() {
@@ -331,6 +333,8 @@ export default {
     #project {
         display: flex;
         flex-direction: column; 
+        justify-content: center;
+        align-content: center;
         border-radius: 20px;
         border: solid 1px #F29F05;
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
@@ -344,6 +348,19 @@ export default {
         background-size: cover;
         background-repeat: no-repeat;  
         background-position: top;    
+    }  
+
+    #name-project {
+      font-size: 1.4rem;
+      margin: 0 0 10px 0;
+      width: 100%;
+      line-height: 35px;
+      font-weight: bold;
+    }
+
+    #project-description {
+      width: 100%;   
+      font-size: 1.2rem;   
     }
 
     .btn-project, .btn-project-repository {
@@ -373,12 +390,17 @@ export default {
     @media (max-width: 750px) {    
         #project {
             width: 95vw;
-            padding: 30px 60px 60px 60px;
+            padding: 40px 20px 60px 20px;
             font-size: 1rem;
         }
+        
+        #name-project {
+          font-size: 1.2rem;
+          text-align: center;
+        }
 
-        h1 {
-        font-size: 1.5rem;
+        #project-description {           
+          font-size: 1rem;   
         }
 
         .btn-project, .btn-project-repository {
@@ -388,30 +410,6 @@ export default {
             padding: 6px 0;
         }
     }
-
-    td { 
-        margin: 0 0 10px 0;  
-        color: #141414;         
-    }
-
-
-
-    @media(max-width: 480px) {
-      h1 {
-          font-size: 0.8rem;
-          width: 90%;
-      }     
-     
-
-      #project td:nth-child(1) {
-        text-align: center;     
-      }
-
-      td {
-        width: 100%;        
-      }
-    } 
-
 
 </style>
 

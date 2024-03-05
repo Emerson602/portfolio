@@ -5,8 +5,8 @@
   <topButton/>  
   <router-view/>
   <Home/>  
-  <About/>
-  <Skills/>  
+  <Skills/>
+  <About/>   
   <Projects/>   
   <Contacts :github="github_src" :linkedin="linkedin_src"/> 
   <Footer/>

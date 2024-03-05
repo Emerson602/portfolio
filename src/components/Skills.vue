@@ -319,6 +319,7 @@ export default {
     visibility: visible;
     opacity: 1;
     z-index: 99;
+    transition: 1.5s;
   }  
   
   #technology-1, #technology-2, #technology-3, #technology-4, #technology-5, #technology-6, #technology-7, #technology-8, #technology-9, #technology-10, #technology-11, #technology-12 {
