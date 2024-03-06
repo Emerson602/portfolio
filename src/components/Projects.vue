@@ -36,12 +36,13 @@ export default {
       totalProjects: undefined, 
       newRepositories: [], 
       visibilityShowMoreBtn: true,
-      visibilityHideBtn: false, 
-      indexProject: '', 
+      visibilityHideBtn: false,    
       projectLink: '',
       projectName: '',
       projectDescription: '',
-      projecttechnologiess: ''     
+      projectTechnologies: '',   
+      technologies: [],
+      totalTechnologies: 0, 
       
     };
   },
@@ -59,15 +60,14 @@ export default {
             const project = document.createElement('div');
             const nameProject = document.createElement('h2');
             const projectDescription = document.createElement('p');
-            const technologiesDiv = document.createElement('div')
-            const technologiesImg = document.createElement('img');
-            const technologiesName = document.createElement('span');
+            const technologiesDiv = document.createElement('div');                    
             const projectLink = document.createElement('a'); 
             const projectRepository = document.createElement('a');            
 
             project.setAttribute('id', 'project');  
             nameProject.setAttribute('id', 'name-project');
             projectDescription.setAttribute('id', 'project-description');
+            technologiesDiv.setAttribute('id', 'technologies-div');           
 
             function formatRepositoryName() {
 
@@ -92,25 +92,25 @@ export default {
             let repositoryName = formatRepositoryName()   
             repositoryName = capitalizeFirstLetter(repositoryName)            
 
-            nameProject.textContent = `${repositoryName}`;          
-          
-            this.indexProject = index
-            this.projectName = name            
+            nameProject.textContent = `${repositoryName}`;       
 
-            this.setLinksProject() 
-            this.setprojectDescriptions()
-            this.setimagesTechnologies()
+            this.projectName = name   
+            
+            this.definingProjectData()           
+
+            for(let technologyIndex = 0; technologyIndex < this.totalTechnologies; technologyIndex++) {
+              let index = this.technologies[technologyIndex];
+              technologiesDiv.innerHTML += `              
+                <img id="technologies-img" src="./img/${index}.webp" type="button" data-toggle="tooltip" data-placement="top" title="${index.toUpperCase()}">              
+              `;
+                           
+            }
 
             let description = this.projectDescription 
             description = capitalizeFirstLetter(description)                     
             projectLink.href = this.projectLink;  
 
-            projectDescription.textContent = description;           
-
-            technologiesDiv.appendChild(technologiesImg)
-            technologiesDiv.appendChild(technologiesName)
-        
-            technologiesName.textContent = this.projecttechnologiess;
+            projectDescription.textContent = description;         
 
             const btnTextPrevieInBrowser = this.$t('projects.previewInBrowser');
             const btnTextProjectRepository = this.$t('projects.projectRepository');
@@ -134,74 +134,81 @@ export default {
           
       }   
       
-    },
+    }, 
 
-    setimagesTechnologies() {
-
-    },
-
-    setLinksProject() {
-       
-        if (this.indexProject === 8) {               
-          this.projectLink = 'https://wndev.vercel.app/';
-        } else if(this.indexProject === 7) {
-          this.projectLink = 'https://pokemon-finder-git-main-emerson602s-projects.vercel.app/'
-        } else {
-          this.projectLink = `https://emerson602.github.io/${this.projectName}/index.html`;
-        } 
-    },
-
-    setprojectDescriptions() {  
+    definingProjectData() {  
         
        let keyName = '' 
+       let technologies = [];
        
        if(this.projectName === 'almeida-transportes') {
 
             keyName = 'almeidaTransportesDescription';
+            technologies = ['html', 'css', 'javascript'];
 
        } else if(this.projectName === 'financial-control') {
 
             keyName = 'financialControlDescription';
+            technologies = ['html', 'css', 'javascript', 'bootstrap', 'vue'];
+
 
        } else if(this.projectName === 'gas-consumption-calculator') {
 
             keyName = 'gasConsumptionCalculatorDescription';
+            technologies = ['html', 'css', 'javascript', 'vue']; 
 
        } else if(this.projectName === 'minha-brisa') {
 
             keyName = 'minhaBrisaDescription';
+            technologies = ['html', 'css', 'javascript'];
+
 
        } else if(this.projectName === 'portfolio') {
 
             keyName = 'portfolioDescription';
+            technologies = ['html', 'css', 'javascript', 'bootstrap', 'vue', 'api']; 
+            this.projectLink = 'https://wndev.vercel.app/';
 
        } else if(this.projectName === 'quadratic-equation') {
 
             keyName = 'quadraticEquationDescription';
+             technologies = ['html', 'css', 'javascript'];  
 
        } else if(this.projectName === 'quick-chat-link') {
 
             keyName = 'quickChatLinkDescription';
+            technologies = ['html', 'css', 'javascript'];  
 
        } else if(this.projectName === 'search-repositories') {
 
             keyName = 'searchRepositoriesDescription';
+            technologies = ['html', 'css', 'javascript', 'bootstrap', 'api'];
 
        } else if(this.projectName === 'text-reader') {
 
             keyName = 'textReaderDescription';
+            technologies = ['html', 'css', 'javascript', 'api'];  
 
        } else if(this.projectName === 'todo-list') {
         
             keyName = 'todoListDescription';
+            technologies = ['html', 'css', 'javascript', 'bootstrap'];  
 
        } else if(this.projectName === 'virtual-cat') {
 
             keyName = 'virtualCatDescription';
+            technologies = ['html', 'css', 'javascript'];
 
-       }
+       } else {
+
+          this.projectLink = `https://emerson602.github.io/${this.projectName}/index.html`;
+          
+        } 
        
-       this.projectDescription = this.$t(`projects.${keyName}`);    
+       this.projectDescription = this.$t(`projects.${keyName}`);  
+       this.technologies = technologies;
+       let numberTechnologies = technologies.length;
+       this.totalTechnologies = numberTechnologies;   
      
     },
     
@@ -363,6 +370,41 @@ export default {
       font-size: 1.2rem;   
     }
 
+    #technologies-div {
+      display: grid;         
+      grid-template-columns: repeat(10, 1fr);   
+      align-items: center; 
+      justify-items: center;       
+      padding: 0; 
+      margin: 0;   
+      width: 100%;      
+    }
+
+
+    #technologies-img {
+      width: 60px;
+      height: auto; 
+      margin: 20px 0 0 0; 
+    }
+
+    @media (max-width: 1400px) {
+
+        #technologies-div {
+          display: grid;         
+          grid-template-columns: repeat(8, 1fr);   
+          align-items: center; 
+          justify-items: center;       
+          padding: 0; 
+          margin: 0;   
+          width: 100%;      
+        }
+
+        #technologies-img {
+          width: 60%;
+          height: auto;       
+        }
+    }
+
     .btn-project, .btn-project-repository {
         background-color: #1b1b1f;
         color: #fff;
@@ -387,7 +429,12 @@ export default {
         transition: 2s !important;    
     }
 
-    @media (max-width: 750px) {    
+    @media (max-width: 750px) {  
+
+        h1 {
+            font-size: 1.5rem;
+        }
+      
         #project {
             width: 95vw;
             padding: 40px 20px 60px 20px;
@@ -402,6 +449,17 @@ export default {
         #project-description {           
           font-size: 1rem;   
         }
+        
+        #technologies-div {
+          display: grid;         
+          grid-template-columns: repeat(6, 1fr); 
+        }
+
+        #technologies-img {
+          width: 50%;
+          height: auto; 
+          margin: 20px 0 0 0;    
+        }
 
         .btn-project, .btn-project-repository {
 
@@ -409,6 +467,25 @@ export default {
             width: 220px;
             padding: 6px 0;
         }
+    }
+
+  @media (max-width: 480px) {  
+
+        h1 {
+            font-size: 0.8rem;
+        } 
+
+        #technologies-div {
+          display: grid;         
+          grid-template-columns: repeat(5, 1fr); 
+        }
+
+        #technologies-img {
+          width: 60%;
+          height: auto; 
+          margin: 20px 0 0 0;    
+        }
+
     }
 
 </style>
