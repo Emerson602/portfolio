@@ -66,7 +66,7 @@ export const pt_br = {
     text_1: 'Experiência com HTML, CSS, JavaScript, TypeScript, Boostrap, Vue.js e React.',
     text_2: 'Experiência em desenvolvimento de layouts responsivos.',
     text_3: 'Familiaridade consumo de APIs.',
-    text_4: 'Familiaridade com PHP, Laravel e Python.',
+    text_4: 'Familiaridade com PHP, Laravel, SQL e Python.',
     text_5: 'Familiaridade Docker.',
     text_6: 'Familiaridade com Git e Github.',
   },
