@@ -161,7 +161,8 @@
 
 
 
-      </div>      
+      </div>         
+    
   </div>
 </template>
 
@@ -232,6 +233,21 @@ export default {
 
            skillsObserver.observe(skillsContainer);
       },
+
+      openPDF() {    
+      let lang = ''   
+      let currentLang = localStorage.getItem("lang") || '' 
+      
+      if(currentLang === 'italian') {
+        lang = 'it'
+      } else if(currentLang === 'portoghese') {
+        lang = 'pt'
+      } else {
+        lang = 'pt'
+      }
+      const pdfURL = `/cv/${lang}.pdf`;      
+      window.open(pdfURL, '_blank');
+    }
 
   },
 
@@ -525,6 +541,11 @@ export default {
       rotate: 0deg;
     }
         
+  }
+
+
+  #more-skills {
+    z-index: 99;
   }
 
 </style>

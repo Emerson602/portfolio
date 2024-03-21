@@ -6,6 +6,7 @@
   <router-view/>
   <Home/>  
   <Skills/>
+  <MoreSkills/>
   <About/>   
   <Projects/>   
   <Contacts :github="github_src" :linkedin="linkedin_src"/> 
@@ -21,6 +22,7 @@ import Home from "./components/Home.vue";
 import Projects from "./components/Projects.vue";
 import About from "./components/About.vue";
 import Skills from "./components/Skills.vue";
+import MoreSkills from "./components/MoreSkills.vue";
 import Contacts from "./components/Contacs.vue"
 import Footer from "./components/Footer.vue";
 
@@ -34,12 +36,13 @@ export default {
     Projects,
     About,
     Skills,
+    MoreSkills,
     Contacts,
     Footer, 
    },
    data() {
     return {
-      logo_src: "/img/logo.webp",
+      logo_src: "/img/logo.webp",      
       linkedin_src: "/img/linkedin.webp",
       github_src: "/img/github.webp", 
       english_src: "/img/english.webp",
@@ -89,6 +92,13 @@ export default {
     font-size: 42px;
     margin-bottom: 30px;
     color: #222;
+}
+
+button:hover {
+  transition: 1.5s;
+  background-color: #141414 !important;
+  color: #fff;
+  border: solid 1px #F29F05 !important;
 }
 
 </style>

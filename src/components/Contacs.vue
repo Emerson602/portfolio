@@ -137,4 +137,11 @@ textarea {
     border: solid 1px #fff !important;
 }
 
+button:hover {
+  transition: 1.5s;
+  background-color: #141414 !important;
+  color: #fff;
+  border: solid 1px #F29F05 !important;
+}
+
 </style>

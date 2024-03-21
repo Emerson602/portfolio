@@ -61,6 +61,15 @@ export const pt_br = {
   skills: {
     title: 'Minhas habilidades',
   },
+  moreSkills: {
+    btnCv: 'Ver meu currículo',
+    text_1: 'Experiência com HTML, CSS, JavaScript, TypeScript, Boostrap, Vue.js e React.',
+    text_2: 'Experiência em desenvolvimento de layouts responsivos.',
+    text_3: 'Familiaridade consumo de APIs.',
+    text_4: 'Familiaridade com PHP, Laravel e Python.',
+    text_5: 'Familiaridade Docker.',
+    text_6: 'Familiaridade com Git e Github.',
+  },
   form: {
     name: 'Seu nome',
     subject: 'Assunto',
@@ -71,4 +80,15 @@ export const pt_br = {
 
 };
 
-console.log(name)
+
+
+/*
+
+Experiência no desenvolvimento fron-end (HTML, CSS, JavaScript, TypeScript, Boostrap, Vue.js e React)
+Experiência em desenvolvimento de layouts responsivos.
+Familiaridade consumo de APIs.
+Familiaridade com PHP, Laravel e Python.
+Familiaridade Docker.
+Familiaridade com Git e Github. 
+
+*/

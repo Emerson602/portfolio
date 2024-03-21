@@ -140,6 +140,7 @@ export default {
         
        let keyName = '' 
        let technologies = [];
+       let link = '';
        
        if(this.projectName === 'almeida-transportes') {
 
@@ -167,7 +168,7 @@ export default {
 
             keyName = 'portfolioDescription';
             technologies = ['html', 'css', 'javascript', 'bootstrap', 'vue', 'api']; 
-            this.projectLink = 'https://wndev.vercel.app/';
+            link = 'https://wndev.vercel.app/';
 
        } else if(this.projectName === 'quadratic-equation') {
 
@@ -199,11 +200,17 @@ export default {
             keyName = 'virtualCatDescription';
             technologies = ['html', 'css', 'javascript'];
 
-       } else {
+       }
+      
+       if(link === '') {
+         
+            link = `https://emerson602.github.io/${this.projectName}/index.html`;   
+             
+         }
 
-          this.projectLink = `https://emerson602.github.io/${this.projectName}/index.html`;
+       this.projectLink = link
           
-        } 
+        
        
        this.projectDescription = this.$t(`projects.${keyName}`);  
        this.technologies = technologies;

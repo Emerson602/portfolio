@@ -59,6 +59,15 @@ export const it = {
    skills: {
      title: 'Le mie abilità',
    },
+   moreSkills: {
+    btnCv: 'Guarda il mio curriculum',
+    text_1: 'Esperienza con HTML, CSS, JavaScript, TypeScript, Bootstrap, Vue.js e React.',
+    text_2: 'Esperienza nello sviluppo di layout responsivi.',
+    text_3: 'Familiarità con il consumo di API.',
+    text_4: 'Familiarità con PHP, Laravel e Python.',
+    text_5: 'Familiarità con Docker.',
+    text_6: 'Familiarità con Git e Github.'
+   },
    form: {  
     name: 'Il tuo nome',
     subject: 'Oggetto',
