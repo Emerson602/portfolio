@@ -66,7 +66,8 @@ export const en = {
     text_3: 'Familiarity with API consumption.',
     text_4: 'Familiarity with PHP, Laravel, SQL and Python.',
     text_5: 'Familiarity with Docker.',
-    text_6: 'Familiarity with Git and Github.'
+    text_6: 'Familiarity with Git and Github.',
+    text_7: 'Familiarity with unit test',
   },
    form: {
     name: 'Your name',

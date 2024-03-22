@@ -98,7 +98,7 @@ export default {
 }
 
 .contact-me-button:hover {
-  background-color: #141414;
+  background-color: #fff;
   transition: 2s;
 }
 

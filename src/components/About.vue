@@ -86,14 +86,14 @@ export default {
 
        setTimeout(() => {
         this.typeSecondParagraph()   
-        }, 5000) 
+        }, 6000) 
       } 
 
       if(this.thirdParagraph === '') {
 
         setTimeout(() => {
         this.typeThirdParagraph()
-        }, 12000)  
+        }, 14000)  
       }
            
     },

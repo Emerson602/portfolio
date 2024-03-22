@@ -69,6 +69,7 @@ export const pt_br = {
     text_4: 'Familiaridade com PHP, Laravel, SQL e Python.',
     text_5: 'Familiaridade Docker.',
     text_6: 'Familiaridade com Git e Github.',
+    text_7: 'Familiaridade com teste unitario.',
   },
   form: {
     name: 'Seu nome',
