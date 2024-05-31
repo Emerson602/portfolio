@@ -142,81 +142,91 @@ export default {
        let technologies = [];
        let link = '';
        
-       if(this.projectName === 'almeida-transportes') {
-
-            keyName = 'almeidaTransportesDescription';
-            technologies = ['html', 'css', 'javascript'];
-
-       } else if(this.projectName === 'financial-control') {
-
-            keyName = 'financialControlDescription';
-            technologies = ['html', 'css', 'javascript', 'bootstrap', 'vue'];
-
-
-       } else if(this.projectName === 'gas-consumption-calculator') {
-
-            keyName = 'gasConsumptionCalculatorDescription';
-            technologies = ['html', 'css', 'javascript', 'vue']; 
-
-       } else if(this.projectName === 'minha-brisa') {
-
-            keyName = 'minhaBrisaDescription';
-            technologies = ['html', 'css', 'javascript'];
-
-
-       } else if(this.projectName === 'portfolio') {
-
-            keyName = 'portfolioDescription';
-            technologies = ['html', 'css', 'javascript', 'bootstrap', 'vue', 'api']; 
-            link = 'https://wndev.vercel.app/';
-
-       } else if(this.projectName === 'quadratic-equation') {
-
-            keyName = 'quadraticEquationDescription';
-             technologies = ['html', 'css', 'javascript'];  
-
-       } else if(this.projectName === 'quick-chat-link') {
-
-            keyName = 'quickChatLinkDescription';
-            technologies = ['html', 'css', 'javascript'];  
-
-       } else if(this.projectName === 'search-repositories') {
-
-            keyName = 'searchRepositoriesDescription';
-            technologies = ['html', 'css', 'javascript', 'bootstrap', 'api'];
-
-       } else if(this.projectName === 'text-reader') {
-
-            keyName = 'textReaderDescription';
-            technologies = ['html', 'css', 'javascript', 'api'];  
-
-       } else if(this.projectName === 'todo-list') {
-        
-            keyName = 'todoListDescription';
-            technologies = ['html', 'css', 'javascript', 'bootstrap'];  
-
-       } else if(this.projectName === 'virtual-cat') {
-
-            keyName = 'virtualCatDescription';
-            technologies = ['html', 'css', 'javascript'];
-
-       }
-      
-       if(link === '') {
-         
-            link = `https://emerson602.github.io/${this.projectName}/index.html`;   
-             
-         }
-
-       this.projectLink = link
-          
-        
-       
-       this.projectDescription = this.$t(`projects.${keyName}`);  
-       this.technologies = technologies;
-       let numberTechnologies = technologies.length;
-       this.totalTechnologies = numberTechnologies;   
+       const projects = [
+        {
+            name: 'almeida-transportes',
+            key: 'almeidaTransportesDescription',
+            technologies: ['html', 'css', 'javascript'],
+            link: '',
+        },
+        {
+            name: 'financial-control',
+            key: 'financialControlDescription',
+            technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue'],
+            link: '',
+        },
+        {
+            name: 'gas-consumption-calculator',
+            key: 'gasConsumptionCalculatorDescription',
+            technologies: ['html', 'css', 'javascript', 'vue'],
+            link: '',
+        },
+        {
+            name: 'minha-brisa',
+            key: 'minhaBrisaDescription',
+            technologies: ['html', 'css', 'javascript'],
+            link: '',
+        },
+        {
+            name: 'portfolio',
+            key: 'portfolioDescription',
+            technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue', 'api'],           
+            link: 'https://wndev.vercel.app/'
+        },
+        {
+            name: 'quadratic-equation',
+            key: 'quadraticEquationDescription',
+            technologies: ['html', 'css', 'javascript'],
+            link: '',
+        },
+        {
+            name: 'quick-chat-link',
+            key: 'quickChatLinkDescription',
+            technologies: ['html', 'css', 'javascript'],
+            link: '',
+        },
+        {
+            name: 'search-repositories',
+            key: 'searchRepositoriesDescription',
+            technologies: ['html', 'css', 'javascript', 'bootstrap', 'api'],
+            link: '',
+        },
+        {
+            name: 'text-reader',
+            key: 'textReaderDescription',
+            technologies: ['html', 'css', 'javascript', 'api'],
+            link: '',
+        },
+        {
+            name: 'todo-list',
+            key: 'todoListDescription',
+            technologies: ['html', 'css', 'javascript', 'bootstrap'],
+            link: '',
+        },
+        {
+            name: 'virtual-cat',
+            key: 'virtualCatDescription',
+            technologies: ['html', 'css', 'javascript'],
+            link: '',
+        }
+      ];
      
+      for (let i = 0; i < projects.length; i++) {
+        const project = projects[i]; 
+                
+        if (this.projectName === project.name) { 
+            keyName = project.key;
+            technologies = project.technologies;
+            link = project.link === '' ? `https://emerson602.github.io/${this.projectName}/index.html` : project.link;
+            
+            this.projectLink = link;
+            this.projectDescription = this.$t(`projects.${keyName}`);
+            this.technologies = technologies;
+            this.totalTechnologies = technologies.length;
+            break; 
+        }
+    }
+    
     },
     
     getRepository() {
