@@ -8,7 +8,7 @@ export const pt_br = {
     contact: 'Contatos',
   },
   homePhrase: {
-    phrase: 'Transformando pixels em experiência.',
+    phrase: 'Olá, eu sou Wemerson Nicacio, desenvolvedor front-end.',
   },
   homeBtn: {
     contact: 'Contate-me',
@@ -62,7 +62,7 @@ export const pt_br = {
     title: 'Minhas habilidades',
   },
   moreSkills: {
-    btnCv: 'Ver meu currículo',
+    btnCv: 'Meu currículo',
     text_1: 'Experiência com HTML, CSS, JavaScript, TypeScript, Boostrap, Vue.js e React.',
     text_2: 'Experiência em desenvolvimento de layouts responsivos.',
     text_3: 'Familiaridade consumo de APIs.',
@@ -82,14 +82,3 @@ export const pt_br = {
 };
 
 
-
-/*
-
-Experiência no desenvolvimento fron-end (HTML, CSS, JavaScript, TypeScript, Boostrap, Vue.js e React)
-Experiência em desenvolvimento de layouts responsivos.
-Familiaridade consumo de APIs.
-Familiaridade com PHP, Laravel e Python.
-Familiaridade Docker.
-Familiaridade com Git e Github. 
-
-*/

@@ -1,144 +1,108 @@
 <template>
-    <div id="before-nav-container">
-        <div id="social-media">
-            <a :href="github_href" target="_blank">
-                <img :src="github" id="github">
-            </a>
-            <a :href="linkedin_href" target="_blank">
-                <img :src="linkedin" id="linkedin">
-            </a>        
-        </div>        
-        <div id="langs">
-            <img @click="setLanguageEnglish();" :src="english" id="english">
-            <img @click="setLanguagePortoghese();" :src="portoghese" id="portoghese">
-            <img @click="setLanguageItalian();" :src="italian" id="italian">               
-       </div>
-    </div>       
+  <div id="before-nav-container" class="d-flex flex-row justify-content-between justify-content-lg-end  align-items-center bg-light border border-muted border-top-0 border-start-0 border-end-0">
+  
+      <div class="m-3 mt-0 mb-0" id="social-media">
+          <a class="m-1" :href="github_href" target="_blank">          
+              <svg id="github" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="dark" class="bi bi-github" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+              </svg>
+          </a>
+          <a class="m-1" :href="linkedin_href" target="_blank">             
+              <svg id="linkedin" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+              </svg>
+          </a>        
+      </div>        
+      <div class="m-3 mt-0 mb-0" id="langs">
+          <img class="rounded" @click="setLanguageEnglish();" :src="english" id="english">
+          <img class="rounded m-1" @click="setLanguagePortoghese();" :src="portoghese" id="portoghese">
+          <img class="rounded" @click="setLanguageItalian();" :src="italian" id="italian">               
+     </div>
+  </div>       
 </template>
 
-<script>
-
+<script>  
 export default {
-  name: "BeforeNavbar",
-  props: {
-    github: String,
-    linkedin: String,
-    english: String,
-    portoghese: String,
-    italian: String,
-  },  
-  data() {
-    return {      
-      linkedin_href: "https://www.linkedin.com/in/wemerson-nicacio-0633b623b/",
-      github_href: "https://github.com/Emerson602",  
-      language: '',     
-    }
-  },   
-  methods: {
-
-    setLocale(locale) {   
-      this.$i18n.locale = locale     
-    },
-
-    callToType() {
-      this.toType();
-    }, 
-    
-    setLanguageEnglish() {
-      const englishLanguage = 'english';
-      localStorage.setItem("lang", englishLanguage);
-      location.reload();
-    },
-
-    setLanguageItalian() {
-      const italianLanguage = 'italian';
-      localStorage.setItem("lang", italianLanguage);
-      location.reload();
-    },
-
-    setLanguagePortoghese() {
-      const portogheseLanguage = 'portoghese';   
-      localStorage.setItem("lang", portogheseLanguage);
-      location.reload();
-    },
-
-    getLanguage() {
-      this.language = localStorage.getItem("lang") || '';
-
-      if(this.language === 'english') {
-        this.setLocale('en');
-      }
-
-      if(this.language === 'italian') {
-        this.setLocale('it');
-      }
-
-      if(this.language === 'portoghese' || this.language === '') {
-        this.setLocale('pt_br');
-      }      
-
-    },
-
+name: "BeforeNavbar",
+props: {
+  english: String,
+  portoghese: String,
+  italian: String,
+},
+data() {
+  return {
+    linkedin_href: "https://www.linkedin.com/in/wemerson-nicacio-0633b623b/",
+    github_href: "https://github.com/Emerson602",
+    language: '',
+  };
+},
+methods: {
+  setLocale(locale) {
+    this.$i18n.locale = locale;
   },
 
-  mounted() {
-     this.getLanguage();
-   },
+  setLanguageEnglish() {
+    const englishLanguage = 'english';
+    localStorage.setItem("lang", englishLanguage);
+    location.reload();
+  },
 
-}
+  setLanguageItalian() {
+    const italianLanguage = 'italian';
+    localStorage.setItem("lang", italianLanguage);
+    location.reload();
+  },
+
+  setLanguagePortoghese() {
+    const portogheseLanguage = 'portoghese';
+    localStorage.setItem("lang", portogheseLanguage);
+    location.reload();
+  },
+
+  getLanguage() {
+    this.language = localStorage.getItem("lang") || '';
+
+    if (this.language === 'english') {
+      this.setLocale('en');
+    }
+
+    if (this.language === 'italian') {
+      this.setLocale('it');
+      this.linkedin_href = 'https://www.linkedin.com/in/wemerson-nicacio-b28642311';
+    }
+
+    if (this.language === 'portoghese' || this.language === '') {
+      this.setLocale('pt_br');
+      this.linkedin_href = 'https://www.linkedin.com/in/wemerson-nicacio-0633b623b';
+    }
+  },
+},
+
+mounted() {
+  this.getLanguage();
+},
+};
 </script>
 
-<style scoped>
-
-#before-nav-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    background-color: #1b1b1f;  
-    border-bottom: solid 1px #fff; 
-    height: 32px;    
-}
-
-#social-media, #langs {
-    margin: 0 50px 0 0;
-}
-
-#langs img, #social-media img {
-    width: 25px;
-    height: auto;
-    border-radius: 2px;     
-    outline: none; 
-}
+<style scoped> 
 
 #langs img {
-    margin: 0 8px 0 0;
+  width: 40px;
+  height: auto; 
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.37);
+  border: solid 1px rgba(0, 0, 0, 0.37);
 }
 
-a{  
-  border-radius: 2px;
-  margin: 0 8px 0 0;
+svg:hover {
+  fill: #bbb;
+  transition: 1s;  
 }
 
-a:hover {
-    cursor: pointer;
-    transition: 1.5s;
-    border: solid 1px #fff;        
+#langs img:hover {
+  cursor: pointer;
+  transition: 1s;
+  border: solid 1px #141414;
+  box-shadow: 2px 2px rgba(0, 0, 0, 3.37);
 }
 
-@media(max-width: 700px) {
-   #before-nav-container {
-      justify-content: space-around;
-   } 
-
-   #social-media, #langs {
-      margin: 0;
-   }
-}
-
-#english:hover, #portoghese:hover, #italian:hover {
-    cursor: pointer;
-    transition: 1.5s;
-    border: solid 1px #fff;
-}
 </style>

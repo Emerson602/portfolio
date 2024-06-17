@@ -126,11 +126,7 @@ export default {
       height: auto;    
       margin: 0;
       text-align: center;
-      padding: 150px 0 100px 0; 
-      background-image: url('../../public/img/bg-desktop.webp');    
-      background-size: cover;
-      background-repeat: no-repeat;  
-      background-position: center;   
+      padding: 150px 0 100px 0;   
       border-bottom: solid 10px rgba(242, 219, 148, 1); 
       border-top: solid 10px rgba(242, 219, 148, 1);            
   }
@@ -166,12 +162,16 @@ export default {
 
   #img-profile {
     width: 80%;
-    height: auto;    
+    height: auto;      
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.37);
   }
  
     @media(max-width: 1080px) {
-    #about-me-container{
-      background-image: url('../../public/img/bg-mobile.webp'); 
+      
+    #about-me-container{        
       min-height: 650px; 
       padding: 100px 0 100px 0;   
     }

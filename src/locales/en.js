@@ -6,7 +6,7 @@ export const en = {
      contact: 'Contacts',
    },
    homePhrase: {
-     phrase: 'Turning pixels into experience.',
+     phrase: 'Hello, I am Wemerson Nicacio, front-end web developer.',
    },
    homeBtn: {
      contact: 'Contact me',
