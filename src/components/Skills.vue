@@ -1,38 +1,38 @@
 <template>
-  <div id="skills-main-container" class="pb-5 pt-5">
+  <div id="skills-main-container" class="pb-3 pt-5">
 
-    <h1 class="fs-1 mt-5">{{ $t('skills.title') }}</h1>
+    <h1 class="fs-1 mt-5 mb-0">{{ $t('skills.title') }}</h1>
 
-        <div class="d-flex flex-row justify-content-center align-items-center flex-wrap" id="skills">
+        <div class="mt-5 d-flex flex-row justify-content-center align-items-center flex-wrap" id="skills">
 
-            <div id="tooltip" class="d-flex justify-content-center align-items-center">
+            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
               <img :src="html_src" :alt="html_alt" id="technology-1">
-              <span class="tooltiptext position-absolute p-2 rounded">HTML</span>
+              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">HTML</span>
             </div>
 
-            <div id="tooltip" class="d-flex justify-content-center align-items-center">
+            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
               <img :src="css_src" :alt="css_alt" id="technology-2">
-              <span class="tooltiptext position-absolute p-2 rounded">CSS</span>
+              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">CSS</span>
             </div>
 
-            <div id="tooltip" class="d-flex justify-content-center align-items-center">
+            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
               <img :src="javascript_src" :alt="javascript_alt" id="technology-3">
-              <span class="tooltiptext position-absolute p-2 rounded">JavaScript</span>
+              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">JavaScript</span>
             </div>            
 
-            <div id="tooltip" class="d-flex justify-content-center align-items-center">
+            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
               <img :src="vue_src" :alt="vue_alt" id="technology-4">
-              <span class="tooltiptext position-absolute p-2 rounded">Vue.js</span>
+              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Vue.js</span>
             </div>
 
-            <div id="tooltip" class="d-flex justify-content-center align-items-center">
+            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
               <img :src="bootstrap_src" :alt="bootstrap_alt" id="technology-5">
-              <span class="tooltiptext position-absolute p-2 rounded">Bootstrap</span>
+              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Bootstrap</span>
             </div>     
   
-            <div id="tooltip" class="d-flex justify-content-center align-items-center">
+            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
               <img :src="typescript_src" :alt="typescript_alt" id="technology-7">
-              <span class="tooltiptext position-absolute p-2 rounded">TypeScript</span>
+              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">TypeScript</span>
             </div>                                    
                 
       </div>         
@@ -95,18 +95,19 @@ export default {
       },
 
       openPDF() {    
-      let lang = ''   
-      let currentLang = localStorage.getItem("lang") || '' 
-      
-      if(currentLang === 'italian') {
-        lang = 'it'
-      } else if(currentLang === 'portoghese') {
-        lang = 'pt'
-      } else {
-        lang = 'pt'
-      }
-      const pdfURL = `/cv/${lang}.pdf`;      
-      window.open(pdfURL, '_blank');
+        
+        let lang = ''   
+        let currentLang = localStorage.getItem("lang") || '' 
+        
+        if(currentLang === 'italian') {
+          lang = 'it'
+        } else if(currentLang === 'portoghese') {
+          lang = 'pt'
+        } else {
+          lang = 'pt'
+        }
+        const pdfURL = `/cv/${lang}.pdf`;      
+        window.open(pdfURL, '_blank');
     }
 
   },
@@ -131,8 +132,9 @@ export default {
     height: auto;
   }
 
-  #skills div {
-    background-color: #fff;      
+  #tooltip {
+    background-color: #fff;  
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.37);     
   }
 
   .tooltiptext {    
@@ -149,14 +151,12 @@ export default {
   
   #tooltip span {
     color: #fff;
-    background-color: #F2727D;
-    border: solid 2px #141414;
+    background-color: #F2727D;      
   }
 
   #tooltip img {
-    width: 150px;
-    height: auto;     
-  }
-
+    width: 100px;
+    height: 100px;     
+  } 
 
 </style>

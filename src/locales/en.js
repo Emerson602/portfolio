@@ -6,7 +6,7 @@ export const en = {
      contact: 'Contacts',
    },
    homePhrase: {
-     phrase: 'Hello, I am Wemerson Nicacio, front-end web developer.',
+     phrase: 'Hello, I am Wemerson Nicacio, front-end developer.',
    },
    homeBtn: {
      contact: 'Contact me',
@@ -46,21 +46,17 @@ export const en = {
    aboutMe: {
      title: 'About me',
 
-     firstParagraph: `Hello, I'm Wemerson Nicacio, an enthusiastic front-end web developer.
-     My dedication to creating functional interfaces is what drives me every day.`,
+     firstParagraph: `Hi, my name is Wemerson Nicacio. I am a front-end developer with 2 years of experience.`,
 
-     secondParagraph: `Transforming ideas into applications, my approach is based on attention to detail and 
-      a constant pursuit of excellence, not only visually but also in terms of functionality and performance.
-      I believe the first impression of a website is crucial!`,
+     secondParagraph: `Passionate about technology, I am always updating myself and constantly learning,
+     to enhance my knowledge and grow professionally`,
 
-      thirdParagraph: `Technology is constantly evolving,
-      which is why I always seek to update and improve myself to consistently achieve the best results.`,
    },
    skills: {
      title: 'My skills',
    },
    moreSkills: {
-    btnCv: 'See my curriculum',
+    btnCv: 'My curriculum',
     text_1: 'Experience with HTML, CSS, JavaScript, TypeScript, Bootstrap, Vue.js, and React.',
     text_2: 'Experience in developing responsive layouts.',
     text_3: 'Familiarity with API consumption.',

@@ -56,19 +56,21 @@ export default {
     height: 40px;
     width: 40px;  
     outline: none;
-    background-color: #F2727D;  
+    background-color: #6662D9;  
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.37);  
   }   
 
   svg {
     margin: 0;
     background-color: transparent;  
-    fill: #141414;  
+    fill: #fff;  
   }
 
   #btn-top:hover {     
-    background-color: #6662D9;
+    background-color: #F2727D; 
     transition: 1s;
     cursor: pointer;     
-}
+    box-shadow: 2px 2px rgba(0, 0, 0, 1);
+  }
 
 </style>

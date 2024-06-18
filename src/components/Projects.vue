@@ -1,10 +1,12 @@
 <template>
-  <div class="projects-container" id="projects-container">
+  <div class="pt-5 pb-5" id="projects-container">
+
     <div class="d-flex flex-column align-items-center">
-        <h1>{{ $t('projects.title') }}</h1> 
+        
+        <h1 class="fs-1">{{ $t('projects.title') }}</h1> 
 
-        <section id="projects-section">
-
+        <section id="projects-section" class="mt-3 d-flex flex-row justify-content-center align-items-start flex-wrap">
+          
         </section>       
         
         <button v-if="visibilityShowMoreBtn" class="btn-show-more col-8 col-sm-6 col-md-4 mt-5 m-5 rounded p-2 text-light bg-dark" @click="showMore">
@@ -32,11 +34,12 @@ export default {
       content: null, 
       username: 'emerson602',        
       firstProject: 0, 
-      lastProject: 5,      
+      lastProject: 6,      
       totalProjects: undefined, 
       newRepositories: [], 
       visibilityShowMoreBtn: true,
-      visibilityHideBtn: false,    
+      visibilityHideBtn: false, 
+      projectImg: '',  
       projectLink: '',
       projectName: '',
       projectDescription: '',
@@ -49,25 +52,38 @@ export default {
   methods: {
     renderRepositories(repositories) {  
 
+     const repositoriesNotDisplayed = [1, 4, 6, 7];
+
      this.paginationRepositories(repositories)         
      
      if (this.content) {
         this.content.innerHTML = '';
         
         this.newRepositories.forEach(({ name }, index) => {
-          if (![1, 4, 6, 7].includes(index)) {
+          if (!repositoriesNotDisplayed.includes(index)) {
 
             const project = document.createElement('div');
+            const imgFrame = document.createElement('div');
+            const imgProject = document.createElement('img');
             const nameProject = document.createElement('h2');
-            const projectDescription = document.createElement('p');
+            const projectDescription = document.createElement('p');          
             const technologiesDiv = document.createElement('div');                    
             const projectLink = document.createElement('a'); 
             const projectRepository = document.createElement('a');            
-
-            project.setAttribute('id', 'project');  
-            nameProject.setAttribute('id', 'name-project');
-            projectDescription.setAttribute('id', 'project-description');
-            technologiesDiv.setAttribute('id', 'technologies-div');           
+            
+            project.setAttribute('id', 'project'); 
+            imgFrame.setAttribute('id', 'img-frame');    
+            imgProject.setAttribute('id', 'img-project');           
+            nameProject.setAttribute('id', 'name-project');            
+            projectDescription.setAttribute('id', 'project-description');           
+            technologiesDiv.setAttribute('id', 'technologies-div');
+            
+            imgFrame.setAttribute('class', 'rounded')
+            project.setAttribute('class', 'd-flex flex-column justify-content-start align-items-center m-3 mt-5 p-0 text-center');
+            nameProject.setAttribute('class', 'fs-5 mt-3 mb-0 fw-bold');
+            projectDescription.setAttribute('class', 'fs-6');   
+            
+            imgFrame.appendChild(imgProject)
 
             function formatRepositoryName() {
 
@@ -109,6 +125,7 @@ export default {
             let description = this.projectDescription 
             description = capitalizeFirstLetter(description)                     
             projectLink.href = this.projectLink;  
+            imgProject.src = this.projectImg;             
 
             projectDescription.textContent = description;         
 
@@ -125,7 +142,7 @@ export default {
             projectRepository.textContent = btnTextProjectRepository
             projectRepository.className = 'btn-project-repository';            
 
-            [nameProject, projectDescription, technologiesDiv, projectLink, projectRepository].forEach((data) => {
+            [imgFrame, nameProject, projectDescription, technologiesDiv, projectLink, projectRepository].forEach((data) => {
               project.appendChild(data);
             });                    
             this.content.appendChild(project);
@@ -143,67 +160,78 @@ export default {
        let link = '';
        
        const projects = [
-        {
+        {   
+            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
             name: 'almeida-transportes',
             key: 'almeidaTransportesDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
-        {
+        {   
+            img: '',
             name: 'financial-control',
             key: 'financialControlDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue'],
             link: '',
         },
-        {
+        {   
+            img: '',
             name: 'gas-consumption-calculator',
             key: 'gasConsumptionCalculatorDescription',
             technologies: ['html', 'css', 'javascript', 'vue'],
             link: '',
         },
-        {
+        {   
+            img: '',
             name: 'minha-brisa',
             key: 'minhaBrisaDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
-        {
+        {   
+            img: '',
             name: 'portfolio',
             key: 'portfolioDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue', 'api'],           
             link: 'https://wndev.vercel.app/'
         },
-        {
+        {   
+            img: '',
             name: 'quadratic-equation',
             key: 'quadraticEquationDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
-        {
+        {   
+            img: '',
             name: 'quick-chat-link',
             key: 'quickChatLinkDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
-        {
+        {   
+            img: '',
             name: 'search-repositories',
             key: 'searchRepositoriesDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'api'],
             link: '',
         },
         {
+            img: '',
             name: 'text-reader',
             key: 'textReaderDescription',
             technologies: ['html', 'css', 'javascript', 'api'],
             link: '',
         },
         {
+            img: '',
             name: 'todo-list',
             key: 'todoListDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap'],
             link: '',
         },
         {
+            img: '',
             name: 'virtual-cat',
             key: 'virtualCatDescription',
             technologies: ['html', 'css', 'javascript'],
@@ -215,10 +243,12 @@ export default {
         const project = projects[i]; 
                 
         if (this.projectName === project.name) { 
+            
             keyName = project.key;
             technologies = project.technologies;
             link = project.link === '' ? `https://emerson602.github.io/${this.projectName}/index.html` : project.link;
-            
+           
+            this.projectImg = project.img;
             this.projectLink = link;
             this.projectDescription = this.$t(`projects.${keyName}`);
             this.technologies = technologies;
@@ -261,7 +291,7 @@ export default {
 
       const btnShowMore = document.querySelector('.btn-show-more');
       const svgElement = document.querySelector('svg');
-      const increment = 5;
+      const increment = 6;
 
       if(this.lastProject < this.totalProjects) { 
 
@@ -317,7 +347,7 @@ export default {
   mounted() {
     this.content = document.querySelector('#projects-section'); 
     this.getRepository();  
-    this.handleProjectsContainerObserver();
+    this.handleProjectsContainerObserver();   
 
    },
   
@@ -326,65 +356,48 @@ export default {
 
 <style>
 
-    .projects-container {        
+    #projects-container {        
         min-height: 1000px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;     
-        margin: 0;
-        padding: 180px 0 100px 0;          
-    }
-
-    #projects-section span {
-      font-weight: bolder;
-      font-size: 1.1rem;          
-    }
-
-    h1 {
-        font-size: 1.8rem !important;
-        color: #141414;   
-        position: relative;
-        top: -50px;    
-        line-height: 45px;   
-    }
-
+        width: 100%;          
+    } 
+    
     a{
         text-decoration: none;                    
     }
 
-    #project {
-        display: flex;
-        flex-direction: column; 
-        justify-content: center;
-        align-content: center;
-        border-radius: 20px;
-        border: solid 1px #F29F05;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        margin: 20px 0;
-        padding: 30px 60px 30px 60px;
-        width: 70vw;
-        height: auto;
-        font-size: 1rem;   
-        background-color: rgba(242, 219, 148, 0.5); 
-        background-image: url('../../public/img/bg-desktop.webp');    
-        background-size: cover;
-        background-repeat: no-repeat;  
-        background-position: top;    
-    }  
+    #project {        
+        width: 300px;
+        height: auto; 
+        background-color: #f4f5fa;            
+    }
+
+    #img-frame {
+      overflow-y: scroll;
+      width: 100%;
+      height: 225px;     
+    }
+
+    #img-project {
+      width: 100%;
+      height: auto;  
+    }
 
     #name-project {
-      font-size: 1.4rem;
-      margin: 0 0 10px 0;
-      width: 100%;
-      line-height: 35px;
-      font-weight: bold;
+      width: 100%;    
+      line-height: 35px;  
+      height: 80px;     
     }
 
     #project-description {
-      width: 100%;   
-      font-size: 1.2rem;   
+      width: 100%;  
+      height: 150px;   
+      overflow-y: auto; 
+      text-align: start;     
+      display: none;                
+    }
+
+    #project-description::-webkit-scrollbar { 
+      width: 0px;
     }
 
     #technologies-div {
@@ -399,32 +412,15 @@ export default {
 
 
     #technologies-img {
-      width: 60px;
+      width: 40px;
       height: auto; 
-      margin: 20px 0 0 0; 
-    }
-
-    @media (max-width: 1400px) {
-
-        #technologies-div {
-          display: grid;         
-          grid-template-columns: repeat(8, 1fr);   
-          align-items: center; 
-          justify-items: center;       
-          padding: 0; 
-          margin: 0;   
-          width: 100%;      
-        }
-
-        #technologies-img {
-          width: 60%;
-          height: auto;       
-        }
-    }
-
+      margin: 20px 2px; 
+    } 
+   
     .btn-project, .btn-project-repository {
-        background-color: #1b1b1f;
-        color: #fff;
+        background-color: #F2727D; 
+        box-shadow: 2px 2px rgba(0, 0, 0, 0.37);
+        color: #141414;
         border-radius: 4px;
         padding: 6px 0;
         margin: 30px 0 10px 0; 
@@ -442,68 +438,12 @@ export default {
     }
 
     .btn-project:hover, .btn-project-repository:hover, .btn-show-more:hover, .btn-hide:hover {
-        background-color: #F29F05 !important; 
-        transition: 2s !important;    
-    }
-
-    @media (max-width: 750px) {  
-
-        h1 {
-            font-size: 1.5rem;
-        }
-      
-        #project {
-            width: 95vw;
-            padding: 40px 20px 60px 20px;
-            font-size: 1rem;
-        }
-        
-        #name-project {
-          font-size: 1.2rem;
-          text-align: center;
-        }
-
-        #project-description {           
-          font-size: 1rem;   
-        }
-        
-        #technologies-div {
-          display: grid;         
-          grid-template-columns: repeat(6, 1fr); 
-        }
-
-        #technologies-img {
-          width: 50%;
-          height: auto; 
-          margin: 20px 0 0 0;    
-        }
-
-        .btn-project, .btn-project-repository {
-
-            font-size: 0.8rem;
-            width: 220px;
-            padding: 6px 0;
-        }
-    }
-
-  @media (max-width: 480px) {  
-
-        h1 {
-            font-size: 0.8rem;
-        } 
-
-        #technologies-div {
-          display: grid;         
-          grid-template-columns: repeat(5, 1fr); 
-        }
-
-        #technologies-img {
-          width: 60%;
-          height: auto; 
-          margin: 20px 0 0 0;    
-        }
-
-    }
+        background-color: #6662D9 !important;  
+        transition: 1s !important;    
+        cursor: pointer;
+        box-shadow: 2px 2px rgba(0, 0, 0, 1);
+        color: #fff;
+    }     
 
 </style>
 

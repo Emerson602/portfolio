@@ -70,17 +70,17 @@ export default {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px #141414; 
+  box-shadow: inset 0 0 5px #fff; 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #F2DB94; 
+  background-color: #f4f5fa; 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #F2B705; 
+  background-color: #6662D9; 
 }
 
   .main-container {

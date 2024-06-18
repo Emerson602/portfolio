@@ -46,18 +46,14 @@ export const it = {
    },
    aboutMe: {
      title: 'Chi sono',
-     firstParagraph: `Ciao, sono Wemerson Nicacio, un sviluppatore web front-end entusiasta.
-     La mia dedicazione alla creazione di interfacce funzionali è ciò che mi motiva ogni giorno.`,    
+     firstParagraph: `Ciao, mi chiamo Wemerson Nicacio, Sono un sviluppatore front-end con 2 anni di
+      esperienza.`,    
      
-     secondParagraph: `Trasformando idee in applicazioni, il mio approccio si basa sull'attenzione ai dettagli e
-      sulla costante ricerca dell'eccellenza, non solo dal punto di vista visivo, ma anche in termini di funzionalità e prestazioni.
-      Credo che la prima impressione di un sito web sia cruciale!`,
-
-      thirdParagraph: `La tecnologia è in costante evoluzione,
-      ecco perché cerco sempre di aggiornarmi e migliorarmi per ottenere costantemente i migliori risultati.`,
+     secondParagraph: `Appassionato di tecnologia, sono sempre aggiornato e in continuo apprendimento,
+      per migliorare le mie conoscenze e crescere professionalmente.`, 
    },
    skills: {
-     title: 'Le mie abilità',
+     title: 'Le mie competenze',
    },
    moreSkills: {
     btnCv: 'Il mio CV',

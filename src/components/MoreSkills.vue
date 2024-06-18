@@ -1,6 +1,6 @@
 <template>  
-      <div id="more-skills">        
-             
+      <div id="more-skills" class="fs-5 pt-5 pb-5 d-flex flex-column justify-content-center align-items-center">        
+
       </div>      
 </template>
 
@@ -8,16 +8,15 @@
 export default {
   data() {
     return {
-        lang: localStorage.getItem("lang") || 'portoghese', 
-        text: '',
+
     };
   },
 
   methods: {  
 
-      createButton() {
+      addTexts() {
         const moreSkills = document.querySelector('#more-skills');           
-        const btnText = this.$t('moreSkills.btnCv'); 
+        
 
         const texts = {
           text_1: this.$t('moreSkills.text_1'),
@@ -30,7 +29,7 @@ export default {
         }; 
 
       const div = document.createElement('div'); 
-      div.setAttribute('class', 'd-flex flex-column justify-content-center align-items-center rounded pt-4 pb-4 bg-dark m-0 p-0 col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7');
+      div.setAttribute('class', 'd-flex flex-column justify-content-center align-items-center m-0 p-0 col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7');
       
       Object.keys(texts).forEach(key => {
         let text = texts[key];   
@@ -45,31 +44,13 @@ export default {
       moreSkills.appendChild(div);
 
 
-        if(this.lang === 'english' || this.lang === '') {
-          return;
-        }
-
-        const btnCurriculum = document.createElement('button');
-        btnCurriculum.setAttribute('class', 'border-0 rounded p-3 mt-5 mb-5 bg-warning');        
-        btnCurriculum.innerText = btnText;
-        btnCurriculum.addEventListener('click', this.openPdf);
-        moreSkills.appendChild(btnCurriculum);
-      },
-      
-      openPdf() {         
-
-      if(this.lang === 'english') {
-        this.lang = ''
-      } 
-
-      const pdfURL = `/cv/${this.lang}-wemerson-nicacio.pdf`;      
-      window.open(pdfURL, '_blank');
-    }
+    
+      }, 
 
   },
 
   mounted() {     
-    this.createButton();
+    this.addTexts();
   }
 
 
@@ -84,14 +65,9 @@ export default {
   #more-skills {
     width: 100%;
     height: auto;
-    background-color: #1b1b1f;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 50px 0;   
+    background-color: #f4f5fa;
+    color: #141414;  
   }
-  
 
 </style>
+ 

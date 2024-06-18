@@ -1,19 +1,16 @@
 <template>
-    <div class="about-me-container" id="about-me-container">
+    <div class="pt-5 pb-5 d-flex flex-column flex-lg-row justify-content-center align-items-center" id="about-me-container"> 
       
-      
-      
-      <div id="about-main">
-          <div>
-            <img id="img-profile" :src="profile_src">
-          </div>      
-          <div>    
-            <h1>{{ $t('aboutMe.title') }}</h1>    
-            <p id="paragraph-1">{{ firstParagraph }}</p>
-            <p id="paragraph-2">{{ secondParagraph }}</p>
-            <p id="paragraph-3">{{ thirdParagraph }}</p> 
+          <div class="col-12 col-lg-6 mt-5 mb-3 d-flex flex-column justify-content-center align-items-center">
+            <img id="img-profile" :src="profile_src" class="p-2 mt-2 mb-5 rounded">
+          </div>    
+
+          <div class="col-12 col-lg-6 p-3 p-lg-5 pt-0 pb-0 d-flex flex-column justify-content-center align-items-center text-center text-lg-start">    
+            <h1 class="fs-1 col-12 mt-3 mb-3 text-center text-lg-start">{{ $t('aboutMe.title') }}</h1>    
+            <p id="paragraph-1" class="fs-5 m-2 col-12">{{ firstParagraph }}</p>
+            <p id="paragraph-2" class="fs-5 m-2 col-12">{{ secondParagraph }}</p>           
           </div>  
-      </div>
+
     </div>
 </template>
 
@@ -61,21 +58,8 @@ export default {
           this.typeSecondParagraph();
         }, this.speed);
       }
-    },
-
-    typeThirdParagraph() {
-      let thirdParagraph = this.$t(`aboutMe.thirdParagraph`);
-      this.textThirdParagraph = thirdParagraph;
-     
-      if (this.letterThirdParagraph < this.textThirdParagraph.length) {
-        this.thirdParagraph += this.textThirdParagraph.charAt(this.letterThirdParagraph);
-        this.letterThirdParagraph++;
-        setTimeout(() => {
-          this.typeThirdParagraph();
-        }, this.speed);
-      }
-    },
-
+    }, 
+    
     startTyping() {       
 
       if(this.firstParagraph === '') {
@@ -86,15 +70,8 @@ export default {
 
        setTimeout(() => {
         this.typeSecondParagraph()   
-        }, 6000) 
-      } 
-
-      if(this.thirdParagraph === '') {
-
-        setTimeout(() => {
-        this.typeThirdParagraph()
-        }, 14000)  
-      }
+        }, 3500) 
+      }       
            
     },
 
@@ -121,130 +98,35 @@ export default {
 
 <style scoped>
   #about-me-container {         
-      width: 100%;
-      min-height: 800px; 
-      height: auto;    
-      margin: 0;
-      text-align: center;
-      padding: 150px 0 100px 0;   
-      border-bottom: solid 10px rgba(242, 219, 148, 1); 
-      border-top: solid 10px rgba(242, 219, 148, 1);            
+      width: 100%; 
+      height: auto;   
+  }  
+  
+  #img-profile {
+    width: 350px;
+    height: auto;      
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);  
+    -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%);
   }
 
-  #about-main {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      height: auto;
-  }
-
-  #about-main div:nth-child(1) {
-    width: 30%;  
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;    
-  }
-
-  #about-main div:nth-child(2) {
-    width: 70%;     
-    padding: 0 100px;
-    text-align: left;
-  }
-
-  h1{
-    margin: 0;
-    padding: 0;
+  #img-profile:hover {
+    -webkit-filter: grayscale(0%); 
+    filter: grayscale(0%);
+    transition: 3s;
   }
 
   p {
-    margin: 20px 0 0 0;
-  }
-
-  #img-profile {
-    width: 80%;
-    height: auto;      
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    border-radius: 4px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.37);
+    Text-wrap: balance;
   }
  
-    @media(max-width: 1080px) {
-      
-    #about-me-container{        
-      min-height: 650px; 
-      padding: 100px 0 100px 0;   
-    }
-
-    #about-main {
-      display: flex;
-      flex-direction: column;
-    }
-
-    #about-main div {
-      width: 100% !important;
-    }
-
-    #img-profile {
-      width: 300px;
-      height: auto;
-    }
-
-    #about-main div:nth-child(1) {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #about-main div:nth-child(2) {
-      margin: 100px 0 0 0;
-      padding: 0 50px;
-    }
+  @media(max-width: 768px) {
+  p, #img-profile {
+    width: 80% !important;
+    text-align: start;
   }
+}
 
-
-  h1 {
-        font-size: 1.8rem;
-        line-height: 45px;
-  }
-
-  p {     
-    font-size: 1.4rem;    
-    margin: 20px 0 0 0;   
-    padding: 0;
-    color: #141414; 
-    text-indent: 20px; 
-  }
-
-  @media(max-width: 750px) {
-
-    #img-profile {
-      width: 60%;
-      height: auto;    
-    }
-    #about-main div:nth-child(2) {
-      margin: 80px 0 0 0;
-      padding: 0 20px;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-     }
-    p {                
-        font-size: 1.4rem;
-        text-indent: 3px;         
-     }
-  } 
-
-   @media(max-width: 480px) {
-    h1 {
-        font-size: 0.8em;                
-     }
-    p {              
-        font-size: 1rem;
-         text-indent: 2px; 
-     }
-  } 
 </style>
   
 
