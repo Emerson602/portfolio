@@ -2,7 +2,7 @@
     <div class="pt-5 pb-5 d-flex flex-column flex-lg-row justify-content-center align-items-center" id="about-me-container"> 
       
           <div class="col-12 col-lg-6 mt-5 mb-3 d-flex flex-column justify-content-center align-items-center">
-            <img id="img-profile" :src="profile_src" class="p-2 mt-2 mb-5 rounded">
+            <img id="img-profile" :src="profile_src" class="mt-2 mb-5 rounded">
           </div>    
 
           <div class="col-12 col-lg-6 p-3 p-lg-5 pt-0 pb-0 d-flex flex-column justify-content-center align-items-center text-center text-lg-start">    
@@ -105,7 +105,7 @@ export default {
   #img-profile {
     width: 350px;
     height: auto;      
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);  
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.37);  
     -webkit-filter: grayscale(100%); 
     filter: grayscale(100%);
   }
@@ -114,6 +114,7 @@ export default {
     -webkit-filter: grayscale(0%); 
     filter: grayscale(0%);
     transition: 3s;
+    box-shadow: 2px 2px rgba(0, 0, 0, 1);
   }
 
   p {

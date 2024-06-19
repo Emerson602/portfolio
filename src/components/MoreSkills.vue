@@ -69,5 +69,9 @@ export default {
     color: #141414;  
   }
 
+  span {
+    width: 90% !important;
+  }
+
 </style>
  

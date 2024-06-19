@@ -96,10 +96,10 @@ export default {
 }
 
 button:hover {
-  transition: 1.5s;
-  background-color: #141414 !important;
-  color: #fff;
-  border: solid 1px #F29F05 !important;
+  transition: 1s;
+  background-color: #F2727D; 
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.37);
+  color: #fff;   
 }
 
 </style>

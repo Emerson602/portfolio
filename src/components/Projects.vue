@@ -9,14 +9,14 @@
           
         </section>       
         
-        <button v-if="visibilityShowMoreBtn" class="btn-show-more col-8 col-sm-6 col-md-4 mt-5 m-5 rounded p-2 text-light bg-dark" @click="showMore">
+        <button v-if="visibilityShowMoreBtn" class="btn-show-more col-8 col-sm-6 col-md-4 mt-5 m-5 rounded p-2 border-0" @click="showMore">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
             <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
           </svg>
         </button>  
 
-        <button v-if="visibilityHideBtn" class="btn-hide col-8 col-sm-6 col-md-4 mt-5 m-5 rounded p-2 text-light bg-dark" @click="hide">
+        <button v-if="visibilityHideBtn" class="btn-hide col-8 col-sm-6 col-md-4 mt-5 m-5 rounded p-2 border-0" @click="hide">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-up" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708z"/>
             <path fill-rule="evenodd" d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
@@ -63,27 +63,54 @@ export default {
           if (!repositoriesNotDisplayed.includes(index)) {
 
             const project = document.createElement('div');
-            const imgFrame = document.createElement('div');
+            const imgPlatform = document.createElement('div');
+            const imgScreen = document.createElement('div');
             const imgProject = document.createElement('img');
             const nameProject = document.createElement('h2');
-            const projectDescription = document.createElement('p');          
+            const projectDescription = document.createElement('p'); 
+            const btnReadMore = document.createElement('button');          
             const technologiesDiv = document.createElement('div');                    
             const projectLink = document.createElement('a'); 
             const projectRepository = document.createElement('a');            
             
             project.setAttribute('id', 'project'); 
-            imgFrame.setAttribute('id', 'img-frame');    
+            
+            imgPlatform.setAttribute('id', 'img-platform');
+            imgScreen.setAttribute('id', 'img-screen');    
             imgProject.setAttribute('id', 'img-project');           
             nameProject.setAttribute('id', 'name-project');            
-            projectDescription.setAttribute('id', 'project-description');           
+            projectDescription.setAttribute('id', 'project-description');  
+            btnReadMore.setAttribute('id', 'btn-read-more'); 
+                          
             technologiesDiv.setAttribute('id', 'technologies-div');
             
-            imgFrame.setAttribute('class', 'rounded')
+            imgPlatform.setAttribute('class', 'p-2 rounded');
+            imgScreen.setAttribute('class', 'rounded');
             project.setAttribute('class', 'd-flex flex-column justify-content-start align-items-center m-3 mt-5 p-0 text-center');
-            nameProject.setAttribute('class', 'fs-5 mt-3 mb-0 fw-bold');
-            projectDescription.setAttribute('class', 'fs-6');   
+            nameProject.setAttribute('class', 'fs-6 mt-5 mb-3 fw-bold');
+            projectDescription.setAttribute('class', 'fs-6');
+            btnReadMore.setAttribute('class', 'fs-6 rounded border-0 p-1 mt-1 mb-3');
+            technologiesDiv.setAttribute('class', 'd-flex flex-row justify-content-center align-items-center flex-wrap m-0 p-0');
             
-            imgFrame.appendChild(imgProject)
+            btnReadMore.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"></path>
+              <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"></path>
+            </svg>
+            `
+
+            btnReadMore.addEventListener('click', () => {
+              const projectDescription = document.querySelector('#project-description');
+
+              if(projectDescription) {
+                projectDescription.style.height = 'auto';
+                console.log('expandiu')
+              }
+              
+            });
+
+            imgPlatform.appendChild(imgScreen)
+            imgScreen.appendChild(imgProject)
 
             function formatRepositoryName() {
 
@@ -142,7 +169,7 @@ export default {
             projectRepository.textContent = btnTextProjectRepository
             projectRepository.className = 'btn-project-repository';            
 
-            [imgFrame, nameProject, projectDescription, technologiesDiv, projectLink, projectRepository].forEach((data) => {
+            [imgPlatform, nameProject, projectDescription, btnReadMore, technologiesDiv, projectLink, projectRepository].forEach((data) => {
               project.appendChild(data);
             });                    
             this.content.appendChild(project);
@@ -168,70 +195,70 @@ export default {
             link: '',
         },
         {   
-            img: '',
+            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
             name: 'financial-control',
             key: 'financialControlDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue'],
             link: '',
         },
         {   
-            img: '',
+            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
             name: 'gas-consumption-calculator',
             key: 'gasConsumptionCalculatorDescription',
             technologies: ['html', 'css', 'javascript', 'vue'],
             link: '',
         },
         {   
-            img: '',
+            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
             name: 'minha-brisa',
             key: 'minhaBrisaDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
         {   
-            img: '',
+            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
             name: 'portfolio',
             key: 'portfolioDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue', 'api'],           
             link: 'https://wndev.vercel.app/'
         },
         {   
-            img: '',
+            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
             name: 'quadratic-equation',
             key: 'quadraticEquationDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
         {   
-            img: '',
+            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
             name: 'quick-chat-link',
             key: 'quickChatLinkDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
         {   
-            img: '',
+            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
             name: 'search-repositories',
             key: 'searchRepositoriesDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'api'],
             link: '',
         },
         {
-            img: '',
+            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
             name: 'text-reader',
             key: 'textReaderDescription',
             technologies: ['html', 'css', 'javascript', 'api'],
             link: '',
         },
         {
-            img: '',
+            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
             name: 'todo-list',
             key: 'todoListDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap'],
             link: '',
         },
         {
-            img: '',
+            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
             name: 'virtual-cat',
             key: 'virtualCatDescription',
             technologies: ['html', 'css', 'javascript'],
@@ -340,8 +367,8 @@ export default {
 
       const projectsContainer = document.querySelector('#projects-container');
       projectsObserver.observe(projectsContainer);
-    },     
-
+    },  
+    
   },
 
   mounted() {
@@ -357,7 +384,7 @@ export default {
 <style>
 
     #projects-container {        
-        min-height: 1000px;
+        min-height: 500px;
         width: 100%;          
     } 
     
@@ -366,65 +393,90 @@ export default {
     }
 
     #project {        
-        width: 300px;
-        height: auto; 
-        background-color: #f4f5fa;            
+        width: 500px;
+        height: auto;                 
     }
 
-    #img-frame {
+    #img-platform {
+      box-shadow: 2px 2px rgba(0, 0, 0, 0.37); 
+      background-color: #f4f5fa;
+      border: solid 0.5px rgba(0, 0, 0, 0.37);
+    }
+
+    #img-platform:hover {
+      box-shadow: 2px 2px rgba(0, 0, 0, 1);
+    }
+
+    #img-screen {
       overflow-y: scroll;
       width: 100%;
-      height: 225px;     
+      height: 375px;  
+      border: solid 0.5px rgba(0, 0, 0, 0.37);           
+    }
+
+    #img-screen::-webkit-scrollbar { 
+      width: 0px;
     }
 
     #img-project {
       width: 100%;
-      height: auto;  
+      height: auto;         
     }
 
     #name-project {
       width: 100%;    
-      line-height: 35px;  
-      height: 80px;     
+      line-height: 35px;            
     }
 
     #project-description {
       width: 100%;  
-      height: 150px;   
-      overflow-y: auto; 
-      text-align: start;     
-      display: none;                
+      height: 100px;          
+      text-align: start; 
+      overflow-y: hidden;                     
     }
 
     #project-description::-webkit-scrollbar { 
       width: 0px;
     }
 
-    #technologies-div {
-      display: grid;         
-      grid-template-columns: repeat(10, 1fr);   
-      align-items: center; 
-      justify-items: center;       
-      padding: 0; 
-      margin: 0;   
-      width: 100%;      
+    #btn-read-more {
+      width: 60px;
+      background-color: #f4f5fa;
     }
 
+    #technologies-div {
+      width: 100%;       
+    } 
 
     #technologies-img {
-      width: 40px;
+      width: 60px;
       height: auto; 
-      margin: 20px 2px; 
+      margin: 5px; 
+      padding: 4px;
+      background-color: #f4f5fa;
+      box-shadow: 2px 2px rgba(0, 0, 0, 0.37);
+      border-radius: 5px;
     } 
-   
+
+    #technologies-img:hover {
+      box-shadow: 2px 2px rgba(0, 0, 0, 1);
+      cursor: default;
+    }
+
+    .btn-show-more, .btn-hide {
+      background-color: #F2727D; 
+      box-shadow: 2px 2px rgba(0, 0, 0, 0.37);
+    }
+
+     
     .btn-project, .btn-project-repository {
-        background-color: #F2727D; 
+        background-color: #6662D9;  
         box-shadow: 2px 2px rgba(0, 0, 0, 0.37);
         color: #141414;
         border-radius: 4px;
         padding: 6px 0;
         margin: 30px 0 10px 0; 
-        width: 300px; 
+        width: 100%; 
         position: relative;
         top: 25px;
         left: 50%;
@@ -438,14 +490,24 @@ export default {
     }
 
     .btn-project:hover, .btn-project-repository:hover, .btn-show-more:hover, .btn-hide:hover {
-        background-color: #6662D9 !important;  
+        background-color: #F2727D !important;  
         transition: 1s !important;    
         cursor: pointer;
         box-shadow: 2px 2px rgba(0, 0, 0, 1);
         color: #fff;
-    }     
+    }   
+    
+    @media(max-width: 992px) {
+        #project {        
+          width: 300px;
+          height: auto;                 
+        }
+
+        #img-screen {         
+          width: 100%;
+          height: 225px;                     
+        } 
+
+    }
 
 </style>
-
-
-

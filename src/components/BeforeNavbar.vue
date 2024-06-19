@@ -94,7 +94,7 @@ mounted() {
 }
 
 svg:hover {
-  fill: #bbb;
+  fill: #F2727D;
   transition: 1s;  
 }
 

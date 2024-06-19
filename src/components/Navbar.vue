@@ -172,7 +172,7 @@
 
     a:hover {
       border-bottom: solid 2px transparent !important;
-      color: #bbb !important;
+      color: #6662D9 !important;
       transition: 1s;
       cursor: pointer;
     }
