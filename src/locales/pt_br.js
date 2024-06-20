@@ -14,7 +14,7 @@ export const pt_br = {
     contact: 'Contate-me',
   },
   projects: {
-    title: 'Meus projetos',
+    title: 'Meus projetos',    
     previewInBrowser: 'Visualizar no navegador',  
     projectRepository: 'Repositório do projeto',
 
@@ -44,6 +44,10 @@ export const pt_br = {
     todoListDescription: `Lista de tarefas, crie a apague tarefas. `,
 
     virtualCatDescription: `Demo Tamagotchi. Crie e cuide de um gatinho virtual.`,
+
+    magdaEmiliaArquiteturaDescription: `...`,
+
+    affariDescription: `...`,
 
   },
   aboutMe: {

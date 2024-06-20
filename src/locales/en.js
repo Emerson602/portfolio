@@ -42,6 +42,10 @@ export const en = {
      todoListDescription: `Task list, create and delete tasks.`,
 
      virtualCatDescription: `Tamagotchi Demo. Create and take care of a virtual kitten.`,
+
+     magdaEmiliaArquiteturaDescription: `...`,
+
+     affariDescription: `...`,
    },
    aboutMe: {
      title: 'About me',

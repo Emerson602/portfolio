@@ -12,7 +12,7 @@ export const it = {
      contact: 'Contattami',
    },
    projects: {
-     title: 'I miei progetti',
+     title: 'I miei progetti',    
      previewInBrowser: 'Visualizzare nel browser',  
      projectRepository: 'Repository del progetto', 
 
@@ -42,6 +42,10 @@ export const it = {
      todoListDescription: `Lista delle attività, creare e cancellare attività.`,
 
      virtualCatDescription: `Demo Tamagotchi. Crea e prenditi cura di un gattino virtuale.`,
+
+     magdaEmiliaArquiteturaDescription: `...`,
+
+     affariDescription: `...`,
 
    },
    aboutMe: {

@@ -45,140 +45,158 @@ export default {
       projectDescription: '',
       projectTechnologies: '',   
       technologies: [],
-      totalTechnologies: 0, 
-      
+      totalTechnologies: 0,      
+
     };
   },
   methods: {
-    renderRepositories(repositories) {  
+    renderRepositories(repositories) {
+  const repositoriesNotDisplayed = [2, 5, 8, 9, 11, 12, 14, 15, 16];
 
-     const repositoriesNotDisplayed = [1, 4, 6, 7];
+  this.paginationRepositories(repositories);
+    
+  if (this.content) {
+    this.content.innerHTML = '';
+    
+    this.newRepositories.forEach(({ name }, index) => {
+      if (!repositoriesNotDisplayed.includes(index)) {
+        console.log(this.newRepositories)
+        const project = document.createElement('div');
+        const imgPlatform = document.createElement('div');
+        const imgScreen = document.createElement('div');
+        const imgProject = document.createElement('img');
+        const nameProject = document.createElement('h2');
+        const projectDescription = document.createElement('p');
+        const btnReadMore = document.createElement('button');
+        const technologiesDiv = document.createElement('div');
+        const projectLink = document.createElement('a');
+        const projectRepository = document.createElement('a');
 
-     this.paginationRepositories(repositories)         
-     
-     if (this.content) {
-        this.content.innerHTML = '';
-        
-        this.newRepositories.forEach(({ name }, index) => {
-          if (!repositoriesNotDisplayed.includes(index)) {
+        project.setAttribute('id', 'project');
 
-            const project = document.createElement('div');
-            const imgPlatform = document.createElement('div');
-            const imgScreen = document.createElement('div');
-            const imgProject = document.createElement('img');
-            const nameProject = document.createElement('h2');
-            const projectDescription = document.createElement('p'); 
-            const btnReadMore = document.createElement('button');          
-            const technologiesDiv = document.createElement('div');                    
-            const projectLink = document.createElement('a'); 
-            const projectRepository = document.createElement('a');            
-            
-            project.setAttribute('id', 'project'); 
-            
-            imgPlatform.setAttribute('id', 'img-platform');
-            imgScreen.setAttribute('id', 'img-screen');    
-            imgProject.setAttribute('id', 'img-project');           
-            nameProject.setAttribute('id', 'name-project');            
-            projectDescription.setAttribute('id', 'project-description');  
-            btnReadMore.setAttribute('id', 'btn-read-more'); 
-                          
-            technologiesDiv.setAttribute('id', 'technologies-div');
-            
-            imgPlatform.setAttribute('class', 'p-2 rounded');
-            imgScreen.setAttribute('class', 'rounded');
-            project.setAttribute('class', 'd-flex flex-column justify-content-start align-items-center m-3 mt-5 p-0 text-center');
-            nameProject.setAttribute('class', 'fs-6 mt-5 mb-3 fw-bold');
-            projectDescription.setAttribute('class', 'fs-6');
-            btnReadMore.setAttribute('class', 'fs-6 rounded border-0 p-1 mt-1 mb-3');
-            technologiesDiv.setAttribute('class', 'd-flex flex-row justify-content-center align-items-center flex-wrap m-0 p-0');
-            
-            btnReadMore.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"></path>
-              <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"></path>
-            </svg>
-            `
+        imgPlatform.setAttribute('id', 'img-platform');
+        imgScreen.setAttribute('id', 'img-screen');
+        imgProject.setAttribute('id', 'img-project');
+        nameProject.setAttribute('id', 'name-project');
+        projectDescription.setAttribute('id', `project-description-${index}`);
+        btnReadMore.setAttribute('id', `btn-read-more-${index}`);
 
-            btnReadMore.addEventListener('click', () => {
-              const projectDescription = document.querySelector('#project-description');
+        technologiesDiv.setAttribute('id', 'technologies-div');
 
-              if(projectDescription) {
-                projectDescription.style.height = 'auto';
-                console.log('expandiu')
-              }
-              
-            });
+        imgPlatform.setAttribute('class', 'p-2 rounded');
+        imgScreen.setAttribute('class', 'rounded');
+        project.setAttribute('class', 'd-flex flex-column justify-content-start align-items-center m-3 mt-5 p-0 text-center');
+        nameProject.setAttribute('class', 'fs-6 mt-5 mb-3 fw-bold');
+        projectDescription.setAttribute('class', 'fs-6 d-none');
+        btnReadMore.setAttribute('class', 'fs-6 rounded border-0 p-1 mt-1 mb-3');
+        technologiesDiv.setAttribute('class', 'd-flex flex-row justify-content-center align-items-center flex-wrap m-0 p-0');
 
-            imgPlatform.appendChild(imgScreen)
-            imgScreen.appendChild(imgProject)
+        btnReadMore.innerHTML = `
+        <svg id="hide-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-up" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708z"/>
+          <path fill-rule="evenodd" d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
+        </svg>
+        <svg id='show-arrow' xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+          <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+        </svg>
+        `
+        const hideArrows = document.querySelectorAll('#hide-arrow');         
+        const showArrows = document.querySelectorAll('#show-arrow');
 
-            function formatRepositoryName() {
-
-              const nameArray = name.split("-");
-              let numberOfWords = nameArray.length;
-              let formattedName = "";
-
-              for (let wordIndex = 0; wordIndex < numberOfWords; wordIndex++) {
-                formattedName += nameArray[wordIndex];
-                if (wordIndex !== numberOfWords - 1) {
-                  formattedName += " ";
-                }
-              }
-
-              return formattedName;
-            }
-
-            function capitalizeFirstLetter(string) {
-              return string.charAt(0).toUpperCase() + string.slice(1);
-            }
-
-            let repositoryName = formatRepositoryName()   
-            repositoryName = capitalizeFirstLetter(repositoryName)            
-
-            nameProject.textContent = `${repositoryName}`;       
-
-            this.projectName = name   
-            
-            this.definingProjectData()           
-
-            for(let technologyIndex = 0; technologyIndex < this.totalTechnologies; technologyIndex++) {
-              let index = this.technologies[technologyIndex];
-              technologiesDiv.innerHTML += `              
-                <img id="technologies-img" src="./img/${index}.webp" type="button" data-toggle="tooltip" data-placement="top" title="${index.toUpperCase()}">              
-              `;
-                           
-            }
-
-            let description = this.projectDescription 
-            description = capitalizeFirstLetter(description)                     
-            projectLink.href = this.projectLink;  
-            imgProject.src = this.projectImg;             
-
-            projectDescription.textContent = description;         
-
-            const btnTextPrevieInBrowser = this.$t('projects.previewInBrowser');
-            const btnTextProjectRepository = this.$t('projects.projectRepository');
-
-            projectLink.target = '_blank';
-            projectLink.textContent = btnTextPrevieInBrowser
-            projectLink.className = 'btn-project';     
-         
-            projectRepository.href = `https://github.com/Emerson602/${name}`
-            projectRepository.target = '_blank';
-
-            projectRepository.textContent = btnTextProjectRepository
-            projectRepository.className = 'btn-project-repository';            
-
-            [imgPlatform, nameProject, projectDescription, btnReadMore, technologiesDiv, projectLink, projectRepository].forEach((data) => {
-              project.appendChild(data);
-            });                    
-            this.content.appendChild(project);
-          }          
+        hideArrows.forEach(button => {
+            button.classList.add('d-none');           
         });
-          
-      }   
-      
-    }, 
+
+        showArrows.forEach(button => {
+            button.classList.add('d-block');           
+        });
+
+//o botao hideArrow deve ficar oculto por padrao
+
+      btnReadMore.addEventListener('click', () => {
+        if (projectDescription.classList.contains('d-none')) {
+          projectDescription.classList.remove('d-none');
+          projectDescription.classList.add('d-block');              
+
+
+
+        } else {
+          projectDescription.classList.remove('d-block');
+          projectDescription.classList.add('d-none');
+
+
+        }
+      });
+
+
+        imgPlatform.appendChild(imgScreen);
+        imgScreen.appendChild(imgProject);
+
+        function formatRepositoryName() {
+          const nameArray = name.split("-");
+          let numberOfWords = nameArray.length;
+          let formattedName = "";
+
+          for (let wordIndex = 0; wordIndex < numberOfWords; wordIndex++) {
+            formattedName += nameArray[wordIndex];
+            if (wordIndex !== numberOfWords - 1) {
+              formattedName += " ";
+            }
+          }
+
+          return formattedName;
+        }
+
+        function capitalizeFirstLetter(string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        let repositoryName = formatRepositoryName();
+        repositoryName = capitalizeFirstLetter(repositoryName);
+
+        nameProject.textContent = `${repositoryName}`;
+
+        this.projectName = name;
+
+        this.definingProjectData();
+
+        for (let technologyIndex = 0; technologyIndex < this.totalTechnologies; technologyIndex++) {
+          let index = this.technologies[technologyIndex];
+          technologiesDiv.innerHTML += `
+            <img id="technologies-img" src="./img/${index}.webp" type="button" data-toggle="tooltip" data-placement="top" title="${index.toUpperCase()}">
+          `;
+        }
+
+        let description = this.projectDescription;
+        description = capitalizeFirstLetter(description);
+        projectLink.href = this.projectLink;
+        imgProject.src = this.projectImg;
+
+        projectDescription.textContent = description;
+
+        const btnTextPrevieInBrowser = this.$t('projects.previewInBrowser');
+        const btnTextProjectRepository = this.$t('projects.projectRepository');
+
+        projectLink.target = '_blank';
+        projectLink.textContent = btnTextPrevieInBrowser;
+        projectLink.className = 'btn-project';
+
+        projectRepository.href = `https://github.com/Emerson602/${name}`;
+        projectRepository.target = '_blank';
+
+        projectRepository.textContent = btnTextProjectRepository;
+        projectRepository.className = 'btn-project-repository';
+
+        [imgPlatform, nameProject, projectDescription, btnReadMore, technologiesDiv, projectLink, projectRepository].forEach((data) => {
+          project.appendChild(data);
+        });
+        this.content.appendChild(project);
+      }
+    });
+  }
+},
+
 
     definingProjectData() {  
         
@@ -187,83 +205,86 @@ export default {
        let link = '';
        
        const projects = [
-        {   
-            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
+        {              
             name: 'almeida-transportes',
             key: 'almeidaTransportesDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
-        {   
-            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
+        {               
             name: 'financial-control',
             key: 'financialControlDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue'],
             link: '',
         },
-        {   
-            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
+        {               
             name: 'gas-consumption-calculator',
             key: 'gasConsumptionCalculatorDescription',
             technologies: ['html', 'css', 'javascript', 'vue'],
             link: '',
         },
-        {   
-            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
+        {               
             name: 'minha-brisa',
             key: 'minhaBrisaDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
-        {   
-            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
+        {               
             name: 'portfolio',
             key: 'portfolioDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue', 'api'],           
             link: 'https://wndev.vercel.app/'
         },
-        {   
-            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
+        {               
             name: 'quadratic-equation',
             key: 'quadraticEquationDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
-        {   
-            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
+        {               
             name: 'quick-chat-link',
             key: 'quickChatLinkDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
-        {   
-            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
+        {               
             name: 'search-repositories',
             key: 'searchRepositoriesDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'api'],
             link: '',
         },
-        {
-            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
+        {            
             name: 'text-reader',
             key: 'textReaderDescription',
             technologies: ['html', 'css', 'javascript', 'api'],
             link: '',
         },
-        {
-            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
+        {            
             name: 'todo-list',
             key: 'todoListDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap'],
             link: '',
         },
-        {
-            img: 'https://i.pinimg.com/564x/c2/49/b6/c249b6f4bb784213dd4c2dcbec5bf6dc.jpg',
+        {            
             name: 'virtual-cat',
             key: 'virtualCatDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
-        }
+        },
+        {            
+            name: 'magda-emilia-arquitetura',
+            key: 'magdaEmiliaArquiteturaDescription',
+            technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue'],
+            link: 'https://magda-emilia-arquitetura.vercel.app/',
+        },
+        {            
+            name: 'affari',
+            key: 'affariDescription',
+            technologies: ['html', 'css', 'javascript', 'typescript', 'vue', 'bootstrap'],
+            link: 'https://affari-adw83iba3-emerson602s-projects.vercel.app/#/',
+        },
+        
+        
       ];
      
       for (let i = 0; i < projects.length; i++) {
@@ -274,7 +295,7 @@ export default {
             keyName = project.key;
             technologies = project.technologies;
             link = project.link === '' ? `https://emerson602.github.io/${this.projectName}/index.html` : project.link;
-           
+            projects[i].img = `/img/pages/${projects[i].name}.webp`;
             this.projectImg = project.img;
             this.projectLink = link;
             this.projectDescription = this.$t(`projects.${keyName}`);
@@ -292,7 +313,7 @@ export default {
         .then((response) => {
           const repositories = response.data;  
           this.totalProjects = repositories.length      
-                       
+          console.log(repositories)             
           this.renderRepositories(repositories);  
                       
         })
@@ -411,7 +432,8 @@ export default {
       overflow-y: scroll;
       width: 100%;
       height: 375px;  
-      border: solid 0.5px rgba(0, 0, 0, 0.37);           
+      border: solid 0.5px rgba(0, 0, 0, 0.37);   
+      background-color: #fff;        
     }
 
     #img-screen::-webkit-scrollbar { 
@@ -425,7 +447,8 @@ export default {
 
     #name-project {
       width: 100%;    
-      line-height: 35px;            
+      line-height: 35px;    
+      text-transform: uppercase;        
     }
 
     #project-description {
