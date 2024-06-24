@@ -60,7 +60,7 @@ export default {
     
     this.newRepositories.forEach(({ name }, index) => {
       if (!repositoriesNotDisplayed.includes(index)) {
-        console.log(this.newRepositories)
+        
         const project = document.createElement('div');
         const imgPlatform = document.createElement('div');
         const imgScreen = document.createElement('div');
@@ -69,6 +69,7 @@ export default {
         const projectDescription = document.createElement('p');
         const btnReadMore = document.createElement('button');
         const technologiesDiv = document.createElement('div');
+        const technologiesUsed = document.createElement('span');
         const projectLink = document.createElement('a');
         const projectRepository = document.createElement('a');
 
@@ -87,44 +88,24 @@ export default {
         imgScreen.setAttribute('class', 'rounded');
         project.setAttribute('class', 'd-flex flex-column justify-content-start align-items-center m-3 mt-5 p-0 text-center');
         nameProject.setAttribute('class', 'fs-6 mt-5 mb-3 fw-bold');
-        projectDescription.setAttribute('class', 'fs-6 d-none');
-        btnReadMore.setAttribute('class', 'fs-6 rounded border-0 p-1 mt-1 mb-3');
+        projectDescription.setAttribute('class', 'fs-6 d-none text-start');
+        btnReadMore.setAttribute('class', 'fs-6 bg-white rounded text-primary fw-bold border-0 p-2');
         technologiesDiv.setAttribute('class', 'd-flex flex-row justify-content-center align-items-center flex-wrap m-0 p-0');
+        technologiesUsed.setAttribute('class', 'fs-6 mt-3 mb-3');
 
-        btnReadMore.innerHTML = `
-        <svg id="hide-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-up" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708z"/>
-          <path fill-rule="evenodd" d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
-        </svg>
-        <svg id='show-arrow' xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
-          <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
-        </svg>
-        `
-        const hideArrows = document.querySelectorAll('#hide-arrow');         
-        const showArrows = document.querySelectorAll('#show-arrow');
+        technologiesUsed.textContent = this.$t('projects.technologiesUsed');
 
-        hideArrows.forEach(button => {
-            button.classList.add('d-none');           
-        });
-
-        showArrows.forEach(button => {
-            button.classList.add('d-block');           
-        });
-
-//o botao hideArrow deve ficar oculto por padrao
+        btnReadMore.innerHTML = this.$t('projects.showDescription');
 
       btnReadMore.addEventListener('click', () => {
         if (projectDescription.classList.contains('d-none')) {
           projectDescription.classList.remove('d-none');
-          projectDescription.classList.add('d-block');              
-
-
-
+          projectDescription.classList.add('d-block');       
+          btnReadMore.innerHTML = this.$t('projects.hideDescription');
         } else {
           projectDescription.classList.remove('d-block');
           projectDescription.classList.add('d-none');
-
+          btnReadMore.innerHTML = this.$t('projects.showDescription');
 
         }
       });
@@ -188,7 +169,7 @@ export default {
         projectRepository.textContent = btnTextProjectRepository;
         projectRepository.className = 'btn-project-repository';
 
-        [imgPlatform, nameProject, projectDescription, btnReadMore, technologiesDiv, projectLink, projectRepository].forEach((data) => {
+        [imgPlatform, nameProject, projectDescription, btnReadMore, technologiesUsed, technologiesDiv, projectLink, projectRepository].forEach((data) => {
           project.appendChild(data);
         });
         this.content.appendChild(project);
@@ -313,7 +294,7 @@ export default {
         .then((response) => {
           const repositories = response.data;  
           this.totalProjects = repositories.length      
-          console.log(repositories)             
+                    
           this.renderRepositories(repositories);  
                       
         })
@@ -460,12 +441,7 @@ export default {
 
     #project-description::-webkit-scrollbar { 
       width: 0px;
-    }
-
-    #btn-read-more {
-      width: 60px;
-      background-color: #f4f5fa;
-    }
+    } 
 
     #technologies-div {
       width: 100%;       
@@ -513,7 +489,7 @@ export default {
     }
 
     .btn-project:hover, .btn-project-repository:hover, .btn-show-more:hover, .btn-hide:hover {
-        background-color: #F2727D !important;  
+        background-color: #6662D9 !important;  
         transition: 1s !important;    
         cursor: pointer;
         box-shadow: 2px 2px rgba(0, 0, 0, 1);

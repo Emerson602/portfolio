@@ -20,7 +20,7 @@ export default {
     removePreload() {
       const overlay = document.querySelector('#preload-container');      
       window.addEventListener("load", function () {
-		    overlay.remove();
+		  overlay.remove();
 		})
     },
 
@@ -67,9 +67,9 @@ export default {
         left: 0;     
         width: 100%;
         height: 100vh;
-        background-color: #141414;
+        background-color: #f4f5fa;
         z-index: 99;
-        color: #fff;
+        color: #141414;
         display: flex;
         align-items: center;
         justify-content: center;     

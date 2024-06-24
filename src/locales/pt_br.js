@@ -17,6 +17,9 @@ export const pt_br = {
     title: 'Meus projetos',    
     previewInBrowser: 'Visualizar no navegador',  
     projectRepository: 'Repositório do projeto',
+    technologiesUsed: 'Tecnologias utilizadas:',
+    showDescription: 'Exibir descrição.',
+    hideDescription: 'Ocutar descrição.',
 
     almeidaTransportesDescription: `site institucional simples, desenvolvido para uma transportadora, nele são apresentados os serviços fornecidos pela empresa, 
     opção para rastreamento, além de informações para contato, horário de funcionamento e localização da empresa.`,
@@ -45,9 +48,9 @@ export const pt_br = {
 
     virtualCatDescription: `Demo Tamagotchi. Crie e cuide de um gatinho virtual.`,
 
-    magdaEmiliaArquiteturaDescription: `...`,
+    magdaEmiliaArquiteturaDescription: `Portfolio desenvolvido para uma graduanda de arquitetura.`,
 
-    affariDescription: `...`,
+    affariDescription: `Site institucional desenvolvido para um agencia de desenvolvimento web, onde constam informações sobre os serviços e produtos. `,
 
   },
   aboutMe: {

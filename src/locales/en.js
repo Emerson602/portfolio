@@ -14,7 +14,10 @@ export const en = {
    projects: {
      title: 'My Projects',
      previewInBrowser: 'Preview in browser',  
-     projectRepository: 'Project repository', 
+     projectRepository: 'Project repository',
+     technologiesUsed: 'Technologies used:', 
+     showDescription: 'Show description',
+     hideDescription: 'Hide description',
 
      almeidaTransportesDescription: `simple institutional website, developed for a transport company, it presents the services provided by the company,
      option for tracking, as well as contact information, opening hours and company location.`,
@@ -43,9 +46,9 @@ export const en = {
 
      virtualCatDescription: `Tamagotchi Demo. Create and take care of a virtual kitten.`,
 
-     magdaEmiliaArquiteturaDescription: `...`,
+     magdaEmiliaArquiteturaDescription: `Portfolio developed for an architecture graduate.`,
 
-     affariDescription: `...`,
+     affariDescription: `Institutional website developed for a web development agency, containing information about services and products.`,
    },
    aboutMe: {
      title: 'About me',
