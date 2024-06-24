@@ -469,7 +469,7 @@ export default {
 
      
     .btn-project, .btn-project-repository {
-        background-color: #6662D9;  
+        background-color: #F2727D;  
         box-shadow: 2px 2px rgba(0, 0, 0, 0.37);
         color: #141414;
         border-radius: 4px;
