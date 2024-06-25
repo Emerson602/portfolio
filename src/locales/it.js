@@ -56,7 +56,7 @@ export const it = {
      firstParagraph: `Ciao, mi chiamo Wemerson Nicacio, Sono un sviluppatore front-end con 2 anni di
       esperienza.`,    
      
-     secondParagraph: `Appassionato di tecnologia, sono sempre aggiornato e in continuo apprendimento,
+     secondParagraph: `Appassionato per tecnologia, sono sempre aggiornato e in continuo apprendimento,
       per migliorare le mie conoscenze e crescere professionalmente.`, 
    },
    skills: {

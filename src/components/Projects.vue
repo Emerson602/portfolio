@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     renderRepositories(repositories) {
-  const repositoriesNotDisplayed = [2, 5, 8, 9, 11, 12, 14, 15, 16];
+  const repositoriesNotDisplayed = [2, 5, 8, 9, 14, 16]; 
 
   this.paginationRepositories(repositories);
     
@@ -60,7 +60,7 @@ export default {
     
     this.newRepositories.forEach(({ name }, index) => {
       if (!repositoriesNotDisplayed.includes(index)) {
-        
+
         const project = document.createElement('div');
         const imgPlatform = document.createElement('div');
         const imgScreen = document.createElement('div');
@@ -294,7 +294,7 @@ export default {
         .then((response) => {
           const repositories = response.data;  
           this.totalProjects = repositories.length      
-                    
+                 
           this.renderRepositories(repositories);  
                       
         })
@@ -410,9 +410,9 @@ export default {
     }
 
     #img-screen {
-      overflow-y: scroll;
+      overflow-y: hidden;
       width: 100%;
-      height: 375px;  
+      height: 350px;  
       border: solid 0.5px rgba(0, 0, 0, 0.37);   
       background-color: #fff;        
     }
@@ -504,7 +504,7 @@ export default {
 
         #img-screen {         
           width: 100%;
-          height: 225px;                     
+          height: 210px;                     
         } 
 
     }

@@ -6,7 +6,7 @@
           </div>    
 
           <div class="col-12 col-lg-6 p-3 p-lg-5 pt-0 pb-0 d-flex flex-column justify-content-center align-items-center text-center text-lg-start">    
-            <h1 class="fs-1 col-12 mt-3 mb-3 text-center text-lg-start">{{ $t('aboutMe.title') }}</h1>    
+            <h1 class="fs-1 col-12 mt-3 mb-5 mb-lg-3  text-center text-lg-start">{{ $t('aboutMe.title') }}</h1>    
             <p id="paragraph-1" class="fs-5 m-2 col-12">{{ firstParagraph }}</p>
             <p id="paragraph-2" class="fs-5 m-2 col-12">{{ secondParagraph }}</p>           
           </div>  
