@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     renderRepositories(repositories) {
-  const repositoriesNotDisplayed = [2, 5, 8, 9, 14, 16]; 
+  const repositoriesNotDisplayed = [2, 5, 8, 9, 16]; 
 
   this.paginationRepositories(repositories);
     
@@ -293,8 +293,8 @@ export default {
         .get(`https://api.github.com/users/${this.username}/repos`)
         .then((response) => {
           const repositories = response.data;  
-          this.totalProjects = repositories.length      
-                 
+          this.totalProjects = repositories.length;     
+          
           this.renderRepositories(repositories);  
                       
         })
