@@ -60,7 +60,7 @@ export default {
     
     this.newRepositories.forEach(({ name }, index) => {
       if (!repositoriesNotDisplayed.includes(index)) {
-
+       
         const project = document.createElement('div');
         const imgPlatform = document.createElement('div');
         const imgScreen = document.createElement('div');
