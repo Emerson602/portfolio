@@ -64,7 +64,7 @@ export const en = {
    },
    moreSkills: {
     btnCv: 'My curriculum',
-    text_1: 'Experience in front-end development using: HTML, CSS, Bootstrap, JavaScript, TypeScript and Vue.js .',
+    text_1: 'Experience in front-end development using: HTML, CSS, JavaScript, Vue.js, Nuxt,  TypeScript, Bootstrap, Tailwind e Sass.',
     text_2: 'Experience in developing responsive layouts.',
     text_3: 'Knowledge in code versioning using Git.',
     text_4: 'Knowledge in Docker.',

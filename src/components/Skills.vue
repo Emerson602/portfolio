@@ -3,38 +3,53 @@
 
     <h1 class="fs-1 mt-5 mb-0">{{ $t('skills.title') }}</h1>
 
-        <div class="mt-5 d-flex flex-row justify-content-center align-items-center flex-wrap" id="skills">
+        <div class="mt-5 d-flex flex-row justify-content-center align-items-center" id="skills">
+          <div class="col-12 col-md-10 col-xl-8 d-flex flex-row justify-content-center align-items-center flex-wrap">
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="html_src" :alt="html_alt" id="technology-1">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">HTML</span>
+              </div>
 
-            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
-              <img :src="html_src" :alt="html_alt" id="technology-1">
-              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">HTML</span>
-            </div>
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="css_src" :alt="css_alt" id="technology-2">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">CSS</span>
+              </div>
 
-            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
-              <img :src="css_src" :alt="css_alt" id="technology-2">
-              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">CSS</span>
-            </div>
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="javascript_src" :alt="javascript_alt" id="technology-3">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">JavaScript</span>
+              </div>
+              
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="typescript_src" :alt="typescript_alt" id="technology-7">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">TypeScript</span>
+              </div>  
 
-            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
-              <img :src="javascript_src" :alt="javascript_alt" id="technology-3">
-              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">JavaScript</span>
-            </div>            
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="vue_src" :alt="vue_alt" id="technology-4">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Vue.js</span>
+              </div>
 
-            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
-              <img :src="vue_src" :alt="vue_alt" id="technology-4">
-              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Vue.js</span>
-            </div>
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="nuxt_src" :alt="nuxt_alt" id="technology-4">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Nuxt</span>
+              </div>
 
-            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
-              <img :src="bootstrap_src" :alt="bootstrap_alt" id="technology-5">
-              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Bootstrap</span>
-            </div>     
-  
-            <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
-              <img :src="typescript_src" :alt="typescript_alt" id="technology-7">
-              <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">TypeScript</span>
-            </div>                                    
-                
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="bootstrap_src" :alt="bootstrap_alt" id="technology-5">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Bootstrap</span>
+              </div> 
+
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="tailwind_src" :alt="tailwind_alt" id="technology-5">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Tailwind</span>
+              </div> 
+
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="sass_src" :alt="sass_alt" id="technology-5">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Sass</span>
+              </div> 
+          </div>
       </div>         
     
   </div>
@@ -44,12 +59,24 @@
 export default {
   data() {
     return {
+      html_alt: "html",
+      css_alt: "css",
+      javascript_alt: "javascript",
+      typescript_alt: "typescript",
+      vue_alt: "vue", 
+      nuxt_alt: "nuxt",   
+      bootstrap_alt: "bootstrap",   
+      sass_alt: "sass",
+      tailwind_alt: "tailwind",
       html_src: "/img/html.webp",
       css_src: "/img/css.webp",
       javascript_src: "/img/javascript.webp",
-      vue_src: "/img/vue.webp",    
+      typescript_src: "/img/typescript.webp",
+      vue_src: "/img/vue.webp", 
+      nuxt_src: "/img/nuxt.webp",   
       bootstrap_src: "/img/bootstrap.webp",   
-      typescript_src: "/img/typescript.webp",           
+      sass_src: "/img/sass.webp",
+      tailwind_src: "/img/tailwind.webp",                 
     };
   },
 
