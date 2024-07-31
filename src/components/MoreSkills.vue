@@ -24,7 +24,8 @@ export default {
           text_3: this.$t('moreSkills.text_3'),
           text_4: this.$t('moreSkills.text_4'),
           text_5: this.$t('moreSkills.text_5'),
-          text_6: this.$t('moreSkills.text_6'),       
+          text_6: this.$t('moreSkills.text_6'), 
+          text_7: this.$t('moreSkills.text_7'),      
         }; 
 
       const div = document.createElement('div'); 

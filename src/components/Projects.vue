@@ -51,10 +51,10 @@ export default {
   },
   methods: {
     renderRepositories(repositories) {
-  const repositoriesNotDisplayed = [2, 5, 8, 9, 16]; 
+  const repositoriesNotDisplayed = [2, 5, 8, 9, 14, 16, 17]; 
 
   this.paginationRepositories(repositories);
-    
+  
   if (this.content) {
     this.content.innerHTML = '';
     
@@ -188,81 +188,101 @@ export default {
        const projects = [
         {              
             name: 'almeida-transportes',
+            api: false,
             key: 'almeidaTransportesDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
         {               
             name: 'financial-control',
+            api: false,
             key: 'financialControlDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue'],
             link: '',
         },
         {               
             name: 'gas-consumption-calculator',
+            api: false,
             key: 'gasConsumptionCalculatorDescription',
             technologies: ['html', 'css', 'javascript', 'vue'],
             link: '',
         },
         {               
             name: 'minha-brisa',
+            api: false,
             key: 'minhaBrisaDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
         {               
             name: 'portfolio',
+            api: false,
             key: 'portfolioDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue', 'api'],           
             link: 'https://wndev.vercel.app/'
         },
         {               
             name: 'quadratic-equation',
+            api: false,
             key: 'quadraticEquationDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
         {               
             name: 'quick-chat-link',
+            api: false,
             key: 'quickChatLinkDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
         {               
             name: 'search-repositories',
+            api: false,
             key: 'searchRepositoriesDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'api'],
             link: '',
         },
         {            
             name: 'text-reader',
+            api: false,
             key: 'textReaderDescription',
             technologies: ['html', 'css', 'javascript', 'api'],
             link: '',
         },
         {            
             name: 'todo-list',
+            api: false,
             key: 'todoListDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap'],
             link: '',
         },
         {            
             name: 'virtual-cat',
+            api: false,
             key: 'virtualCatDescription',
             technologies: ['html', 'css', 'javascript'],
             link: '',
         },
         {            
             name: 'magda-emilia-arquitetura',
+            api: false,
             key: 'magdaEmiliaArquiteturaDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue'],
             link: 'https://magda-emilia-arquitetura.vercel.app/',
         },
         {            
             name: 'affari',
+            api: false,
             key: 'affariDescription',
             technologies: ['html', 'css', 'javascript', 'typescript', 'vue', 'bootstrap'],
             link: 'https://affari-adw83iba3-emerson602s-projects.vercel.app/#/',
+        },
+        {            
+            name: 'time-zone-info-api',
+            api: true,
+            key: 'timeZoneInfoApiDescription',
+            technologies: ['node', 'express'],
+            link: 'https://time-zone-info-api.vercel.app/',
         },
         
         
@@ -276,7 +296,8 @@ export default {
             keyName = project.key;
             technologies = project.technologies;
             link = project.link === '' ? `https://emerson602.github.io/${this.projectName}/index.html` : project.link;
-            projects[i].img = `/img/pages/${projects[i].name}.webp`;
+            projects[i].img = project.api === true ? `/img/pages/api.webp` : `/img/pages/${projects[i].name}.webp`;
+            //projects[i].img = `/img/pages/${projects[i].name}.webp`;
             this.projectImg = project.img;
             this.projectLink = link;
             this.projectDescription = this.$t(`projects.${keyName}`);

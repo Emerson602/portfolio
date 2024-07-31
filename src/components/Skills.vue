@@ -48,7 +48,18 @@
               <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
                 <img :src="sass_src" :alt="sass_alt" id="technology-5">
                 <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Sass</span>
-              </div> 
+              </div>
+
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="node_src" :alt="node_alt" id="technology-5">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Node</span>
+              </div>
+
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="express_src" :alt="express_alt" id="technology-5">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Express</span>
+              </div>
+
           </div>
       </div>         
     
@@ -68,6 +79,9 @@ export default {
       bootstrap_alt: "bootstrap",   
       sass_alt: "sass",
       tailwind_alt: "tailwind",
+      node_alt: "node",
+      express_alt: "express",
+
       html_src: "/img/html.webp",
       css_src: "/img/css.webp",
       javascript_src: "/img/javascript.webp",
@@ -76,7 +90,9 @@ export default {
       nuxt_src: "/img/nuxt.webp",   
       bootstrap_src: "/img/bootstrap.webp",   
       sass_src: "/img/sass.webp",
-      tailwind_src: "/img/tailwind.webp",                 
+      tailwind_src: "/img/tailwind.webp",     
+      node_src: "/img/node.webp",  
+      express_src: "/img/express.webp",           
     };
   },
 

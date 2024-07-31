@@ -49,6 +49,10 @@ export const en = {
      magdaEmiliaArquiteturaDescription: `Portfolio developed for an architecture graduate.`,
 
      affariDescription: `Institutional website developed for a web development agency, containing information about services and products.`,
+
+     timeZoneInfoApiDescription: `The Time Zone Info API provides information about countries, their cities,
+      and corresponding time zone details. Users can retrieve all data, or search for specific entries by ID,
+       country, or city. The API returns the TZ_identifier and country_code which can be used to obtain time zones.`,
    },
    aboutMe: {
      title: 'About me',
@@ -70,6 +74,7 @@ export const en = {
     text_4: 'Knowledge in Docker.',
     text_5: 'Knowledge in unit testing using Jest.',
     text_6: 'Experience in consuming APIs.', 
+    text_7: 'Familiarity with Node.js and Express.',
   },
    form: {
     name: 'Your name',

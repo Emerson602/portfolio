@@ -50,6 +50,10 @@ export const it = {
 
      affariDescription: `Sito istituzionale sviluppato per un'agenzia di sviluppo web, contenente informazioni sui servizi e sui prodotti.`,
 
+     timeZoneInfoApiDescription: `La Time Zone Info API fornisce informazioni sui paesi, le loro città e i relativi dettagli del fuso orario.
+      Gli utenti possono recuperare tutti i dati o cercare voci specifiche per ID, paese o città. L'API restituisce il TZ_identifier
+       e il country_code che possono essere utilizzati per ottenere i fusi orari.`,
+
    },
    aboutMe: {
      title: 'Chi sono',
@@ -69,7 +73,8 @@ export const it = {
     text_3: 'Conoscenza del versionamento del codice utilizzando Git.',
     text_4: 'Conoscenza di Docker.',
     text_5: 'Conoscenza del test unitario utilizzando Jest.',
-    text_6: 'Esperienza nel consumo di API.',     
+    text_6: 'Esperienza nel consumo di API.',  
+    text_7: 'Familiarità con Node.js e Express.',   
    },
    form: {  
     name: 'Il tuo nome',

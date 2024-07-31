@@ -52,6 +52,10 @@ export const pt_br = {
 
     affariDescription: `Site institucional desenvolvido para um agencia de desenvolvimento web, onde constam informações sobre os serviços e produtos. `,
 
+    timeZoneInfoApiDescription: `A Time Zone Info API fornece informações sobre países, suas cidades e detalhes correspondentes de fuso horário. 
+    Os usuários podem recuperar todos os dados ou pesquisar entradas específicas por ID, país ou cidade.
+     A API retorna o TZ_identifier e o country_code que podem ser utilizados para obter fusos horários.`,
+
   },
   aboutMe: {
     title: 'Sobre mim',
@@ -71,6 +75,7 @@ export const pt_br = {
     text_4: 'Conhecimento em Docker.',
     text_5: 'Conhecimento em teste unitário utilizando Jest.',
     text_6: 'Experiência em consumo de APIs.', 
+    text_7: 'Familiaridade com Node.js e Express.',
   },
   form: {
     name: 'Seu nome',
