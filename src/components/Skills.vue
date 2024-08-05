@@ -60,6 +60,11 @@
                 <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Express</span>
               </div>
 
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="postgresql_src" :alt="postgresql_alt" id="technology-5">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">PostgreSQL</span>
+              </div>
+
           </div>
       </div>         
     
@@ -81,6 +86,7 @@ export default {
       tailwind_alt: "tailwind",
       node_alt: "node",
       express_alt: "express",
+      postgresql_alt: "postgresql",
 
       html_src: "/img/html.webp",
       css_src: "/img/css.webp",
@@ -92,7 +98,8 @@ export default {
       sass_src: "/img/sass.webp",
       tailwind_src: "/img/tailwind.webp",     
       node_src: "/img/node.webp",  
-      express_src: "/img/express.webp",           
+      express_src: "/img/express.webp",  
+      postgresql_src: "/img/postgresql.webp",         
     };
   },
 

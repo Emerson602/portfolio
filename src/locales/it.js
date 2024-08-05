@@ -57,7 +57,7 @@ export const it = {
    },
    aboutMe: {
      title: 'Chi sono',
-     firstParagraph: `Ciao, mi chiamo Wemerson Nicacio, Sono un sviluppatore front-end con 2 anni di
+     firstParagraph: `Ciao, mi chiamo Wemerson Nicacio, Sono un sviluppatore front-end con yearsOfExperience anni di
       esperienza.`,    
      
      secondParagraph: `Appassionato per tecnologia, sono sempre aggiornato e in continuo apprendimento,
@@ -74,7 +74,7 @@ export const it = {
     text_4: 'Conoscenza di Docker.',
     text_5: 'Conoscenza del test unitario utilizzando Jest.',
     text_6: 'Esperienza nel consumo di API.',  
-    text_7: 'Familiarità con Node.js e Express.',   
+    text_7: 'Conoscenza basilare in Node.js, Express e PostgreSQL.',   
    },
    form: {  
     name: 'Il tuo nome',

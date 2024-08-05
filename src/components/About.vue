@@ -34,9 +34,16 @@ export default {
   },
   methods: {
 
+    setYearsOfExperience(startYear) {
+      const currentYear = new Date().getFullYear();
+      return currentYear - startYear;
+    },
+
     typeFirstParagraph() {
+      const yearsOfExperience = this.setYearsOfExperience(2022);    
       let firstParagraph = this.$t(`aboutMe.firstParagraph`);
-      this.textFirstParagraph = firstParagraph;
+      let modifiedParagraph = firstParagraph.replace('yearsOfExperience', yearsOfExperience);      
+      this.textFirstParagraph = modifiedParagraph;
      
       if (this.letterFirstParagraph < this.textFirstParagraph.length) {
         this.firstParagraph += this.textFirstParagraph.charAt(this.letterFirstParagraph);

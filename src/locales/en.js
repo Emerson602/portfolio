@@ -57,7 +57,7 @@ export const en = {
    aboutMe: {
      title: 'About me',
 
-     firstParagraph: `Hi, my name is Wemerson Nicacio. I am a front-end developer with 2 years of experience.`,
+     firstParagraph: `Hi, my name is Wemerson Nicacio. I am a front-end developer with yearsOfExperience years of experience.`,
 
      secondParagraph: `Passionate about technology, I am always updating myself and constantly learning,
      to enhance my knowledge and grow professionally`,
@@ -74,7 +74,7 @@ export const en = {
     text_4: 'Knowledge in Docker.',
     text_5: 'Knowledge in unit testing using Jest.',
     text_6: 'Experience in consuming APIs.', 
-    text_7: 'Familiarity with Node.js and Express.',
+    text_7: 'Basic knowledge of Node.js, Express and PostgreSQL.',
   },
    form: {
     name: 'Your name',

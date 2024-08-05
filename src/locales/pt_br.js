@@ -18,8 +18,8 @@ export const pt_br = {
     previewInBrowser: 'Visualizar no navegador',  
     projectRepository: 'Repositório do projeto',
     technologiesUsed: 'Tecnologias utilizadas:',
-    showDescription: 'Exibir descrição.',
-    hideDescription: 'Ocutar descrição.',
+    showDescription: 'Exibir descrição',
+    hideDescription: 'Ocutar descrição',
 
     almeidaTransportesDescription: `site institucional simples, desenvolvido para uma transportadora, nele são apresentados os serviços fornecidos pela empresa, 
     opção para rastreamento, além de informações para contato, horário de funcionamento e localização da empresa.`,
@@ -59,7 +59,7 @@ export const pt_br = {
   },
   aboutMe: {
     title: 'Sobre mim',
-    firstParagraph: `Olá, meu nome é Wemerson Nicacio. Sou um desenvolvedor front-end com 2 anos de experiência.`,
+    firstParagraph: `Olá, meu nome é Wemerson Nicacio. Sou um desenvolvedor front-end com yearsOfExperience anos de experiência.`,
     
     secondParagraph: `Apaixonado por tecnologia, estou sempre me atualizando e em constante aprendizado, 
     para aprimorar meu conhecimento e crescer profissionalmente.`, 
@@ -75,7 +75,7 @@ export const pt_br = {
     text_4: 'Conhecimento em Docker.',
     text_5: 'Conhecimento em teste unitário utilizando Jest.',
     text_6: 'Experiência em consumo de APIs.', 
-    text_7: 'Familiaridade com Node.js e Express.',
+    text_7: 'Conhecimento básico em Node.js, Express e PostgreSQL.',
   },
   form: {
     name: 'Seu nome',
