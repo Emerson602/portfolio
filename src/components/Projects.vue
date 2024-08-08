@@ -39,148 +39,155 @@ export default {
       newRepositories: [], 
       visibilityShowMoreBtn: true,
       visibilityHideBtn: false, 
-      projectImg: '',  
+      projectImg: '',   
       projectLink: '',
       projectName: '',
       projectDescription: '',
-      projectTechnologies: '',   
+      projectTechnologies: '',
+      projectOrder: '',   
       technologies: [],
-      totalTechnologies: 0,      
-
+      totalTechnologies: 0, 
+      maxProjectsDisplayed: '', 
     };
   },
   methods: {
+
     renderRepositories(repositories) {
-  const repositoriesNotDisplayed = [2, 5, 8, 9, 14, 16, 17]; 
+      
+      const repositoriesNotDisplayed = [];
 
-  this.paginationRepositories(repositories);
-  
-  if (this.content) {
-    this.content.innerHTML = '';
-    
-    this.newRepositories.forEach(({ name }, index) => {
-      if (!repositoriesNotDisplayed.includes(index)) {
-       
-        const project = document.createElement('div');
-        const imgPlatform = document.createElement('div');
-        const imgScreen = document.createElement('div');
-        const imgProject = document.createElement('img');
-        const nameProject = document.createElement('h2');
-        const projectDescription = document.createElement('p');
-        const btnReadMore = document.createElement('button');
-        const technologiesDiv = document.createElement('div');
-        const technologiesUsed = document.createElement('span');
-        const projectLink = document.createElement('a');
-        const projectRepository = document.createElement('a');
+      for(let i = this.maxProjectsDisplayed; i < repositories.length; i++) {
+          repositoriesNotDisplayed.push(i)
+      }       
+      
+      this.paginationRepositories(repositories);
+      
+      if (this.content) {
+        this.content.innerHTML = '';
+      
+      this.newRepositories.forEach(({ name }, index) => {
+        if (!repositoriesNotDisplayed.includes(index)) {
+        
+          const project = document.createElement('div');
+          const imgPlatform = document.createElement('div');
+          const imgScreen = document.createElement('div');
+          const imgProject = document.createElement('img');
+          const nameProject = document.createElement('h2');
+          const projectDescription = document.createElement('p');
+          const btnReadMore = document.createElement('button');
+          const technologiesDiv = document.createElement('div');
+          const technologiesUsed = document.createElement('span');
+          const projectLink = document.createElement('a');
+          const projectRepository = document.createElement('a');
 
-        project.setAttribute('id', 'project');
+          project.setAttribute('id', 'project');
 
-        imgPlatform.setAttribute('id', 'img-platform');
-        imgScreen.setAttribute('id', 'img-screen');
-        imgProject.setAttribute('id', 'img-project');
-        nameProject.setAttribute('id', 'name-project');
-        projectDescription.setAttribute('id', `project-description-${index}`);
-        btnReadMore.setAttribute('id', `btn-read-more-${index}`);
+          imgPlatform.setAttribute('id', 'img-platform');
+          imgScreen.setAttribute('id', 'img-screen');
+          imgProject.setAttribute('id', 'img-project');
+          nameProject.setAttribute('id', 'name-project');
+          projectDescription.setAttribute('id', `project-description-${index}`);
+          btnReadMore.setAttribute('id', `btn-read-more-${index}`);
 
-        technologiesDiv.setAttribute('id', 'technologies-div');
+          technologiesDiv.setAttribute('id', 'technologies-div');
 
-        imgPlatform.setAttribute('class', 'p-2 rounded');
-        imgScreen.setAttribute('class', 'rounded');
-        project.setAttribute('class', 'd-flex flex-column justify-content-start align-items-center m-3 mt-5 p-0 text-center');
-        nameProject.setAttribute('class', 'fs-6 mt-5 mb-3 fw-bold');
-        projectDescription.setAttribute('class', 'fs-6 d-none text-start');
-        btnReadMore.setAttribute('class', 'fs-6 bg-white rounded text-primary fw-bold border-0 p-2');
-        technologiesDiv.setAttribute('class', 'd-flex flex-row justify-content-center align-items-center flex-wrap m-0 p-0');
-        technologiesUsed.setAttribute('class', 'fs-6 mt-3 mb-3');
+          imgPlatform.setAttribute('class', 'p-2 rounded');
+          imgScreen.setAttribute('class', 'rounded');
+          project.setAttribute('class', 'd-flex flex-column justify-content-start align-items-center m-3 mt-5 p-0 text-center');
+          nameProject.setAttribute('class', 'fs-6 mt-5 mb-3 fw-bold');
+          projectDescription.setAttribute('class', 'fs-6 d-none text-start');
+          btnReadMore.setAttribute('class', 'fs-6 bg-white rounded text-primary fw-bold border-0 p-2');
+          technologiesDiv.setAttribute('class', 'd-flex flex-row justify-content-center align-items-center flex-wrap m-0 p-0');
+          technologiesUsed.setAttribute('class', 'fs-6 mt-3 mb-3');
 
-        technologiesUsed.textContent = this.$t('projects.technologiesUsed');
+          technologiesUsed.textContent = this.$t('projects.technologiesUsed');
 
-        btnReadMore.innerHTML = this.$t('projects.showDescription');
-
-      btnReadMore.addEventListener('click', () => {
-        if (projectDescription.classList.contains('d-none')) {
-          projectDescription.classList.remove('d-none');
-          projectDescription.classList.add('d-block');       
-          btnReadMore.innerHTML = this.$t('projects.hideDescription');
-        } else {
-          projectDescription.classList.remove('d-block');
-          projectDescription.classList.add('d-none');
           btnReadMore.innerHTML = this.$t('projects.showDescription');
 
-        }
-      });
+        btnReadMore.addEventListener('click', () => {
+          if (projectDescription.classList.contains('d-none')) {
+            projectDescription.classList.remove('d-none');
+            projectDescription.classList.add('d-block');       
+            btnReadMore.innerHTML = this.$t('projects.hideDescription');
+          } else {
+            projectDescription.classList.remove('d-block');
+            projectDescription.classList.add('d-none');
+            btnReadMore.innerHTML = this.$t('projects.showDescription');
+
+          }
+        });
 
 
-        imgPlatform.appendChild(imgScreen);
-        imgScreen.appendChild(imgProject);
+          imgPlatform.appendChild(imgScreen);
+          imgScreen.appendChild(imgProject);
 
-        function formatRepositoryName() {
-          const nameArray = name.split("-");
-          let numberOfWords = nameArray.length;
-          let formattedName = "";
+          function formatRepositoryName() {
+            const nameArray = name.split("-");
+            let numberOfWords = nameArray.length;
+            let formattedName = "";
 
-          for (let wordIndex = 0; wordIndex < numberOfWords; wordIndex++) {
-            formattedName += nameArray[wordIndex];
-            if (wordIndex !== numberOfWords - 1) {
-              formattedName += " ";
+            for (let wordIndex = 0; wordIndex < numberOfWords; wordIndex++) {
+              formattedName += nameArray[wordIndex];
+              if (wordIndex !== numberOfWords - 1) {
+                formattedName += " ";
+              }
             }
+
+            return formattedName;
           }
 
-          return formattedName;
+          function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+          }
+
+          let repositoryName = formatRepositoryName();
+          repositoryName = capitalizeFirstLetter(repositoryName);
+
+          nameProject.textContent = `${repositoryName}`;
+
+          this.projectName = name;
+
+          this.definingProjectData();          
+
+          for (let technologyIndex = 0; technologyIndex < this.totalTechnologies; technologyIndex++) {
+            let index = this.technologies[technologyIndex];
+            technologiesDiv.innerHTML += `
+              <img id="technologies-img" src="./img/${index}.webp" type="button" data-toggle="tooltip" data-placement="top" title="${index.toUpperCase()}">
+            `;
+          }
+
+          let description = this.projectDescription;
+          description = capitalizeFirstLetter(description);
+          projectLink.href = this.projectLink;
+          imgProject.src = this.projectImg;
+
+          projectDescription.textContent = description;
+
+          const btnTextPrevieInBrowser = this.$t('projects.previewInBrowser');
+          const btnTextProjectRepository = this.$t('projects.projectRepository');
+
+          projectLink.target = '_blank';
+          projectLink.textContent = btnTextPrevieInBrowser;
+          projectLink.className = 'btn-project';
+
+          projectRepository.href = `https://github.com/Emerson602/${name}`;
+          projectRepository.target = '_blank';
+
+          projectRepository.textContent = btnTextProjectRepository;
+          projectRepository.className = 'btn-project-repository';
+
+          [imgPlatform, nameProject, projectDescription, btnReadMore, technologiesUsed, technologiesDiv, projectLink, projectRepository].forEach((data) => {
+            project.appendChild(data);
+          });
+          this.content.appendChild(project);
         }
-
-        function capitalizeFirstLetter(string) {
-          return string.charAt(0).toUpperCase() + string.slice(1);
-        }
-
-        let repositoryName = formatRepositoryName();
-        repositoryName = capitalizeFirstLetter(repositoryName);
-
-        nameProject.textContent = `${repositoryName}`;
-
-        this.projectName = name;
-
-        this.definingProjectData();
-
-        for (let technologyIndex = 0; technologyIndex < this.totalTechnologies; technologyIndex++) {
-          let index = this.technologies[technologyIndex];
-          technologiesDiv.innerHTML += `
-            <img id="technologies-img" src="./img/${index}.webp" type="button" data-toggle="tooltip" data-placement="top" title="${index.toUpperCase()}">
-          `;
-        }
-
-        let description = this.projectDescription;
-        description = capitalizeFirstLetter(description);
-        projectLink.href = this.projectLink;
-        imgProject.src = this.projectImg;
-
-        projectDescription.textContent = description;
-
-        const btnTextPrevieInBrowser = this.$t('projects.previewInBrowser');
-        const btnTextProjectRepository = this.$t('projects.projectRepository');
-
-        projectLink.target = '_blank';
-        projectLink.textContent = btnTextPrevieInBrowser;
-        projectLink.className = 'btn-project';
-
-        projectRepository.href = `https://github.com/Emerson602/${name}`;
-        projectRepository.target = '_blank';
-
-        projectRepository.textContent = btnTextProjectRepository;
-        projectRepository.className = 'btn-project-repository';
-
-        [imgPlatform, nameProject, projectDescription, btnReadMore, technologiesUsed, technologiesDiv, projectLink, projectRepository].forEach((data) => {
-          project.appendChild(data);
-        });
-        this.content.appendChild(project);
-      }
-    });
-  }
+      });
+    }
 },
 
 
     definingProjectData() {  
-        
+       
        let keyName = '' 
        let technologies = [];
        let link = '';
@@ -191,102 +198,102 @@ export default {
             api: false,
             key: 'almeidaTransportesDescription',
             technologies: ['html', 'css', 'javascript'],
-            link: '',
+            link: '',            
         },
         {               
             name: 'financial-control',
             api: false,
             key: 'financialControlDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue'],
-            link: '',
+            link: '',            
         },
         {               
             name: 'gas-consumption-calculator',
             api: false,
             key: 'gasConsumptionCalculatorDescription',
             technologies: ['html', 'css', 'javascript', 'vue'],
-            link: '',
+            link: '',            
         },
         {               
             name: 'minha-brisa',
             api: false,
             key: 'minhaBrisaDescription',
             technologies: ['html', 'css', 'javascript'],
-            link: '',
+            link: '',            
         },
         {               
             name: 'portfolio',
             api: false,
             key: 'portfolioDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue', 'api'],           
-            link: 'https://wndev.vercel.app/'
+            link: 'https://wndev.vercel.app/',            
         },
         {               
             name: 'quadratic-equation',
             api: false,
             key: 'quadraticEquationDescription',
             technologies: ['html', 'css', 'javascript'],
-            link: '',
+            link: '',            
         },
         {               
             name: 'quick-chat-link',
             api: false,
             key: 'quickChatLinkDescription',
             technologies: ['html', 'css', 'javascript'],
-            link: '',
+            link: '',            
         },
         {               
             name: 'search-repositories',
             api: false,
             key: 'searchRepositoriesDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'api'],
-            link: '',
+            link: '',            
         },
         {            
             name: 'text-reader',
             api: false,
             key: 'textReaderDescription',
             technologies: ['html', 'css', 'javascript', 'api'],
-            link: '',
+            link: '',            
         },
         {            
             name: 'todo-list',
             api: false,
             key: 'todoListDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap'],
-            link: '',
+            link: '',            
         },
         {            
             name: 'virtual-cat',
             api: false,
             key: 'virtualCatDescription',
             technologies: ['html', 'css', 'javascript'],
-            link: '',
+            link: '',            
         },
         {            
             name: 'magda-emilia-arquitetura',
             api: false,
             key: 'magdaEmiliaArquiteturaDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue'],
-            link: 'https://magda-emilia-arquitetura.vercel.app/',
+            link: 'https://magda-emilia-arquitetura.vercel.app/',            
         },
         {            
             name: 'affari',
             api: false,
             key: 'affariDescription',
             technologies: ['html', 'css', 'javascript', 'typescript', 'vue', 'bootstrap'],
-            link: 'https://affari-adw83iba3-emerson602s-projects.vercel.app/#/',
+            link: 'https://affari-adw83iba3-emerson602s-projects.vercel.app/#/',            
         },
         {            
             name: 'time-zone-info-api',
             api: true,
             key: 'timeZoneInfoApiDescription',
             technologies: ['node', 'express'],
-            link: 'https://time-zone-info-api.vercel.app/',
+            link: 'https://time-zone-info-api.vercel.app/',            
         },
         
         
-      ];
+      ];       
      
       for (let i = 0; i < projects.length; i++) {
         const project = projects[i]; 
@@ -301,11 +308,12 @@ export default {
             this.projectImg = project.img;
             this.projectLink = link;
             this.projectDescription = this.$t(`projects.${keyName}`);
+            this.projectOrder = projects[i].order; 
             this.technologies = technologies;
-            this.totalTechnologies = technologies.length;
+            this.totalTechnologies = technologies.length;            
             break; 
         }
-    }
+      }        
     
     },
     
@@ -333,8 +341,38 @@ export default {
         });
     },
 
-    paginationRepositories(repositories) {
-      this.newRepositories = repositories.slice(this.firstProject, this.lastProject)         
+    orderingRepositories(repositories) {
+      
+      const orderOfProjects = new Map([
+        ['affari', 1],
+        ['magda-emilia-arquitetura', 2],
+        ['portfolio', 3], 
+        ['almeida-transportes', 4],
+        ['minha-brisa', 5],
+        ['search-repositories', 6],
+        ['financial-control', 7],
+        ['quick-chat-link', 8],
+        ['gas-consumption-calculator', 9],
+        ['todo-list', 10],
+        ['time-zone-info-api', 11],
+        ['quadratic-equation', 12],
+      ]);
+
+      repositories.forEach(repository => {      
+        repository.order = orderOfProjects.get(repository.name) || 1000;                
+      });
+
+      let maxProjectsDisplayed = repositories.filter(repository => repository.order != 1000);
+      this.maxProjectsDisplayed = maxProjectsDisplayed.length;
+     
+      repositories.sort((a, b) => a.order - b.order);
+
+    },
+
+    paginationRepositories(repositories) {   
+
+      this.orderingRepositories(repositories);        
+      this.newRepositories = repositories.slice(this.firstProject, this.lastProject);               
     },
 
     showMore() {
@@ -357,8 +395,8 @@ export default {
         }
 
         if(this.lastProject === this.totalProjects) {
-            this.visibilityShowMoreBtn = false;
-            this.visibilityHideBtn = true;
+              this.visibilityShowMoreBtn = false;
+              this.visibilityHideBtn = true;              
         }
         
         this.getRepository();         
@@ -367,7 +405,7 @@ export default {
     },
     
     hide() {
-      this.lastProject = 5;
+      this.lastProject = 6;
       this.visibilityShowMoreBtn = true;
       this.visibilityHideBtn = false;
       this.getRepository();  
@@ -382,7 +420,7 @@ export default {
     handleProjectsContainerObserver() {
       const projectsObserver = new IntersectionObserver(elements => {
         if (elements[0].isIntersecting) {         
-          this.getRepository();           
+          this.getRepository();                   
           return;
         }          
 
@@ -396,10 +434,11 @@ export default {
 
   mounted() {
     this.content = document.querySelector('#projects-section'); 
-    this.getRepository();  
-    this.handleProjectsContainerObserver();   
-
+    this.getRepository();          
+    this.handleProjectsContainerObserver();        
    },
+  
+
   
 };
 </script>
