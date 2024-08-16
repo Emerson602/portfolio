@@ -281,7 +281,7 @@ export default {
             name: 'affari',
             api: false,
             key: 'affariDescription',
-            technologies: ['html', 'css', 'javascript', 'typescript', 'vue', 'bootstrap'],
+            technologies: ['html', 'css', 'javascript', 'typescript', 'vue', 'bootstrap', 'node', 'express'],
             link: 'https://affari-adw83iba3-emerson602s-projects.vercel.app/#/',            
         },
         {            
