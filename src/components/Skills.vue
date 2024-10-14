@@ -36,6 +36,17 @@
               </div>
 
               <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="react_src" :alt="react_alt" id="technology-4">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">React</span>
+              </div>
+              <!--
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
+                <img :src="next_src" :alt="next_alt" id="technology-4">
+                <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Next.js</span>
+              </div>
+              --> 
+              
+              <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
                 <img :src="bootstrap_src" :alt="bootstrap_alt" id="technology-5">
                 <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Bootstrap</span>
               </div> 
@@ -80,7 +91,9 @@ export default {
       javascript_alt: "javascript",
       typescript_alt: "typescript",
       vue_alt: "vue", 
-      nuxt_alt: "nuxt",   
+      nuxt_alt: "nuxt",  
+      react_alt: "react",
+      next_alt: "next", 
       bootstrap_alt: "bootstrap",   
       sass_alt: "sass",
       tailwind_alt: "tailwind",
@@ -93,7 +106,9 @@ export default {
       javascript_src: "/img/javascript.webp",
       typescript_src: "/img/typescript.webp",
       vue_src: "/img/vue.webp", 
-      nuxt_src: "/img/nuxt.webp",   
+      nuxt_src: "/img/nuxt.webp",  
+      react_src: "/img/react.webp", 
+      next_src: "/img/next.webp",
       bootstrap_src: "/img/bootstrap.webp",   
       sass_src: "/img/sass.webp",
       tailwind_src: "/img/tailwind.webp",     

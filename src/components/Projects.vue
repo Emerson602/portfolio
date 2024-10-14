@@ -61,13 +61,13 @@ export default {
       }       
       
       this.paginationRepositories(repositories);
-      
+     
       if (this.content) {
         this.content.innerHTML = '';
       
       this.newRepositories.forEach(({ name }, index) => {
         if (!repositoriesNotDisplayed.includes(index)) {
-        
+          
           const project = document.createElement('div');
           const imgPlatform = document.createElement('div');
           const imgScreen = document.createElement('div');
@@ -355,7 +355,7 @@ export default {
         ['gas-consumption-calculator', 9],
         ['todo-list', 10],
         ['time-zone-info-api', 11],
-        ['quadratic-equation', 12],
+        ['quadratic-equation', 12],       
       ]);
 
       repositories.forEach(repository => {      
