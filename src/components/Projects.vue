@@ -291,6 +291,13 @@ export default {
             technologies: ['node', 'express'],
             link: 'https://time-zone-info-api.vercel.app/',            
         },
+        {            
+            name: 'start2',
+            api: false,
+            key: 'start2',
+            technologies: ['html', 'javascript', 'typescript' ,'nuxt', 'tailwind'],
+            link: 'https://start2engenharia.com.br/',            
+        },
         
         
       ];       
@@ -346,16 +353,17 @@ export default {
       const orderOfProjects = new Map([
         ['affari', 1],
         ['magda-emilia-arquitetura', 2],
-        ['portfolio', 3], 
-        ['almeida-transportes', 4],
-        ['minha-brisa', 5],
-        ['search-repositories', 6],
-        ['financial-control', 7],
-        ['quick-chat-link', 8],
-        ['gas-consumption-calculator', 9],
-        ['todo-list', 10],
-        ['time-zone-info-api', 11],
-        ['quadratic-equation', 12],       
+        ['start2', 3],
+        ['portfolio', 4], 
+        ['time-zone-info-api', 5],
+        ['almeida-transportes', 6],
+        ['minha-brisa', 7],
+        ['search-repositories', 8],
+        ['financial-control', 9],
+        ['quick-chat-link', 10],
+        ['gas-consumption-calculator', 11],
+        ['todo-list', 12],        
+        ['quadratic-equation', 13],       
       ]);
 
       repositories.forEach(repository => {      

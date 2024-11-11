@@ -56,6 +56,9 @@ export const pt_br = {
     Os usuários podem recuperar todos os dados ou pesquisar entradas específicas por ID, país ou cidade.
      A API retorna o TZ_identifier e o country_code que podem ser utilizados para obter fusos horários.`,
 
+    start2Description: `Site para empresa de montagem e manutenção de elevadores,
+     esteiras e escadas rolantes, sistemas de refrigeração industrial e geradores.`,
+
   },
   aboutMe: {
     title: 'Sobre mim',

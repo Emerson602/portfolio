@@ -54,6 +54,9 @@ export const it = {
       Gli utenti possono recuperare tutti i dati o cercare voci specifiche per ID, paese o città. L'API restituisce il TZ_identifier
        e il country_code che possono essere utilizzati per ottenere i fusi orari.`,
 
+    start2Description: `Sito web per un'azienda specializzata in montaggio e manutenzione di ascensori,
+     scale mobili, tappeti mobili, sistemi di refrigerazione industriale e generatori.`,
+
    },
    aboutMe: {
      title: 'Chi sono',

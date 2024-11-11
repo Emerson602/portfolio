@@ -53,7 +53,11 @@ export const en = {
      timeZoneInfoApiDescription: `The Time Zone Info API provides information about countries, their cities,
       and corresponding time zone details. Users can retrieve all data, or search for specific entries by ID,
        country, or city. The API returns the TZ_identifier and country_code which can be used to obtain time zones.`,
+
+     start2Description: `Website for a company specialized in the assembly and maintenance of elevators,
+      escalators, moving walkways, industrial refrigeration systems, and generators.`,   
    },
+   
    aboutMe: {
      title: 'About me',
 
