@@ -294,7 +294,7 @@ export default {
         {            
             name: 'start2',
             api: false,
-            key: 'start2',
+            key: 'start2Description',
             technologies: ['html', 'javascript', 'typescript' ,'nuxt', 'tailwind'],
             link: 'https://start2engenharia.com.br/',            
         },
