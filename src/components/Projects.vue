@@ -282,7 +282,7 @@ export default {
             api: false,
             key: 'affariDescription',
             technologies: ['html', 'css', 'javascript', 'typescript', 'vue', 'bootstrap', 'node', 'express'],
-            link: 'https://affari.vercel.app',            
+            link: 'https://affaridev.com.br/',            
         },
         {            
             name: 'time-zone-info-api',
