@@ -32,7 +32,7 @@ props: {
 data() {
   return {
     linkedin_href: "https://www.linkedin.com/in/wemerson-nicacio-0633b623b/",
-    github_href: "https://github.com/Emerson602",    
+    github_href: "https://github.com/Emerson602?tab=repositories",    
     language: '',
   };
 },
