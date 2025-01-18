@@ -68,7 +68,7 @@ methods: {
 
     if (this.language === 'italian') {
       this.setLocale('it');
-      this.linkedin_href = 'https://www.linkedin.com/in/wemerson-nicacio-b28642311';
+      this.linkedin_href = 'https://www.linkedin.com/in/wemerson-nicacio-0633b623b/?locale=it_IT';
     }
 
     if (this.language === 'portoghese' || this.language === '') {
