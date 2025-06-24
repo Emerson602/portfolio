@@ -220,8 +220,15 @@ export default {
   }
 
   #tooltip img {
-    width: 100px;
-    height: 100px;     
+    width: 120px;
+    height: 120px;     
   } 
+
+  @media(max-width: 800px) {
+    #tooltip img {
+      width: 100px;
+      height: 100px;     
+    } 
+  }
 
 </style>
