@@ -72,13 +72,11 @@ export const pt_br = {
   },
   moreSkills: {
     btnCv: 'Meu currículo',
-    text_1: 'Proficiência em HTML, CSS, JavaScript, TypeScript, Vue.js e Bootstrap.',
-    text_2: 'Conhecimento básico em React, Nuxt, Tailwind, Sass, Node.js e PostgreSQL.',
+    text_1: 'Proficiência em HTML, CSS, JavaScript, TypeScript, Vue.js, Bootstrap e Tailwind.',
+    text_2: 'Conhecimento básico em React e Nuxt',
     text_3:  'Experiência em desenvolvimento de layouts responsivos.',
     text_4: 'Conhecimento em versionamento de código utilizando Git.',
-    text_5: 'Criação e gerenciamento de contêineres utilizando Docker.',
-    text_6: 'Conhecimento em testes unitários com Jest.',
-    text_7: 'Experiência em consumo de APIs.',      
+    text_5: 'Experiência em consumo de APIs.',      
   },
   form: {
     name: 'Seu nome',

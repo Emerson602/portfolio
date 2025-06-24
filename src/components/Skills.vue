@@ -29,12 +29,12 @@
                 <img :src="vue_src" :alt="vue_alt" id="technology-4">
                 <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Vue.js</span>
               </div>
-
+              
               <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
                 <img :src="nuxt_src" :alt="nuxt_alt" id="technology-4">
                 <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Nuxt</span>
               </div>
-
+              
               <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
                 <img :src="react_src" :alt="react_alt" id="technology-4">
                 <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">React</span>
@@ -55,7 +55,7 @@
                 <img :src="tailwind_src" :alt="tailwind_alt" id="technology-5">
                 <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Tailwind</span>
               </div> 
-
+              <!--
               <div id="tooltip" class="m-2 p-2 d-flex justify-content-center align-items-center position-relative rounded">
                 <img :src="sass_src" :alt="sass_alt" id="technology-5">
                 <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">Sass</span>
@@ -75,7 +75,7 @@
                 <img :src="postgresql_src" :alt="postgresql_alt" id="technology-5">
                 <span class="tooltiptext p-2 rounded d-flex justify-content-center align-items-center position-absolute top-0 left-0 w-100 h-100">PostgreSQL</span>
               </div>
-
+              -->
           </div>
       </div>         
     
@@ -209,7 +209,7 @@ export default {
   
   #tooltip:hover .tooltiptext {
     visibility: visible;
-    opacity: 1;
+    opacity: 1; 
     z-index: 99;
     transition: 1s;
   }  
