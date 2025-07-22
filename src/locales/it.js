@@ -46,7 +46,7 @@ export const it = {
 
      virtualCatDescription: `Demo Tamagotchi. Crea e prenditi cura di un gattino virtuale.`,
 
-     magdaEmiliaArquiteturaDescription: `Portfolio sviluppato per una laureanda in architettura.`,
+     iliaArquiteturaDescription: `Portfolio sviluppato per una laureanda in architettura.`,
 
      affariDescription: `Sito istituzionale sviluppato per un'agenzia di sviluppo web, contenente informazioni sui servizi e sui prodotti.`,
 

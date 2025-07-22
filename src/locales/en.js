@@ -46,7 +46,7 @@ export const en = {
 
      virtualCatDescription: `Tamagotchi Demo. Create and take care of a virtual kitten.`,
 
-     magdaEmiliaArquiteturaDescription: `Portfolio developed for an architecture graduate.`,
+     iliaArquiteturaDescription: `Portfolio developed for an architecture graduate.`,
 
      affariDescription: `Institutional website developed for a web development agency, containing information about services and products.`,
 

@@ -271,11 +271,11 @@ export default {
             link: '',            
         },
         {            
-            name: 'magda-emilia-arquitetura',
+            name: 'ilia-arquitetura',
             api: false,
-            key: 'magdaEmiliaArquiteturaDescription',
+            key: 'iliaArquiteturaDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue'],
-            link: 'https://magda-emilia-arquitetura.vercel.app/',            
+            link: 'https://ilia-arquitetura.vercel.app/',            
         },
         {            
             name: 'affari',
@@ -352,7 +352,7 @@ export default {
       
       const orderOfProjects = new Map([
         ['affari', 1],
-        ['magda-emilia-arquitetura', 2],
+        ['ilia-arquitetura', 2],
         ['start2', 3],
         ['portfolio', 4], 
         ['time-zone-info-api', 5],
