@@ -59,6 +59,8 @@ export const pt_br = {
     start2Description: `Site para empresa de montagem e manutenção de elevadores,
      esteiras e escadas rolantes, sistemas de refrigeração industrial e geradores.`,
 
+    imageConverterDescription: `Conversor de imagens com suporte aos formatos JPG, PNG, WebP, SVG e PDF.`, 
+
   },
   aboutMe: {
     title: 'Sobre mim',

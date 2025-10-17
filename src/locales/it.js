@@ -57,6 +57,8 @@ export const it = {
     start2Description: `Sito web per un'azienda specializzata in montaggio e manutenzione di ascensori,
      scale mobili, tappeti mobili, sistemi di refrigerazione industriale e generatori.`,
 
+    imageConverterDescription: `Convertitore di immagini che supporta i formati JPG, PNG, WebP, SVG e PDF.`,  
+
    },
    aboutMe: {
      title: 'Chi sono',

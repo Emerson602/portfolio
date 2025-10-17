@@ -55,7 +55,9 @@ export const en = {
        country, or city. The API returns the TZ_identifier and country_code which can be used to obtain time zones.`,
 
      start2Description: `Website for a company specialized in the assembly and maintenance of elevators,
-      escalators, moving walkways, industrial refrigeration systems, and generators.`,   
+      escalators, moving walkways, industrial refrigeration systems, and generators.`,  
+      
+     imageConverterDescription: `Image converter supporting JPG, PNG, WebP, SVG, and PDF formats.`, 
    },
    
    aboutMe: {
