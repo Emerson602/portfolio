@@ -298,6 +298,13 @@ export default {
             technologies: ['html', 'javascript', 'typescript' ,'nuxt', 'tailwind'],
             link: 'https://start2engenharia.com.br/',            
         },
+                {            
+            name: 'image-converter',
+            api: false,
+            key: 'imageConverterDescription',
+            technologies: ['html', 'css', 'javascript', 'node'],
+            link: 'https://conversor-de-imagens.onrender.com/',            
+        },
         
         
       ];       
@@ -353,7 +360,8 @@ export default {
       const orderOfProjects = new Map([
         ['affari', 1],
         ['ilia-arquitetura', 2],
-        ['start2', 3],
+        ['image-converter', 3],
+        ['start2', 4],
         ['portfolio', 4], 
         ['time-zone-info-api', 5],
         ['almeida-transportes', 6],
