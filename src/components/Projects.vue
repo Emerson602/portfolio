@@ -302,7 +302,7 @@ export default {
             name: 'image-converter',
             api: false,
             key: 'imageConverterDescription',
-            technologies: ['html', 'css', 'javascript', 'node', 'express'],
+            technologies: ['html', 'css', 'javascript', 'node', 'express', 'api'],
             link: 'https://conversor-de-imagens.onrender.com/',            
         },
         
