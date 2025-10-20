@@ -281,7 +281,7 @@ export default {
             name: 'affari',
             api: false,
             key: 'affariDescription',
-            technologies: ['html', 'css', 'javascript', 'typescript', 'vue', 'bootstrap', 'node', 'express'],
+            technologies: ['html', 'css', 'javascript', 'typescript', 'vue', 'bootstrap', 'node', 'express', 'api'],
             link: 'https://affaridev.com.br/',            
         },
         {            
@@ -302,7 +302,7 @@ export default {
             name: 'image-converter',
             api: false,
             key: 'imageConverterDescription',
-            technologies: ['html', 'css', 'javascript', 'node'],
+            technologies: ['html', 'css', 'javascript', 'node', 'express'],
             link: 'https://conversor-de-imagens.onrender.com/',            
         },
         
