@@ -31,7 +31,7 @@ props: {
 },
 data() {
   return {
-    linkedin_href: "https://www.linkedin.com/in/wemerson-nicacio-a450b1368/",
+    linkedin_href: "https://www.linkedin.com/in/wemerson-nicacio-a450b1368/", 
     github_href: "https://github.com/Emerson602",    
     language: '',
   };
@@ -68,12 +68,12 @@ methods: {
 
     if (this.language === 'italian') {
       this.setLocale('it');
-      this.linkedin_href = 'https://www.linkedin.com/in/wemerson-nicacio-0633b623b/?locale=it_IT';
+      this.linkedin_href = 'https://www.linkedin.com/in/wemerson-nicacio-a450b1368/';
     }
 
     if (this.language === 'portoghese' || this.language === '') {
       this.setLocale('pt_br');
-      this.linkedin_href = 'https://www.linkedin.com/in/wemerson-nicacio-0633b623b';
+      this.linkedin_href = 'https://www.linkedin.com/in/wemerson-nicacio-a450b1368/';
     }
   },
 },
