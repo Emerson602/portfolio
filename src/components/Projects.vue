@@ -275,7 +275,7 @@ export default {
             api: false,
             key: 'iliaArquiteturaDescription',
             technologies: ['html', 'css', 'javascript', 'bootstrap', 'vue'],
-            link: 'https://ilia-arquitetura.vercel.app/',            
+            link: 'https://www.iliaarquitetura.com.br',            
         },
         {            
             name: 'affari',
