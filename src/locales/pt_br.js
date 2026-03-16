@@ -8,7 +8,7 @@ export const pt_br = {
     contact: 'Contatos',
   },
   homePhrase: {
-    phrase: 'Olá, eu sou Wemerson Nicacio, desenvolvedor front-end.',
+    phrase: 'Olá, eu sou Wemerson Nicacio, Desenvolvedor Web Full Stack.',
   },
   homeBtn: {
     contact: 'Contate-me',
@@ -48,7 +48,7 @@ export const pt_br = {
 
     virtualCatDescription: `Demo Tamagotchi. Crie e cuide de um gatinho virtual.`,
 
-    iliaArquiteturaDescription: `Portfolio desenvolvido para uma graduanda de arquitetura.`,
+    iliaArquiteturaDescription: `Site desenvolvido para o Studio Ilia Arquitetura.`,
 
     affariDescription: `Site institucional desenvolvido para um agencia de desenvolvimento web, onde constam informações sobre os serviços e produtos. `,
 
@@ -74,8 +74,8 @@ export const pt_br = {
   },
   moreSkills: {
     btnCv: 'Meu currículo',
-    text_1: 'Proficiência em HTML, CSS, JavaScript, TypeScript, Vue.js, Bootstrap e Tailwind.',
-    text_2: 'Conhecimento básico em React e Nuxt',
+    text_1: 'Proficiência em HTML, CSS, JavaScript, TypeScript, Vue.js, React, Bootstrap e Tailwind.',
+    text_2: 'Conhecimento básico em Nuxt, Node e SQL',
     text_3:  'Experiência em desenvolvimento de layouts responsivos.',
     text_4: 'Conhecimento em versionamento de código utilizando Git.',
     text_5: 'Experiência em consumo de APIs.',      

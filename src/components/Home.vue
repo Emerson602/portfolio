@@ -38,15 +38,15 @@ export default {
 
       typeHomePhrase() {
         let homePhrase = this.$t(`homePhrase.phrase`); 
-        let partText = 'desenvolvedor front-end'
+        let partText = 'Desenvolvedor Web Full Stack'
         
 
         if(this.lang === 'english') {
-          partText = 'front-end developer'
+          partText = 'Full Stack Web Developer'
         }
 
         if(this.lang === 'italian') {
-          partText = 'sviluppatore front-end'
+          partText = 'Sviluppatore Web Full Stack'
         }
 
         this.textHomePhrase = this.boldSpecificText(homePhrase, partText);
