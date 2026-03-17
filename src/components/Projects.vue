@@ -362,16 +362,16 @@ export default {
         ['ilia-arquitetura', 2],
         ['image-converter', 3],
         ['start2', 4],
-        ['portfolio', 5], 
-        ['time-zone-info-api', 6],
+     //   ['portfolio', 5], 
+     //   ['time-zone-info-api', 6],
         ['almeida-transportes', 7],
         ['minha-brisa', 8],
         ['search-repositories', 9],
         ['financial-control', 10],
         ['quick-chat-link', 11],
-        ['gas-consumption-calculator', 12],
+     //   ['gas-consumption-calculator', 12],
         ['todo-list', 13],        
-        ['quadratic-equation', 14],       
+     //   ['quadratic-equation', 14],       
       ]);
 
       repositories.forEach(repository => {      
